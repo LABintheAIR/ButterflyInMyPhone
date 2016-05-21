@@ -17,18 +17,13 @@
                 <p class="event listening">Connecting to Device</p>
                 <div class="event received">
                   Device is Ready <input type="button" value="Let's vibrate !" onclick="navigator.vibrate( 1000 )"><br>
-                  <div id="test_farb"></div>
-                  
-                  <script type="text/javascript">
-                    $("#test_farb").farbtastic();
-                  </script>
+                  <input value="ffcc00" class="jscolor {width:243, height:150, position:'right', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}">
                 </div>
             </div>
         </div>
         <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-        <script type="text/javascript" src="js/farbastic.js"></script>
+        <script type="text/javascript" src="js/jscolor.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>

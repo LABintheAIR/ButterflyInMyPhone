@@ -35,10 +35,8 @@
             }
 
             function deviceReady(){
-              alert("Device ready");
-              confirm( "Super Test !" );
-              alert( "Bluetooth : " + ble.isEnable() );
-              if( !ble.isEnable() && confirm( "Bluetooth required. Activate it ?" ) ) {
+              ble.isEnabled( NULL, function(){ 
+              if( confirm( "Bluetooth required. Activate it ?" ) ) {
                 ble.enable( NULL, function() { alert("Failed to activate bluetooth..."); } );
               }
             }

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="farbtastic.css" type="text/css" />
         <title>Butterfly in my Phone</title>
     </head>
-    <body>
+    <body onload="onload()">
         <div class="app">
             <h1>Butterfly is here !!!</h1>
             <div id="deviceready" class="blink">
@@ -29,8 +29,10 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             app.initialize();
-         
-            document.addEventListener("deviceready", deviceReady, false);
+        
+            function onload(){
+              document.addEventListener("deviceready", deviceReady, false);
+            }
 
             function deviceReady(){
               alert("Device ready");

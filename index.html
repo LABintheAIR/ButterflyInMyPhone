@@ -16,6 +16,12 @@
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <div class="event received">
+                  <script type="text/javascript">
+                    if( !ble.isEnable() && confirm("Bluetooth not enable. Activate it ?" ) )
+                    {
+                      ble.enable( NULL, function() { alert("Failed to activate bluetooth..."); } );
+                    }
+                  </script>
                   Device is Ready <input type="button" value="Let's vibrate !" onclick="navigator.vibrate( 1000 )"><br>
                   <input value="ffcc00" class="jscolor {width:243, height:150, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}">
                   <input type="button" value="Start scan" onclick="startScan()">
@@ -30,13 +36,12 @@
             app.initialize();
             
             function startScan(){
-              alert( "Scan started" );
               $('#devices').text( "" );
               ble.scan( [], 5, succesScan, failureScan );
             }
 
             function succesScan( device ){
-              $('#devices').html( $('#devices').html() + "<br><pre>" + JSON.stringify( device ) + "</pre>" );
+              $('#devices').html( $('#devices').html() + "<ul style='list-style: none'><li>" + device.name + "</li><li>" + device.rssi + " dBm</li><li><a href='connectAndSend(\"" + device.id + "\")'>Connect & Send</a></li></ul><br>" );
             }
 
             function failureScan(){

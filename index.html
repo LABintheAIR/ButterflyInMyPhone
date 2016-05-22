@@ -25,6 +25,7 @@
         </div>
         <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
         <script type="text/javascript" src="js/jscolor.min.js"></script>
+        <script type="text/javascript" src="js/ble_utils.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             app.initialize();
@@ -32,21 +33,11 @@
             document.addEventListener("deviceready", deviceReady, false);
 
             function deviceReady(){
-              ble.enable( NULL, function() { alert("Failed to activate bluetooth..."); } );
+              if( !ble.isEnable() && confirm( "Bluetooth required. Activate it ?" ) ) {
+                ble.enable( NULL, function() { alert("Failed to activate bluetooth..."); } );
+              }
             }
             
-            function startScan(){
-              $('#devices').text( "" );
-              ble.scan( [], 5, succesScan, failureScan );
-            }
-
-            function succesScan( device ){
-              $('#devices').html( $('#devices').html() + "<ul style='list-style: none'><li>" + device.name + "</li><li>" + device.rssi + " dBm</li><li><a href='connectAndSend(\"" + device.id + "\")'>Connect & Send</a></li></ul><br>" );
-            }
-
-            function failureScan(){
-              alert("Scan failed...");
-            }
         </script>
     </body>
 </html>

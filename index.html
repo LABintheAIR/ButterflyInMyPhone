@@ -16,12 +16,6 @@
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <div class="event received">
-                  <script type="text/javascript">
-                    if( !ble.isEnable() && confirm("Bluetooth not enable. Activate it ?" ) )
-                    {
-                      ble.enable( NULL, function() { alert("Failed to activate bluetooth..."); } );
-                    }
-                  </script>
                   Device is Ready <input type="button" value="Let's vibrate !" onclick="navigator.vibrate( 1000 )"><br>
                   <input value="ffcc00" class="jscolor {width:243, height:150, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}">
                   <input type="button" value="Start scan" onclick="startScan()">
@@ -34,6 +28,12 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             app.initialize();
+         
+            document.addEventListener("deviceready", deviceReady, false);
+
+            function deviceReady(){
+              ble.enable( NULL, function() { alert("Failed to activate bluetooth..."); } );
+            }
             
             function startScan(){
               $('#devices').text( "" );

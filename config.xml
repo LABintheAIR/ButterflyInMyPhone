@@ -143,6 +143,7 @@
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
     <plugin name="cordovarduino" spec="0.0.7" />
+    <plugin name="cordova-plugin-ble-central" source="npm" />
 
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

@@ -35,11 +35,13 @@
             }
 
             function deviceReady(){
-              ble.isEnabled( NULL, function(){ 
+              alert("BEGIN");
+              ble.isEnabled( function(){ alert( "Bluetooth enable" ); }, function(){ 
                 if( confirm( "Bluetooth required. Activate it ?" ) ) {
-                  ble.enable( NULL, function() { alert("Failed to activate bluetooth..."); } );
+                  ble.enable( function(){ alert("You can play with your BT" ); }, function() { alert("Failed to activate bluetooth..."); } );
                 }
-              })
+              });
+              alert("END");
             }
             
         </script>

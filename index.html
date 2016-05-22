@@ -36,8 +36,7 @@
             }
 
             function succesScan( device ){
-              alert( "DEvice found" );
-              $('#devices').html( $('#devices').html() + "<br><pre>" + device + "</pre>" );
+              $('#devices').html( $('#devices').html() + "<br><pre>" + JSON.stringify( device ) + "</pre>" );
             }
 
             function failureScan(){

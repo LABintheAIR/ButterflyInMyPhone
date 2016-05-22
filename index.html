@@ -30,12 +30,14 @@
             app.initialize();
             
             function startScan(){
-              $('#device').text( "" );
+              alert( "Scan started" );
+              $('#devices').text( "" );
               ble.scan( [], 5, succesScan, failureScan );
             }
 
             function succesScan( device ){
-              $('#device').html( $('#device').html() + "<br><pre>" + device + "</pre>" );
+              alert( "DEvice found" );
+              $('#devices').html( $('#devices').html() + "<br><pre>" + device + "</pre>" );
             }
 
             function failureScan(){

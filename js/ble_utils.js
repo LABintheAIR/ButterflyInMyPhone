@@ -1,6 +1,6 @@
 var BLE_device = "";
 var BLE_scan_devices = [];
-
+var BLE_peripheral_data = {};
 function startScan(){
   $('#devices').text( "" );
 
@@ -21,5 +21,23 @@ function failureScan(){
 
 function connectToDevice( id ) {
   BLE_device = BLE_scan_devices[id];
+  $.mobile.loading( "show", {
+    text: "Connecting to the device...",
+    textVisible: true,
+    theme: "b"
+  });
+
+  ble.connect( BLE_device->id, succesConnection, failConnection );
+  
+  
+}
+
+function succesConnection( data ) {
+  $.mobile.loading( "hide" );
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_DEVICE_CONNECTION );
+}
+
+function failConnection( data ) {
+  window.plugins.taost.showShortBottom( "Connection failed..." );
+  $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_INDEX );
 }

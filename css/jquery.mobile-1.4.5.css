@@ -3113,6 +3113,7 @@ fieldset.ui-controlgroup {
 }
 .ui-popup {
 	position: relative;
+  background-color: #FFF;
 }
 .ui-popup.ui-body-inherit {
 	border-width: 1px;

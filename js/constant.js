@@ -1,3 +1,3 @@
 //Page Name
-var PAGE-INDEX                = 'index';
-var PAGE-DEVICE-CONNECTION    = 'device-connect';
+var PAGE_INDEX                = 'index';
+var PAGE_DEVICE_CONNECTION    = 'device-connect';

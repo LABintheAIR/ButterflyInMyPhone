@@ -17,6 +17,6 @@ function connectToDevice( id ) {
   alert( "BEGIN" );
   BLE_storage = id;
   alert( "RUN" );
-  $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE-DEVICE-CONNECTION );
+  $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_DEVICE_CONNECTION );
   alert( "END" );
 }

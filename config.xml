@@ -68,7 +68,11 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     -->
+    <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
+    <plugin name="cordovarduino" spec="0.0.7" />
     <gap:plugin name="org.apache.cordova.vibration" />
+    <gap:plugin name="cordova-plugin-ble-central" source="npm" />
+    <gap:plugin name="cordova-plugin-x-toast" source="npm" />
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--
@@ -145,9 +149,6 @@
     <access origin="*"/>
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
-    <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
-    <plugin name="cordovarduino" spec="0.0.7" />
-    <gap:plugin name="cordova-plugin-ble-central" source="npm" />
 
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

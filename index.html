@@ -32,10 +32,11 @@
               ble.isEnabled( function(){}, function(){ 
                   ble.enable( function(){}, function() { alert("Failed to activate bluetooth..."); } );
               });
-
+              
+              $.mobile.defaultPageTransition( 'slide' );
+              $("[data-role='popup']").each(function() { $(this).popup(); } );
             }
             
-            $.mobile.defaultPageTransition( 'slide' );
         </script>
     </head>
     <body onload="onload()">

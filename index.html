@@ -45,16 +45,16 @@
         <div data-role="page" id="index">
             <h1>Butterfly is here !!!</h1>
             Device is Ready <input type="button" value="Let's vibrate !" onclick="navigator.vibrate( 1000 )"><br>
-            <input value="ffcc00" class="jscolor {width:243, height:150, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}">
             <input type="button" value="Start scan" onclick="startScan()">
             <table id="devices"></table>
 
-            <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a>
+            <a href="#popup-general" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a>
         </div>
 
         <div data-role="page" id="device-connect">
           <a href="#index">Retour</a>
           <h1>Hey ! It's me !!!</h1>
+          <input value="ffcc00" class="jscolor {width:243, height:150, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}">
           <div id="info-device">TEST</div>
         </div>
 

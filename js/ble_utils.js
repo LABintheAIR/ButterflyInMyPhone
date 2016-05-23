@@ -2,7 +2,7 @@ var BLE_device = "";
 var BLE_scan_devices = [];
 
 function startScan(){
-  $('#devices').text( "" );A
+  $('#devices').text( "" );
 
   BLE_storage = "";
   BLE_scan_devices = [];

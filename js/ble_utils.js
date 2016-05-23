@@ -16,6 +16,7 @@ function failureScan(){
 function connectToDevice( id ) {
   alert( "BEGIN" );
   BLE_storage = id;
-  $.mobile.pageContainer.pagecontainer("change", PAGE-DEVICE-CONNECTION);
+  alert( "RUN" );
+  $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE-DEVICE-CONNECTION );
   alert( "END" );
 }

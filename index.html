@@ -33,7 +33,7 @@
                   ble.enable( function(){}, function() { alert("Failed to activate bluetooth..."); } );
               });
               
-              $.mobile.defaultPageTransition( 'slide' );
+              $.mobile.defaultPageTransition = "slide";
               $("[data-role='popup']").each(function() { $(this).popup(); } );
             }
             
@@ -53,6 +53,7 @@
 
         <div data-role="page" id="device-connect">
           <h1>Hey ! It's me !!!</h1>
+          <a href="#index">Retour</a>
         </div>
 
             <div data-role="popup" id="popupBasic">

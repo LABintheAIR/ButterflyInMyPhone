@@ -28,10 +28,10 @@ function connectToDevice( id ) {
     theme: "b"
   });
 
-  ble.connect( BLE_device.id, succesConnection, failConnection );
+  ble.connect( BLE_device.id, successConnection, failConnection );
 }
 
-function succesConnection( data ) {
+function successConnection( data ) {
   $.mobile.loading( "hide" );
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_DEVICE_CONNECTION );
 }

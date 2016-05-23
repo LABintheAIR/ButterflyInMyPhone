@@ -68,11 +68,11 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     -->
-    <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
-    <plugin name="cordovarduino" spec="0.0.7" />
-    <gap:plugin name="org.apache.cordova.vibration" />
-    <gap:plugin name="cordova-plugin-ble-central" source="npm" />
-    <gap:plugin name="cordova-plugin-x-toast" source="npm" />
+    <plugin       name="cordova-plugin-whitelist"       spec="1.2.2"  />
+    <plugin       name="cordovarduino"                  spec="0.0.7"  />
+    <gap:plugin   name="org.apache.cordova.vibration"   spec="0.3.13" />
+    <gap:plugin   name="cordova-plugin-ble-central"     spec="1.1.0"  source="npm" />
+    <gap:plugin   name="cordova-plugin-x-toast"         spec="2.5.1"  source="npm" />
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--

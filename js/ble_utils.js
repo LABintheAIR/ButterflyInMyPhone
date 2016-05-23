@@ -1,12 +1,18 @@
-var BLE_storage = "";
+var BLE_device = "";
+var BLE_scan_devices = [];
 
 function startScan(){
-  $('#devices').text( "" );
+  $('#devices').text( "" );A
+
+  BLE_storage = "";
+  BLE_scan_devices = [];
+  
   ble.scan( [], 5, succesScan, failureScan );
 }
 
 function succesScan( device ){
-  $('#devices').append( "<tr><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><a href='javascript:connectToDevice(\"" + device.id + "\");'>Connect</a></td></tr>" );
+  $('#devices').append( "<tr><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><a href='javascript:connectToDevice(" + BLE_scan_devices.length + ");'>Connect</a></td></tr>" );
+  BLE_scan_devices.push( device );
 }
 
 function failureScan(){
@@ -14,9 +20,6 @@ function failureScan(){
 }
 
 function connectToDevice( id ) {
-  alert( "BEGIN" );
-  BLE_storage = id;
-  alert( "RUN" );
+  BLE_device = BLE_scan_devices[id];
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_DEVICE_CONNECTION );
-  alert( "END" );
 }

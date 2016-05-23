@@ -1,6 +1,7 @@
 var BLE_device = "";
 var BLE_scan_devices = [];
-var BLE_peripheral_data = {};
+var BLE_peripheral_data;
+
 function startScan(){
   $('#devices').text( "" );
 
@@ -27,9 +28,7 @@ function connectToDevice( id ) {
     theme: "b"
   });
 
-  ble.connect( BLE_device->id, succesConnection, failConnection );
-  
-  
+  ble.connect( BLE_device.id, succesConnection, failConnection );
 }
 
 function succesConnection( data ) {

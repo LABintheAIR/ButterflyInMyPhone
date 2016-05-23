@@ -32,9 +32,9 @@ function connectToDevice( id ) {
 }
 
 function successConnection( data ) {
+  BLE_peripheral_data = data;
   $.mobile.loading( "hide" );
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_DEVICE_CONNECTION );
-  BLE_peripheral_data = data;
 }
 
 function failConnection( data ) {

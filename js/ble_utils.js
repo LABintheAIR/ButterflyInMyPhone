@@ -15,5 +15,5 @@ function failureScan(){
 
 function connectToDevice( id ) {
   BLE_storage = id;
-  window.location.href="#device-connect";
+  $.mobile.pageContainer.pagecontainer("change", PAGE-DEVICE-CONNECTION);
 }

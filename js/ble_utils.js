@@ -70,4 +70,5 @@ function sendColor()
   data[0] = 0x00; // '!'
   data[0] = 0x00; // '!'
 
-  ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, 
+  ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, data.buffer, function() { alert( "Data sent" ); }, function() { alert("Failed to send data" ); });
+}

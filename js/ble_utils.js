@@ -37,6 +37,6 @@ function succesConnection( data ) {
 }
 
 function failConnection( data ) {
-  window.plugins.taost.showShortBottom( "Connection failed..." );
+  window.plugins.toast.showShortBottom( "Connection failed..." );
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_INDEX );
 }

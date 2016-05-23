@@ -41,3 +41,33 @@ function failConnection( data ) {
   showPopup( "Connection failed..." );
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_INDEX );
 }
+
+function findFirstWriteCharac()
+{
+  var tab = BLE_peripheral_data.characteristics;
+  for( i = 0; i.length; ++i )
+  {
+    if( tab[i].properties.indexOf( "Write" ) > -1 ) {
+      return tab[i];
+  }
+  
+  return false;
+}
+
+function sendColor()
+{
+  var charac = findFirstWriteCharac();
+
+  if( !charac ) {
+    showPopup( "No Writable UUID" );
+    return;
+  }
+  var data = new Uint8Array(5);
+
+  data[0] = 0x21; // '!'
+  data[1] = 0x43; // '!'
+  data[0] = 0xFF; // '!'
+  data[0] = 0x00; // '!'
+  data[0] = 0x00; // '!'
+
+  ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, 

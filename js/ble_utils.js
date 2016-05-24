@@ -46,7 +46,7 @@ function findFirstWriteCharac() {
   var tab = BLE_peripheral_data.characteristics;
   for( i = 0; tab.length; ++i )
   {
-    if( tab[i].properties.indexOf( "Write" ) > -1 ) {
+    if( tab[i].properties.indexOf( "Write" ) > -1 && tab[i].service.length > 8 && tab[i].service.characteristic > 8 ) {
       return tab[i];
     }
   }

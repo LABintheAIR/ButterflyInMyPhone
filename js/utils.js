@@ -1,4 +1,4 @@
-showPopup( message, modal ){
+function showPopup( message, modal ){
   if( typeof modal === "undefined" ) { modal = false; }
   
   if( modal ) { $("#popup-general").attr( "data-dismissible", "true" ); }

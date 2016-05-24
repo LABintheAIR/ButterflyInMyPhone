@@ -44,9 +44,11 @@ function failConnection( data ) {
 
 function findFirstWriteCharac() {
   var tab = BLE_peripheral_data.characteristics;
+  var patt = new RegExp(/^[a-z0-9]+0001-/i); //See https://learn.adafruit.com/adafruit-feather-32u4-bluefruit-le/uart-service
+
   for( i = 0; tab.length; ++i )
   {
-    if( tab[i].properties.indexOf( "Write" ) > -1 && tab[i].service.length > 8 && tab[i].service.characteristic > 8 ) {
+    if( patt.test( tab[i].service ) && tab[i].properties.indexOf( "Write" ) > -1 ) {
       return tab[i];
     }
   }
@@ -66,9 +68,9 @@ function sendColor()
 
   data[0] = 0x21; // '!'
   data[1] = 0x43; // 'C'
-  data[0] = 0xFF;
-  data[0] = 0x00;
-  data[0] = 0x00;
+  data[2] = 0xFF;
+  data[3] = 0x00;
+  data[4] = 0x00;
 
   ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, data.buffer, function() { alert( "Data sent" ); }, function() { alert("Failed to send data" ); });
 }

@@ -65,13 +65,14 @@ function sendColor()
     return;
   }
   var data = new Uint8Array(5);
-
+  var values = stringColorToArray( $('#jscolor-send').val() );
+ 
   data[0] = 0x21; // '!'
   data[1] = 0x43; // 'C'
-  data[2] = 0xFF;
-  data[3] = 0x00;
-  data[4] = 0x00;
+  data[2] = values[0];
+  data[3] = values[1];
+  data[4] = values[2];
 
-  ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, data.buffer, function() { alert( "Data sent" ); }, function() { alert("Failed to send data" ); });
+  ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, data.buffer, function() {}, function() { showPopup("Failed to send data" ); });
 }
 

@@ -65,10 +65,10 @@ function sendColor()
   var data = new Uint8Array(5);
 
   data[0] = 0x21; // '!'
-  data[1] = 0x43; // '!'
-  data[0] = 0xFF; // '!'
-  data[0] = 0x00; // '!'
-  data[0] = 0x00; // '!'
+  data[1] = 0x43; // 'C'
+  data[0] = 0xFF;
+  data[0] = 0x00;
+  data[0] = 0x00;
 
   ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, data.buffer, function() { alert( "Data sent" ); }, function() { alert("Failed to send data" ); });
 }

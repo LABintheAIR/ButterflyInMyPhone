@@ -8,3 +8,8 @@ function showPopup( message, modal ){
 
   $("#popup-general").popup( "open" );
 }
+
+function stringColorToArray( str ){
+  return [ parseInt( str[0] + str[1], 16 ), parseInt( str[2] + str[3], 16 ), parseInt( str[4] + str[5], 16 ) ];
+}
+

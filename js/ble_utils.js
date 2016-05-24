@@ -44,7 +44,7 @@ function failConnection( data ) {
 
 function findFirstWriteCharac() {
   var tab = BLE_peripheral_data.characteristics;
-  for( i = 0; i.length; ++i )
+  for( i = 0; tab.length; ++i )
   {
     if( tab[i].properties.indexOf( "Write" ) > -1 ) {
       return tab[i];

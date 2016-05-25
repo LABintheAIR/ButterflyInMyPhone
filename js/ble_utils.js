@@ -22,18 +22,13 @@ function failureScan(){
 
 function connectToDevice( id ) {
   BLE_device = BLE_scan_devices[id];
-  $.mobile.loading( "show", {
-    text: "Connecting to the device...",
-    textVisible: true,
-    theme: "b"
-  });
-
+  showSimpleLoading( "Connection to the device" );
   ble.connect( BLE_device.id, successConnection, failConnection );
 }
 
 function successConnection( data ) {
   BLE_peripheral_data = data;
-  $.mobile.loading( "hide" );
+  hideLoading();
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_DEVICE_CONNECTION );
 }
 
@@ -56,23 +51,61 @@ function findFirstWriteCharac() {
   return false;
 }
 
+function sendBufferData( bufferData ){
+  ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, bufferData, function() {}, function() { showPopup("Failed to send data", 'error' ); });
+}
+
+function generateDataBuffer( red, green, blue ){
+  var data = new Uint8Array(5);
+
+  data[0] = 0x21; // '!'
+  data[1] = 0x43; // 'C'
+  data[2] = red;
+  data[3] = green;
+  data[4] = blue;
+
+  return data.buffer;
+}
+
 function sendColor()
 {
   var charac = findFirstWriteCharac();
 
   if( !charac ) {
-    showPopup( "No Writable UUID" );
+    showPopup( "No Writable UUID", 'error' );
     return;
   }
-  var data = new Uint8Array(5);
   var values = stringColorToArray( $('#jscolor-send').val() );
  
-  data[0] = 0x21; // '!'
-  data[1] = 0x43; // 'C'
-  data[2] = values[0];
-  data[3] = values[1];
-  data[4] = values[2];
-
-  ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, data.buffer, function() {}, function() { showPopup("Failed to send data" ); });
+  sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
 }
+
+function sendAirQuaity()
+{
+  var charac = findFirstWriteCharac();
+
+  if( !charac ){
+    showPopup( "No Writable UUID", 'error' );
+    return;
+  }
+
+  showSimpleLoading( "Getting AirQuality" );
+  $.ajax( "http://papillon-jnth.rhcloud.com/paca/iqa/marseille-urb" )
+   .done( function( data ){ 
+    data = JSON.parse( data );
+    sendBufferData( generateDataBuffer( data.list[0][0], data.list[0][1], data.list[0][2] ) ); 
+   })
+   .fail( function(){
+    showPopup( "Fail to get AirQuality data", 'error' );
+   })
+   .always( function(){
+    hideLoading();
+  });
+}
+
+
+
+
+
+
 

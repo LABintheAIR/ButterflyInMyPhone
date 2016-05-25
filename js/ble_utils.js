@@ -52,6 +52,13 @@ function findFirstWriteCharac() {
 }
 
 function sendBufferData( bufferData ){
+	var charac = findFirstWriteCharac();
+
+  if( !charac ) {
+    showPopup( "No Writable UUID", 'error' );
+    return;
+  }
+  
   ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, bufferData, function() {}, function() { showPopup("Failed to send data", 'error' ); });
 }
 
@@ -69,12 +76,6 @@ function generateDataBuffer( red, green, blue ){
 
 function sendColor()
 {
-  var charac = findFirstWriteCharac();
-
-  if( !charac ) {
-    showPopup( "No Writable UUID", 'error' );
-    return;
-  }
   var values = stringColorToArray( $('#jscolor-send').val() );
  
   sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
@@ -82,12 +83,6 @@ function sendColor()
 
 function sendAirQuaity()
 {
-  var charac = findFirstWriteCharac();
-
-  if( !charac ){
-    showPopup( "No Writable UUID", 'error' );
-    return;
-  }
 
   showSimpleLoading( "Getting AirQuality" );
   $.ajax( "http://papillon-jnth.rhcloud.com/paca/iqa/marseille-urb" )
@@ -102,7 +97,6 @@ function sendAirQuaity()
     hideLoading();
   });
 }
-
 
 
 

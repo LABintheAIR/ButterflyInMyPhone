@@ -12,7 +12,7 @@ function startScan(){
 }
 
 function succesScan( device ){
-  $('#devices').append( "<tr><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><a href='javascript:connectToDevice(" + BLE_scan_devices.length + ");'>Connect</a></td></tr>" );
+  $('#devices').append( "<tr style='border: 1px solid black;'><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><input type='button' value='Connect' onclick='javascript:connectToDevice(" + BLE_scan_devices.length + ");'></td></tr>" );
   BLE_scan_devices.push( device );
 }
 

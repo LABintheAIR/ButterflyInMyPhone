@@ -81,13 +81,12 @@ function sendColor()
   sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
 }
 
-function sendAirQuaity()
+function sendAirQuality()
 {
 
   showSimpleLoading( "Getting AirQuality" );
   $.ajax( "http://papillon-jnth.rhcloud.com/paca/iqa/marseille-urb" )
    .done( function( data ){ 
-    data = JSON.parse( data );
     sendBufferData( generateDataBuffer( data.list[0][0], data.list[0][1], data.list[0][2] ) ); 
    })
    .fail( function(){

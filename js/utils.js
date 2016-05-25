@@ -1,6 +1,22 @@
-function showPopup( message, modal ){
-  if( typeof modal === "undefined" ) { modal = false; }
-  
+function showPopup( message, type, modal ){
+  if( typeof type === undefined ) { type = 'info'; }
+  if( typeof modal === undefined ) { modal = false; }
+
+  switch( type ) {
+    case "error":
+      $("#popup-general").css( "background-color", "#FF2828" );
+      break;
+
+    case 'warning':
+      $("#popup-general").css( "background-color", "#F77B28" );
+      break;
+    
+    default:
+    case 'info':
+      $("#popup-general").css( "background-color", "#FFF" );
+      break;
+  }
+
   if( modal ) { $("#popup-general").attr( "data-dismissible", "true" ); }
   else{ $("#popup-general").attr( "data-dismissible", "false" ); }
   

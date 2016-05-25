@@ -17,7 +17,7 @@ function succesScan( device ){
 }
 
 function failureScan(){
-  alert("Scan failed...");
+  showPopup("Scan failed...", 'warning');
 }
 
 function connectToDevice( id ) {
@@ -33,7 +33,8 @@ function successConnection( data ) {
 }
 
 function failConnection( data ) {
-  showPopup( "Connection failed..." );
+  hideLoading();
+  showPopup( "Connection failed...", 'warning' );
   $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_INDEX );
 }
 

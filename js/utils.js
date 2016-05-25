@@ -28,7 +28,7 @@ function showPopup( message, type, modal ){
 function showSimpleLoading( msg ) {
   $("#overlay-div").show();
   $.mobile.loading( "show", {
-    text: "Connecting to the device...",
+    text: msg,
     textVisible: true,
     theme: "b"
   });

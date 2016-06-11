@@ -86,7 +86,7 @@ function sendAirQuality()
 {
 
   showSimpleLoading( "Getting AirQuality" );
-  $.ajax( "http://papillon-jnth.rhcloud.com/paca/iqa/marseille-urb" )
+  $.ajax( window.localStorage.getItem(LOCAL_AQ_URL) )
    .done( function( data ){ 
     sendBufferData( generateDataBuffer( data.list[0][0], data.list[0][1], data.list[0][2] ) ); 
    })

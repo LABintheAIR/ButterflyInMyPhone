@@ -16,10 +16,12 @@ function timeoutScan( seconds ){
   if( seconds == 0 )
   {
     $('#button_scan').val( "Start scan");
+    $('#button_scan').button('refresh');
   }
   else
   {
     $('#button_scan').val( "Scanning... (" + seconds + " second(s) left.)");
+    $('#button_scan').button('refresh');
     setTimeout( timeoutScan, 1000, seconds-1 );
   }
 }

@@ -6,4 +6,5 @@ $(document).on( 'pagebeforeshow', '#' + PAGE_INDEX, function() {
 
 $(document).on( 'pagebeforeshow', '#' + PAGE_DEVICE_CONNECTION, function() {
    console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
+   jQuery('.device-name').text( BLE_peripheral_data.name );
 });

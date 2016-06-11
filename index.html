@@ -64,7 +64,7 @@
               <td><input type="button" value="Send color" onclick="sendColor();"></td>
             </tr>
             <tr>
-              <td><select id="select_aq_url" onchange="window.localStrorage.setItem(LOCAL_AQ_URL, jQuery('#select_aq_url').val());"></select></td>
+              <td><select id="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery('#select_aq_url').val());"></select></td>
               <td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>
             </tr>
           </table>

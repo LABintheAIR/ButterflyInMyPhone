@@ -11,13 +11,17 @@
 
         <title>Butterfly in my Phone</title>
 
-        <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-        <script type="text/javascript" src="js/jscolor.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/constant.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="js/lib/jscolor.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.mobile-1.4.5.min.js"></script>
+
+        <script type="text/javascript" src="js/config/constant.js"></script>
+        <script type="text/javascript" src="js/config/AQ_url.js"></script>
+
         <script type="text/javascript" src="js/ble_utils.js"></script>
         <script type="text/javascript" src="js/utils.js"></script>
         <script type="text/javascript" src="js/event-beforeshow.js"></script>
+
         <script type="text/javascript" src="cordova.js"></script>
 
         <script src="http://debug3.build.phonegap.com/target/target-script-min.js#1ed3da8c-1e82-11e6-909d-067c7ecc21b3"></script>
@@ -59,8 +63,11 @@
               <td><input value="ffcc00" class="jscolor {mode: 'HVS', width:243, height:150, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}" id="jscolor-send"></td>
               <td><input type="button" value="Send color" onclick="sendColor();"></td>
             </tr>
+            <tr>
+              <td><select id="select_aq_url"></select></td>
+              <td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>
+            </tr>
           </table>
-          <input type="button" value="Get Air Quality" onclick="sendAirQuality()">
         </div>
 
         <div id="overlay-div" style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: #000; opacity: 0.3; display: none"></div>
@@ -70,3 +77,4 @@
         </div>
     </body>
 </html>
+

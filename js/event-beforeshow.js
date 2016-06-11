@@ -16,4 +16,5 @@ $(document).on( 'pagebeforeshow', '#' + PAGE_DEVICE_CONNECTION, function() {
     if( value == select ) { selected = "selected='selected'"; }
     jQuery('#select_aq_url').append( "<option value='" + value + "' " + selected + ">" + key + "</option>" );
   });
+  jQuery('#select_aq_url').selectmenu("refresh");
 });

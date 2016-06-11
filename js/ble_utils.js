@@ -9,6 +9,19 @@ function startScan(){
   BLE_scan_devices = [];
   
   ble.scan( [], 5, succesScan, failureScan );
+  timeoutScan( 5 );
+}
+
+function timeoutScan( seconds ){
+  if( seconds == 0 )
+  {
+    $('#button_scan').val( "Start scan");
+  }
+  else
+  {
+    $('#button_scan').val( "Scanning... (" + seconds + " second(s) left.)");
+    setTimeout( timeoutScan, 1000, seconds-1 );
+  }
 }
 
 function succesScan( device ){
@@ -86,7 +99,7 @@ function sendAirQuality()
 {
 
   showSimpleLoading( "Getting AirQuality" );
-  $.ajax( window.localStorage.getItem(LOCAL_AQ_URL) )
+  $.ajax( window.localStorage.getItem( LOCAL_AQ_URL ) )
    .done( function( data ){ 
     sendBufferData( generateDataBuffer( data.list[0][0], data.list[0][1], data.list[0][2] ) ); 
    })

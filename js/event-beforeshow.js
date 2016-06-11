@@ -13,7 +13,7 @@ $(document).on( 'pagebeforeshow', '#' + PAGE_DEVICE_CONNECTION, function() {
 
   jQuery.each( AQ_URL, function( key, value ) {
     var selected = "";
-    if( key == select ) { selected = "selected='selected'"; }
+    if( value == select ) { selected = "selected='selected'"; }
     jQuery('#select_aq_url').append( "<option value='" + value + "' " + selected + ">" + key + "</option>" );
   });
 });

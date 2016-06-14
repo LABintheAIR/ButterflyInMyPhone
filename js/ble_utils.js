@@ -99,11 +99,10 @@ function sendColor()
 
 function sendAirQuality()
 {
-
   showSimpleLoading( "Getting AirQuality" );
   $.ajax( window.localStorage.getItem( LOCAL_AQ_URL ) )
    .done( function( data ){ 
-    sendBufferData( generateDataBuffer( data.list[0][0], data.list[0][1], data.list[0][2] ) ); 
+    sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) ); 
    })
    .fail( function(){
     showPopup( "Fail to get AirQuality data", 'error' );

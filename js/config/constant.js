@@ -7,9 +7,15 @@ function LAB_Constant(){
               "LS_AQ_URL"   : "local_storage_select_aq_url",
    };
 
-  function showConstant( cst ){
-    return cst;
-  }
+  return ( function(r){ return r; } )(cst);
+}
 
-  return showConstant( cst );
+function LAB_Url_Station(){
+  var url = {     "Marseille Urbain" : "http://papillon-jnth.rhcloud.com/paca/iqa/marseille-urb",
+                  "Marseille Trafic" : "http://papillon-jnth.rhcloud.com/paca/iqa/marseille-trf",
+                  "Aix-en-Provence Urbain" : "http://papillon-jnth.rhcloud.com/paca/iqa/aix-urb",
+                  "Aix-en-Provence Trafic" : "http://papillon-jnth.rhcloud.com/paca/iqa/aix-trf",
+               };
+
+  return ( function(r){ return r; } )(url);
 }

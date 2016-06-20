@@ -1,15 +1,15 @@
-$(document).on( 'pagebeforeshow', '#' + PAGE_INDEX, function() {
+$(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_INDEX, function() {
   if( BLE_peripheral_data !== undefined ){
     ble.disconnect( BLE_peripheral_data.id );
   }
 });
 
-$(document).on( 'pagebeforeshow', '#' + PAGE_DEVICE_CONNECTION, function() {
+$(document).on( 'pagebeforeshow', '#' + LAB_Contant().PAGE_DEVICE_CONNECTION, function() {
   console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
   jQuery('.device-name').text( BLE_peripheral_data.name );
   jQuery('#select_aq_url').text('');
 
-  var select = window.localStorage.getItem( LOCAL_AQ_URL );
+  var select = window.localStorage.getItem( LAB_Constant().LS_AQ_URL );
 
   jQuery.each( AQ_URL, function( key, value ) {
     var selected = "";

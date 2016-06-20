@@ -53,7 +53,13 @@
 
         <div data-role="page" id="device-connect">
           <a href="#index" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Retour</a>
-          <h1><span class="device-name"></span></h1>
+          <table>
+            <tr>
+              <td><h1><span class="device-name"></span></h1></td>
+              <td>Nb&nbsp;leds&nbsp;:&nbsp;<input type="number" id="DC-nb-led" min="1" step="1" value="1" onchange="DC_onchange_number_led()"></td>
+            </tr>
+          </table>
+
           <table style="width: 100%">
             <tr>
               <td><input value="ffcc00" class="jscolor {mode: 'HVS', width:243, height:150, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}" id="jscolor-send"></td>
@@ -64,6 +70,12 @@
               <td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>
             </tr>
           </table>
+
+          <div data-role="collapsibleset" data-theme="a" data-content-theme="a" id="DC-îndicator-list">
+          </div>
+
+          <div class="ui-grid-a" id="DC-butterfly-list">
+          </div>
         </div>
 
         <div id="overlay-div" style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: #000; opacity: 0.3; display: none"></div>

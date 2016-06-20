@@ -35,7 +35,7 @@ function DC_set_butterfly_list(){
 
   if( target > current ){
     for(; target > current; current++ ){
-      if( current % 2 == 0 ) {
+      if( current % 2 === 0 ) {
         obj.append( '<div class="ui-block-a">' + svg + '</div>' );
       }
       else{

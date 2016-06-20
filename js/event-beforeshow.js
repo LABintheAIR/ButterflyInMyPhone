@@ -11,7 +11,7 @@ $(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_DEVICE_CONNECTION, f
 
   var select = window.localStorage.getItem( LAB_Constant().LS_AQ_URL );
 
-  jQuery.each( AQ_URL, function( key, value ) {
+  jQuery.each( LAB_Url_Station(), function( key, value ) {
     var selected = "";
     if( value == select ) { selected = "selected='selected'"; }
     jQuery('#select_aq_url').append( "<option value='" + value + "' " + selected + ">" + key + "</option>" );

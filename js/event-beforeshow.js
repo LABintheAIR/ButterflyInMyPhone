@@ -4,7 +4,7 @@ $(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_INDEX, function() {
   }
 });
 
-$(document).on( 'pagebeforeshow', '#' + LAB_Contant().PAGE_DEVICE_CONNECTION, function() {
+$(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_DEVICE_CONNECTION, function() {
   console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
   jQuery('.device-name').text( BLE_peripheral_data.name );
   jQuery('#select_aq_url').text('');

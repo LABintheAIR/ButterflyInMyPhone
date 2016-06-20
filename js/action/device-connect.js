@@ -15,7 +15,7 @@ function DC_set_indicator_list(){
 
   if( target > current ){
     for(; target > current; current++ ){
-      obj.append( '<div data-role="collapsible"><h4>Indicator ' + (current+1) + '</h4></div>' );
+      obj.append( '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"><h4>Indicator ' + (current+1) + '</h4><p>Here form... soon...</p></div>' );
     }
   }
   else {

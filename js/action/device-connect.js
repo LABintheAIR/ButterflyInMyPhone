@@ -23,6 +23,8 @@ function DC_set_indicator_list(){
       obj.children().last().remove();
     }
   }
+
+  obj.collapsibleset( "refresh" );
 }
 
 function DC_set_butterfly_list(){
@@ -48,4 +50,6 @@ function DC_set_butterfly_list(){
       obj.children().last().remove();
     }
   }
+
+  obj.collapsibleset( "refresh" );
 }

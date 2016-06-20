@@ -13,7 +13,7 @@ function startScan(){
 }
 
 function timeoutScan( seconds ){
-  if( seconds == 0 )
+  if( seconds === 0 )
   {
     $('#button_scan').val( "Start scan");
     $('#button_scan').button('refresh');

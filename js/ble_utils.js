@@ -44,13 +44,13 @@ function connectToDevice( id ) {
 function successConnection( data ) {
   BLE_peripheral_data = data;
   hideLoading();
-  $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_DEVICE_CONNECTION );
+  $.mobile.pageContainer.pagecontainer( "change", "#" + LAB_Constant().PAGE_DEVICE_CONNECTION );
 }
 
 function failConnection( data ) {
   hideLoading();
   showPopup( "Connection failed...", 'warning' );
-  $.mobile.pageContainer.pagecontainer( "change", "#" + PAGE_INDEX );
+  $.mobile.pageContainer.pagecontainer( "change", "#" + LAB_Constant().PAGE_INDEX );
 }
 
 function findFirstWriteCharac() {
@@ -100,7 +100,7 @@ function sendColor()
 function sendAirQuality()
 {
   showSimpleLoading( "Getting AirQuality" );
-  $.ajax( window.localStorage.getItem( LOCAL_AQ_URL ) )
+  $.ajax( window.localStorage.getItem( LAB_Constan().LS_AQ_URL ) )
    .done( function( data ){ 
     sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) ); 
    })

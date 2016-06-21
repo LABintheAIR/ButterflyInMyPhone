@@ -48,7 +48,8 @@
     <body onload="onload()">
         <div data-role="page" id="index">
             <h1>Butterfly is here !!!</h1>
-            Device is Ready <input type="button" value="Let's vibrate !" onclick="navigator.vibrate( 3000 )"><br>
+            <input type="button" value="Let's vibrate !" onclick='$( ":mobile-pagecontainer" ).pagecontainer( "change", "test.html" );'><br>
+            <input type="button" value="Let's vibrate !" onclick="navigator.vibrate( 3000 )"><br>
             <input type="button" value="Start scan" onclick="startScan()" id="button_scan">
             <table id="devices" style="border-collapse: collapse; width: 100%"></table>
         </div>

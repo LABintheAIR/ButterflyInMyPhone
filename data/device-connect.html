@@ -1,0 +1,27 @@
+<div data-role="page" id="device-connect">
+	<script type="text/javascript">alert("coucou");</script>
+          <a href="#index" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Retour</a>
+          <table>
+            <tr>
+              <td><h1><span class="device-name"></span></h1></td>
+              <td>Nb&nbsp;leds&nbsp;:&nbsp;<input type="number" id="DC-nb-led" min="1" step="1" value="1" onchange="DC_onchange_number_led()"></td>
+            </tr>
+          </table>
+
+          <table style="width: 100%">
+            <tr>
+              <td><input value="ffcc00" class="jscolor {mode: 'HVS', width:243, height:150, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}" id="jscolor-send"></td>
+              <td><input type="button" value="Send color" onclick="sendColor();"></td>
+            </tr>
+            <tr>
+              <td><select id="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery('#select_aq_url').val());"></select></td>
+              <td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>
+            </tr>
+          </table>
+
+          <div data-role="collapsibleset" data-theme="a" data-content-theme="a" id="DC-indicator-list">
+          </div>
+
+          <div class="ui-grid-a" id="DC-butterfly-list">
+          </div>
+        </div>

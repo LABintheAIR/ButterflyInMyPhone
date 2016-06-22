@@ -12,10 +12,20 @@ function DC_set_indicator_list(){
   var obj = jQuery("#DC-indicator-list");
   var target = jQuery( "#DC-nb-led" ).val();
   var current = obj.children().length;
+  var form = '<table style="width: 100%">\
+            <tr>\
+              <td><input value="ffcc00" class="jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}" id="jscolor_send"></td>\
+              <td><input type="button" value="Send color" onclick="sendColor();"></td>\
+            </tr>\
+            <tr>\
+              <td><select id="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery(\'#select_aq_url\').val());"></select></td>\
+              <td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>\
+            </tr>\
+          </table>';
 
   if( target > current ){
     for(; target > current; current++ ){
-      obj.append( '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"><h4>Indicator ' + (current+1) + '</h4><p>Here form... soon...</p></div>' );
+      obj.append( '<div id="indicator-' + current + '" data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"><h4>Indicator ' + (current+1) + '</h4>' + form + '</div>' );
     }
   }
   else {

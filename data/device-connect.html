@@ -25,5 +25,23 @@
           <div class="ui-grid-a" id="DC-butterfly-list">
           </div>
           
-          <script type="text/javascript">alert("coucou");</script>
+          <script type="text/javascript">
+          		function init(){
+          			console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
+						  jQuery('.device-name').text( BLE_peripheral_data.name );
+						  jQuery('#select_aq_url').text('');
+						
+						  var select = window.localStorage.getItem( LAB_Constant().LS_AQ_URL );
+						
+						  jQuery.each( LAB_Url_Station(), function( key, value ) {
+						    var selected = "";
+						    if( value == select ) { selected = "selected='selected'"; }
+						    jQuery('#select_aq_url').append( "<option value='" + value + "' " + selected + ">" + key + "</option>" );
+						  });
+						  jQuery('#select_aq_url').selectmenu("refresh");
+          		}
+          		
+          		
+          		init();
+          </script>
 </div>

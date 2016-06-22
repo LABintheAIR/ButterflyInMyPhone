@@ -102,7 +102,7 @@ function sendColor()
 function sendAirQuality()
 {
   showSimpleLoading( "Getting AirQuality" );
-  $.ajax( window.localStorage.getItem( LAB_Constan().LS_AQ_URL ) )
+  $.ajax( window.localStorage.getItem( LAB_Constant().LS_AQ_URL ) )
    .done( function( data ){ 
     sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) ); 
    })
@@ -113,7 +113,6 @@ function sendAirQuality()
     hideLoading();
   });
 }
-
 
 
 

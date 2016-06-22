@@ -27,8 +27,10 @@ function timeoutScan( seconds ){
 }
 
 function succesScan( device ){
-  $('#devices').append( "<tr style='border: 1px solid black;'><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><input type='button' value='Connect' onclick='javascript:connectToDevice(" + BLE_scan_devices.length + ");'></td></tr>" );
+  //$('#devices').append( "<tr style='border: 1px solid black;'><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><input type='button' value='Connect' onclick='javascript:connectToDevice(" + BLE_scan_devices.length + ");'></td></tr>" );
+  $('#devices').append( "<tr style='border: 1px solid black;'><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><input type='button' value='Connect' onclick='$( \":mobile-pagecontainer\" ).pagecontainer( \"change\", \"data/device-connect.html\" );'></td></tr>" );
   BLE_scan_devices.push( device );
+  
 }
 
 function failureScan(){
@@ -111,7 +113,6 @@ function sendAirQuality()
     hideLoading();
   });
 }
-
 
 
 

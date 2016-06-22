@@ -15,7 +15,7 @@ function DC_set_indicator_list(){
   var form = '<table style="width: 100%">\
             <tr>\
               <td><input value="ffcc00" class="jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}" id="jscolor_send"></td>\
-              <td><input type="button" value="Send color" onclick="sendColor();"></td>\
+              <td><input type="button" value="Send color" onclick="sendColor($(this).parent());"></td>\
             </tr>\
             <tr>\
               <td><select id="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery(\'#select_aq_url\').val());"></select></td>\
@@ -63,4 +63,9 @@ function DC_set_butterfly_list(){
   }
 
   obj.collapsibleset( "refresh" );
+}
+
+function DC_sendColor( parent ){
+	var values = stringColorToArray( parent.find('#jscolor-send').val() );
+  sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
 }

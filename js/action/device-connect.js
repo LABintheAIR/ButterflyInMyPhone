@@ -82,7 +82,7 @@ function DC_set_butterfly_list(){
   obj.collapsibleset( "refresh" );
 }
 
-function DC_sendColor( parent ){
-	var values = stringColorToArray( parent.find('#jscolor-send').val() );
+function DC_sendColor( parentObj ){
+	var values = stringColorToArray( parentObj.find('#jscolor-send').val() );
   sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
 }

@@ -1,5 +1,5 @@
 function DC_objects(){
-  return {  "number_led"        : jQuery( "#DC-led-number"),
+  return {  "number_led"        : jQuery( "#DC-nb-led"),
             "list_indicator"    : jQuery( "#DC-indicator-list" ),
             "list_butterfly"    : jQuery( "#DC-butterfly-list" ),
          };

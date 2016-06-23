@@ -21,6 +21,7 @@ function DC_check_number_field_value(){
   var minValue = input.attr('min');
   var maxValue = input.attr('max');
 
+  if( input.val() % 1 != 0 ){ input.val( truncNumber( input.val() ) ); } 
   if( input.val() < minValue ){ input.val( minValue ); }
   if( input.val() > maxValue ){ input.val( maxValue ); }
 }

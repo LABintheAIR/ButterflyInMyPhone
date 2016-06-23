@@ -18,12 +18,15 @@ function DC_onchange_number_led(){
 
 function DC_check_number_field_value(){
   var input = DC_objects().number_led;
+  var inputValue = input.val();
   var minValue = input.attr('min');
   var maxValue = input.attr('max');
 
-  if( input.val() % 1 != 0 ){ input.val( truncNumber( input.val() ) ); } 
-  if( input.val() < minValue ){ input.val( minValue ); }
-  if( input.val() > maxValue ){ input.val( maxValue ); }
+  if( inputValue % 1 != 0 ){ inputValue = truncNumber( inputValue ); } 
+  if( inputValue < minValue ){ inputValue = minValue; }
+  if( inputValue > maxValue ){ inputValue = maxValue; }
+
+  input.val( inputValue );
 }
 
 function DC_set_indicator_list(){

@@ -26,7 +26,7 @@ function DC_check_number_field_value(){
 }
 
 function DC_set_indicator_list(){
-  var obj = DC_objects.list_indicator;
+  var obj = DC_objects().list_indicator;
   var target = DC_objects().number_led.val();
   var current = obj.children().length;
   var form = '<table style="width: 100%">\

@@ -43,3 +43,8 @@ function stringColorToArray( str ){
   return [ parseInt( str[0] + str[1], 16 ), parseInt( str[2] + str[3], 16 ), parseInt( str[4] + str[5], 16 ) ];
 }
 
+function truncNumber( num ){
+  var value = Number( num ).toFixed(0);
+  if( value > Number(num) ){ value--; }
+  return value;
+}

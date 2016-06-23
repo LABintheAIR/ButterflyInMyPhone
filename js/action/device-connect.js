@@ -4,6 +4,13 @@ function DC_set_number_led( number ){
 }
 
 function DC_onchange_number_led(){
+  var input = $("#DC-led-number");
+  var minValue = $("#DC-led-number").attr('min');
+  var maxValue = $("#DC-led-number").attr('max');
+
+  if( input.val() < minValue ){ input.val( minValue ); }
+  if( input.val() > maxValue ){ input.val( maxValue ); }
+
   DC_set_indicator_list(); 
   DC_set_butterfly_list();
 }

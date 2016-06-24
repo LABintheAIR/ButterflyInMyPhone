@@ -18,11 +18,11 @@ function DC_onchange_number_led(){
 
 function DC_check_number_field_value(){
   var input = DC_objects().number_led;
-  var inputValue = input.val();
-  var minValue = input.attr('min');
-  var maxValue = input.attr('max');
+  var inputValue = Number( input.val() );
+  var minValue = Number( input.attr('min') );
+  var maxValue = Number( input.attr('max') );
 
-  if( inputValue % 1 != 0 ){ inputValue = truncNumber( inputValue ); } 
+  if( inputValue % 1 !== 0 ){ inputValue = truncNumber( inputValue ); } 
   if( inputValue < minValue ){ inputValue = minValue; }
   if( inputValue > maxValue ){ inputValue = maxValue; }
 
@@ -33,16 +33,16 @@ function DC_set_indicator_list(){
   var obj = DC_objects().list_indicator;
   var target = DC_objects().number_led.val();
   var current = obj.children().length;
-  var form = '<table style="width: 100%">\
-            <tr>\
-              <td><input value="ffcc00" class="jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}" id="jscolor_send"></td>\
-              <td><input type="button" value="Send color" onclick="DC_sendColor($(this).parents(\'tr\'));"></td>\
-            </tr>\
-            <tr>\
-              <td><select id="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery(\'#select_aq_url\').val());"></select></td>\
-              <td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>\
-            </tr>\
-          </table>';
+  var form =  '<table style="width: 100%">' +
+              '<tr>' +
+              '<td><input value="ffcc00" class="jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}" id="jscolor_send"></td>' +
+              '<td><input type="button" value="Send color" onclick="DC_sendColor($(this).parents(\'tr\'));"></td>' +
+            '</tr>' +
+            '<tr>' +
+              '<td><select id="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery(\'#select_aq_url\').val());"></select></td>' +
+              '<td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>' +
+            '</tr>' +
+          '</table>';
 
   if( target > current ){
     for(; target > current; current++ ){

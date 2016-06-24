@@ -88,6 +88,6 @@ function DC_set_butterfly_list(){
 }
 
 function DC_sendColor( parentObj ){
-	var values = stringColorToArray( parentObj.find('#jscolor-send').val() );
+	var values = stringColorToArray( parentObj.children().find('#jscolor_send').val() );
   sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
 }

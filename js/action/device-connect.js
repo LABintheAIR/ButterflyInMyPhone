@@ -48,7 +48,7 @@ function DC_set_indicator_list(){
     for(; target > current; current++ ){
       obj.append( '<div id="indicator-' + current + '" data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"><h4>Indicator ' + (current+1) + '</h4>' + form + '</div>' );
      jQuery("#indicator-" + current).children().trigger("create");
-     new jscolor( jQuery("indicator-"+current).children().find("#jscolor_send")[0] );
+     new jscolor( jQuery("#indicator-"+current).children().find("#jscolor_send")[0] );
     }
   }
   else {

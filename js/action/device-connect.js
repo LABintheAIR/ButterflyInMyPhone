@@ -35,7 +35,7 @@ function DC_set_indicator_list(){
   var current = obj.children().length;
   var form =  '<table style="width: 100%">' +
               '<tr>' +
-              '<td><input value="ffcc00" class="jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}" id="jscolor_send"></td>' +
+              '<td><input value="ffcc00" class="jscolor_send jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}"></td>' +
               '<td><input type="button" value="Send color" onclick="DC_sendColor($(this).parents(\'tr\'));"></td>' +
             '</tr>' +
             '<tr>' +
@@ -48,7 +48,7 @@ function DC_set_indicator_list(){
     for(; target > current; current++ ){
       obj.append( '<div id="indicator-' + current + '" data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u"><h4>Indicator ' + (current+1) + '</h4>' + form + '</div>' );
      jQuery("#indicator-" + current).children().trigger("create");
-     new jscolor( jQuery("#indicator-"+current).children().find("#jscolor_send")[0] );
+     new jscolor( jQuery("#indicator-"+current).children().find(".jscolor_send")[0] );
     }
   }
   else {
@@ -88,6 +88,9 @@ function DC_set_butterfly_list(){
 }
 
 function DC_sendColor( parentObj ){
-	var values = stringColorToArray( parentObj.children().find('#jscolor_send').val() );
-  sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
+  var list = DC_objects().list_indicator;
+  list.children().find('.jscolor_send').each( function( key, value ){
+    var values = stringColorToArray( value.val() );
+    sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
+  });
 }

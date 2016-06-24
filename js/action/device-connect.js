@@ -90,7 +90,7 @@ function DC_set_butterfly_list(){
 function DC_sendColor( parentObj ){
   var list = DC_objects().list_indicator;
   list.children().find('.jscolor_send').each( function( key, value ){
-    var values = stringColorToArray( value.val() );
+    var values = stringColorToArray( jQuery(value).val() );
     sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
   });
 }

@@ -69,7 +69,7 @@ function DC_fill_select_list( selectField ){
     if( value == select ) { selected = "selected='selected'"; }
     selectField.append( "<option value='" + value + "' " + selected + ">" + key + "</option>" );
   });
-  jQuery('#select_aq_url').selectmenu("refresh");
+  selectField.selectmenu("refresh");
 }
 
 function DC_set_butterfly_list(){

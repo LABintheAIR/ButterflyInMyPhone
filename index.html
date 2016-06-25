@@ -29,20 +29,20 @@
 
         <script type="text/javascript">
             app.initialize();
-        
+
             function onload(){
               document.addEventListener("deviceready", deviceReady, false);
             }
 
             function deviceReady(){
-              ble.isEnabled( function(){}, function(){ 
+              ble.isEnabled( function(){}, function(){
                   ble.enable( function(){}, function() { alert("Failed to activate bluetooth..."); } );
               });
-              
+
               $.mobile.defaultPageTransition = "slide";
               $("[data-role='popup']").each(function() { $(this).popup(); } );
             }
-            
+
         </script>
     </head>
     <body onload="onload()">
@@ -55,7 +55,7 @@
         </div>
 
         <div data-role="page" id="device-connect">
-          <a href="#index" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Retour</a>
+          <a href="javascript:window.history.go(-1);" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Retour</a>
           <table>
             <tr>
               <td><h1><span class="device-name"></span></h1></td>

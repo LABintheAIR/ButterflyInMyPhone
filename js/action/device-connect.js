@@ -57,7 +57,7 @@ function DC_set_indicator_list(){
   }
 
   DC_objects().list_indicator.children().find(".jscolor_send").each( function( key, value ){ new jscolor( value ); } );
-  DC_objects().list_indicator.children().find(".select_aq_url").each( function( key, value ){ DC_fill_select_list( jQuery( value ) ); } );
+  DC_objects().list_indicator.children().find("select").each( function( key, value ){ DC_fill_select_list( jQuery( value ) ); } );
   obj.collapsibleset( "refresh" );
 }
 

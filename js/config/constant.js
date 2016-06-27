@@ -5,6 +5,8 @@ function LAB_Constant(){
               "PAGE_DEVICE_CONNECTION"  : "device-connect",
 
               "LS_AQ_URL"   : "local_storage_select_aq_url",
+
+              "AJAX_TIMEOUT"  : 5000,
    };
 
   return ( function(r){ return r; } )(cst);

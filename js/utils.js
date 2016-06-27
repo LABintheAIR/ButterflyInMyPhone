@@ -4,22 +4,25 @@ function showPopup( message, type, modal ){
 
   switch( type ) {
     case "error":
-      $("#popup-general").css( "background-color", "#FF2828" );
+      $("#popup-general").css( "background-color", "#AA0A0A" );
+      $("#popup-general").css( "color", "#FFF" );
       break;
 
     case 'warning':
-      $("#popup-general").css( "background-color", "#F77B28" );
+      $("#popup-general").css( "background-color", "#D75B08" );
+      $("#popup-general").css( "color", "#FFF" );
       break;
-    
+
     default:
     case 'info':
       $("#popup-general").css( "background-color", "#FFF" );
+      $("#popup-general").css( "color", "#000" );
       break;
   }
 
   if( modal ) { $("#popup-general").attr( "data-dismissible", "true" ); }
   else{ $("#popup-general").attr( "data-dismissible", "false" ); }
-  
+
   $("#popup-general p").text( message );
 
   $("#popup-general").popup( "open" );
@@ -32,7 +35,7 @@ function showSimpleLoading( msg ) {
     textVisible: true,
     theme: "b"
   });
-} 
+}
 
 function hideLoading() {
   $("#overlay-div").hide();

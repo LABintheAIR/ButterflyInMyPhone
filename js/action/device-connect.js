@@ -99,7 +99,7 @@ function DC_set_butterfly_list(){
   obj.collapsibleset( "refresh" );
 }
 
-function DC_sendColor( parentObj ){
+function DC_sendColor(){
   var list = DC_objects().list_indicator;
   list.children().find('.jscolor_send').each( function( key, value ){
     var values = stringColorToArray( jQuery(value).val() );

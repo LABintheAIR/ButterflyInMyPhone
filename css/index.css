@@ -5,3 +5,8 @@
   text-align: center;
   width: 100px;
 }
+
+//Override
+.ui-loader-default {
+    opacity: 1 !important;
+}

@@ -7,7 +7,7 @@ function startScan(){
 
   BLE_storage = "";
   BLE_scan_devices = [];
-  
+
   ble.scan( [], 5, succesScan, failureScan );
   timeoutScan( 5 );
 }
@@ -30,7 +30,7 @@ function succesScan( device ){
   $('#devices').append( "<tr style='border: 1px solid black;'><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><input type='button' value='Connect' onclick='javascript:connectToDevice(" + BLE_scan_devices.length + ");'></td></tr>" );
   //$('#devices').append( "<tr style='border: 1px solid black;'><td>" + device.name + "</td><td>" + device.rssi + " dBm</td><td><input type='button' value='Connect' onclick='$( \":mobile-pagecontainer\" ).pagecontainer( \"change\", \"data/device-connect.html\" );'></td></tr>" );
   BLE_scan_devices.push( device );
-  
+
 }
 
 function failureScan(){
@@ -52,7 +52,7 @@ function successConnection( data ) {
 function failConnection( data ) {
   hideLoading();
   showPopup( "Connection failed...", 'warning' );
-  $.mobile.pageContainer.pagecontainer( "change", "#" + LAB_Constant().PAGE_INDEX );
+  window.history.go(-1);
 }
 
 function findFirstWriteCharac() {
@@ -65,7 +65,7 @@ function findFirstWriteCharac() {
       return tab[i];
     }
   }
-  
+
   return false;
 }
 
@@ -76,7 +76,7 @@ function sendBufferData( bufferData ){
     showPopup( "No Writable UUID", 'error' );
     return;
   }
-  
+
   ble.write( BLE_peripheral_data.id, charac.service, charac.characteristic, bufferData, function() {}, function() { showPopup("Failed to send data", 'error' ); });
 }
 
@@ -92,19 +92,12 @@ function generateDataBuffer( red, green, blue ){
   return data.buffer;
 }
 
-function sendColor()
-{
-  var values = stringColorToArray( $('#jscolor-send').val() );
- 
-  sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
-}
-
 function sendAirQuality()
 {
   showSimpleLoading( "Getting AirQuality" );
   $.ajax( window.localStorage.getItem( LAB_Constant().LS_AQ_URL ) )
-   .done( function( data ){ 
-    sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) ); 
+   .done( function( data ){
+    sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
    })
    .fail( function(){
     showPopup( "Fail to get AirQuality data", 'error' );
@@ -113,7 +106,3 @@ function sendAirQuality()
     hideLoading();
   });
 }
-
-
-
-

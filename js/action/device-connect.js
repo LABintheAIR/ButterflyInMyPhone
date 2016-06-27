@@ -106,3 +106,40 @@ function DC_sendColor(){
     sendBufferData( generateDataBuffer( values[0], values[1], values[2] ) );
   });
 }
+
+function DC_sendAirQaulity_counter(){
+  var counter = 0;
+
+  return {  "add" : function() {
+              return ++counter;
+            },
+            "del" : function() {
+              return --counter;
+            }
+          };
+}
+
+function DC_ajax_sendAirQuality( counterObject, selectObject ){
+  $.ajax( jQuery( selectObject ).val(), { "timeout" : LAB_Constant().AJAX_TIMEOUT } )
+   .done( function( data ){
+    sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
+   })
+   .fail( function( jqXHR, textStatus, errorThrown ){
+     showPopup( "Fail to get AirQuality data.\nURL : " + jQuery( selectObject ).val() + "\nError text status : " + textStatus + "\nError thrown : " + errorThrown, 'error' );
+   })
+   .always( function(){
+     if( counterObject.del() <= 0 ){
+       hideLoading();
+     }
+  });
+}
+
+function DC_sendAirQuality()
+{
+  var counterObject = DC_sendAirQaulity_counter();
+  DC_objects().list_indicator.children().find("select").each( function( key, value ){
+    showSimpleLoading( "Getting AirQuality");
+    counterObject.add();
+    DC_ajax_sendAirQuality( counterObject, value );
+  } );
+}

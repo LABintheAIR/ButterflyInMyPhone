@@ -95,7 +95,7 @@ function generateDataBuffer( red, green, blue ){
 function sendAirQuality()
 {
   showSimpleLoading( "Getting AirQuality" );
-  $.ajax( window.localStorage.getItem( LAB_Constant().LS_AQ_URL ) )
+  $.ajax( window.localStorage.getItem( LAB_Constant().LS_AQ_URL ), { "timeout" : LAB_Constant().AJAX_TIMEOUT } )
    .done( function( data ){
     sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
    })

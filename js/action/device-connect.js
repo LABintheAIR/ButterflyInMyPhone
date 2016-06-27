@@ -40,7 +40,7 @@ function DC_set_indicator_list(){
             '</tr>' +
             '<tr>' +
               '<td><select class="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery(\'#select_aq_url\').val());"></select></td>' +
-              '<td><input type="button" value="Get Air Quality" onclick="sendAirQuality()"></td>' +
+              '<td><input type="button" value="Get Air Quality" onclick="DC_sendAirQuality()"></td>' +
             '</tr>' +
           '</table>';
 

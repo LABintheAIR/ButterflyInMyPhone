@@ -29,6 +29,11 @@
         <script type="text/javascript">
             app.initialize();
 
+            window.onerror = function errorHandler(errorMsg, url, lineNumber) {
+                console.error("WINDOW.ERROR :\nError message : " + errorMsg + "\nURL : " + url + "\nLine : " + lineNumber );
+                showPopup("We're so sorry :'(<br>A JS error occured<br><ul><li>Error message : " + errorMsg + "</li><li>URL : " + url + "</li><li>Line : " + lineNumber + "</li></ul>");
+                return false;
+
             function onload(){
               document.addEventListener("deviceready", deviceReady, false);
             }
@@ -42,10 +47,6 @@
               $("[data-role='popup']").each(function() { $(this).popup(); } );
             }
 
-            window.onerror = function errorHandler(errorMsg, url, lineNumber) {
-                console.error("WINDOW.ERROR :\nError message : " + errorMsg + "\nURL : " + url + "\nLine : " + lineNumber );
-                showPopup("We're so sorry :'(<br>A JS error occured<br><ul><li>Error message : " + errorMsg + "</li><li>URL : " + url + "</li><li>Line : " + lineNumber + "</li></ul>");
-                return false;
             }
 
         </script>

@@ -21,4 +21,9 @@
 }
 .loading_box{
     opacity: 1 !important;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
 }

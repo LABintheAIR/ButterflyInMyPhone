@@ -59,27 +59,5 @@
             <input type="button" value="Start scan" onclick="startScan()" id="button_scan">
             <table id="devices" style="border-collapse: collapse; width: 100%"></table>
         </div>
-
-        <div data-role="page" id="device-connect">
-          <a href="javascript:window.history.go(-1);" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Retour</a>
-          <table>
-            <tr>
-              <td><h1><span class="device-name"></span></h1></td>
-              <td>Nb&nbsp;leds&nbsp;:&nbsp;<input type="number" id="DC-nb-led" min="1" max="20" step="1" value="1" onchange="DC_onchange_number_led()"></td>
-            </tr>
-          </table>
-
-          <div data-role="collapsibleset" data-theme="a" data-content-theme="a" id="DC-indicator-list">
-          </div>
-
-          <div class="ui-grid-a" id="DC-butterfly-list">
-          </div>
-        </div>
-
-        <div id="overlay-div" style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: #000; opacity: 0.3; display: none"></div>
-        <div data-role="popup" id="popup-general" style="padding: 10px 5px;">
-          <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
-          <p></p>
-        </div>
     </body>
 </html>

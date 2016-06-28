@@ -67,6 +67,7 @@ function DC_fill_select_list( indicatorNumber, selectField ){
     select = select.indicators[indicatorNumber];
   }
 
+  selectField.empty();
   jQuery.each( LAB_Url_Station(), function( key, value ) {
     var selected = "";
     if( value == select ) { selected = "selected='selected'"; }

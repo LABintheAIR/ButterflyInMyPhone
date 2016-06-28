@@ -2,7 +2,7 @@
 
 function LAB_Constant(){
   var cst = { "PAGE_INDEX"              : "index",
-              "PAGE_DEVICE_CONNECTION"  : "device-connect",
+              "PAGE_DEVICE_CONNECTION"  : "data/device-connect.html",
 
               "LS_DEVICE_PARAM_PREFIX" : "local_storage_LABAIR_device_parameters_",
 

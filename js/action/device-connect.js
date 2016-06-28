@@ -35,11 +35,11 @@ function DC_set_indicator_list(){
   var current = obj.children().length;
   var form =  '<table style="width: 100%">' +
               '<tr>' +
-              '<td><input value="ffcc00" class="jscolor_send jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}"></td>' +
-              '<td><input type="button" value="Send color" onclick="DC_sendColor($(this).parents(\'tr\'));"></td>' +
+              '<td><input onchange="DC_save_localStrorage();" class="jscolor_send jscolor {mode: \'HVS\', width:243, height:150, position:\'bottom\', borderColor:\'#FFF\', insetColor:\'#FFF\', backgroundColor:\'#666\'}"></td>' +
+              '<td><input type="button" value="Send color" onclick="DC_sendColor();"></td>' +
             '</tr>' +
             '<tr>' +
-              '<td><select class="select_aq_url" onchange="window.localStorage.setItem(LOCAL_AQ_URL, jQuery(\'#select_aq_url\').val());"></select></td>' +
+              '<td><select class="select_aq_url" onchange="DC_save_localStrorage();"></select></td>' +
               '<td><input type="button" value="Get Air Quality" onclick="DC_sendAirQuality()"></td>' +
             '</tr>' +
           '</table>';
@@ -164,4 +164,16 @@ function DC_sendAirQuality()
     counterObject.add();
     DC_ajax_sendAirQuality( counterObject, value, nbTotalRequest );
   } );
+}
+
+function DC_save_localStrorage(){
+  var obj = { "length" : DC_objects.number_led,
+              "indicators" : {},
+              "colors" : {}
+            };
+
+  DC_objects().list_indicator.children().find(".jscolor_send").each( function( key, value ){ obj.colors[key] = jQuery(value).val(); } );
+  DC_objects().list_indicator.children().find("select").each( function( key, value ){ obj.indicators[key] = jQuery(value).val(); } );
+
+  window.localStorage.setItem( LAB_Constant().LS_DEVICE_PARAM_PREFIX + BLE_peripheral_data.id, JSON.stringify(obj) );
 }

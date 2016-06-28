@@ -121,21 +121,22 @@ function DC_sendAirQaulity_counter(){
 
 function DC_ajax_sendAirQuality( counterObject, selectObject, nbTotalRequest ){
   $.ajax( jQuery( selectObject ).val(), { "timeout" : LAB_Constant().AJAX_TIMEOUT } )
-   .done( function( data ){
-    sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
-   })
-   .fail( function( jqXHR, textStatus, errorThrown ){
-     showPopup( "Fail to get AirQuality data.\nURL : " + jQuery( selectObject ).val() + "\nError text status : " + textStatus + "\nError thrown : " + errorThrown, 'error' );
-   })
-   .always( function(){
-     var counter = counterObject.del();
-     if(  counter <= 0 ){
-       hideLoading();
-     }
-     else {
-       showSimpleLoading( "Getting AirQuality... " + (100 - truncNumber( (counter * 100) / nbTotalRequest ) ) + "%" );
-     }
-  });
+    .done( function( data ){
+      sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
+    })
+    .fail( function( jqXHR, textStatus, errorThrown ){
+      showPopup( "Fail to get AirQuality data.\nURL : " + jQuery( selectObject ).val() + "\nError text status : " + textStatus + "\nError thrown : " + errorThrown, 'error' );
+      sendBufferData( generateDataBuffer( 0, 0, 0 ) );
+    })
+    .always( function(){
+      var counter = counterObject.del();
+      if(  counter <= 0 ){
+        hideLoading();
+      }
+      else {
+        showSimpleLoading( "Getting AirQuality... " + (100 - truncNumber( (counter * 100) / nbTotalRequest ) ) + "%" );
+      }
+    });
 }
 
 function DC_sendAirQuality()

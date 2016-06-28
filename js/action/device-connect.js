@@ -167,7 +167,7 @@ function DC_sendAirQuality()
 }
 
 function DC_save_localStrorage(){
-  var obj = { "length" : DC_objects.number_led,
+  var obj = { "length" : DC_objects().number_led,
               "indicators" : {},
               "colors" : {}
             };

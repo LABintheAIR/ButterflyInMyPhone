@@ -19,7 +19,7 @@
   text-align: center;
   vertical-align: middle;
 }
-.loading_box{
+.ui-loader-ui{
     opacity: 1 !important;
     left: 0;
     top: 0;

@@ -91,18 +91,3 @@ function generateDataBuffer( red, green, blue ){
 
   return data.buffer;
 }
-
-function sendAirQuality()
-{
-  showSimpleLoading( "Getting AirQuality" );
-  $.ajax( window.localStorage.getItem( LAB_Constant().LS_AQ_URL ), { "timeout" : LAB_Constant().AJAX_TIMEOUT } )
-   .done( function( data ){
-    sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
-   })
-   .fail( function( jqXHR, textStatus, errorThrown ){
-    showPopup( "Fail to get AirQuality data.<br>Error text status : " + textStatus + "<br>Error thrown : " + errorThrown, 'error' );
-   })
-   .always( function(){
-    hideLoading();
-  });
-}

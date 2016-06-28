@@ -4,7 +4,6 @@ function LAB_Constant(){
   var cst = { "PAGE_INDEX"              : "index",
               "PAGE_DEVICE_CONNECTION"  : "device-connect",
 
-              "LS_AQ_URL"       : "local_storage_select_aq_url",  //TO DELETE
               "LS_DEVICE_PARAM_PREFIX" : "local_storage_LABAIR_device_parameters_",
 
               "AJAX_TIMEOUT"  : 5000,

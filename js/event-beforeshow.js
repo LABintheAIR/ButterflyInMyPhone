@@ -9,12 +9,11 @@ $(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_DEVICE_CONNECTION, f
   jQuery('.device-name').text( BLE_peripheral_data.name );
   jQuery('#select_aq_url').text('');
 
-  var select = window.localStorage.getItem( LAB_Constant().LS_AQ_URL );
-
-  jQuery.each( LAB_Url_Station(), function( key, value ) {
-    var selected = "";
-    if( value == select ) { selected = "selected='selected'"; }
-    jQuery('#select_aq_url').append( "<option value='" + value + "' " + selected + ">" + key + "</option>" );
-  });
-  jQuery('#select_aq_url').selectmenu("refresh");
+  var item = window.localStorage.getItem( LAB_Constant().LS_DEVICE_PARAM_PREFIX + BLE_peripheral_data.id );
+  if( item === null ){
+    DC_set_number_led( 1 );
+  }
+  else{
+    DC_set_number_led( JSON.parse( item ).length );
+  }
 });

@@ -46,7 +46,7 @@ function connectToDevice( id ) {
 function successConnection( data ) {
   BLE_peripheral_data = data;
   hideLoading();
-  $.mobile.pageContainer.pagecontainer( "change", LAB_Constant().PAGE_DEVICE_CONNECTION );
+  $( ":mobile-pagecontainer" ).pagecontainer( "load", LAB_Constant().PAGE_DEVICE_CONNECTION );
 }
 
 function failConnection( data ) {

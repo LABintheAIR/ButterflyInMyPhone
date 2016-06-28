@@ -125,7 +125,7 @@ function DC_ajax_sendAirQuality( counterObject, selectObject, nbTotalRequest ){
       sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
     })
     .fail( function( jqXHR, textStatus, errorThrown ){
-      showPopup( "Fail to get AirQuality data.<br>URL : " + jQuery( selectObject ).val() + "<br>Error text status : " + textStatus + "<br>Error thrown : " + errorThrown, 'error' );
+      showPopup( "Fail to get AirQuality data.<br>URL : " + jQuery( selectObject ).val() + "<br>Status code : " + jqXHR.status + "<br>Error text status : " + textStatus + "<br>Error thrown : " + errorThrown, 'error' );
       sendBufferData( generateDataBuffer( 0, 0, 0 ) );
     })
     .always( function(){

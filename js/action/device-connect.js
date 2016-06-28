@@ -64,7 +64,7 @@ function DC_set_indicator_list(){
 function DC_fill_select_list( indicatorNumber, selectField ){
   var select = window.localStorage.getItem( LAB_Constant().LS_DEVICE_PARAM_PREFIX + BLE_peripheral_data.id );
   if( select !== null ){
-    select = select.indicators[indicatorNumber];
+    select = JSON.parse(select).indicators[indicatorNumber];
   }
 
   selectField.empty();
@@ -79,7 +79,7 @@ function DC_fill_select_list( indicatorNumber, selectField ){
 function DC_set_colorfiled_value( indicatorNumber, colorField ){
   var value = window.localStorage.getItem( LAB_Constant().LS_DEVICE_PARAM_PREFIX + BLE_peripheral_data.id );
   if( value !== null ){
-    value = value.colors[indicatorNumber];
+    value = JSON.parse(value).colors[indicatorNumber];
   }
   else {
     value = "FFFFFF";

@@ -56,13 +56,16 @@ function DC_set_indicator_list(){
     }
   }
 
-  DC_objects().list_indicator.children().find(".jscolor_send").each( function( key, value ){ new jscolor( value ); } );
-  DC_objects().list_indicator.children().find("select").each( function( key, value ){ DC_fill_select_list( jQuery( value ) ); } );
+  DC_objects().list_indicator.children().find(".jscolor_send").each( function( key, value ){ DC_set_colorfiled_value( key, jQuery( value ) ); } );
+  DC_objects().list_indicator.children().find("select").each( function( key, value ){ DC_fill_select_list( key, jQuery( value ) ); } );
   obj.collapsibleset( "refresh" );
 }
 
-function DC_fill_select_list( selectField ){
-  var select = window.localStorage.getItem( LAB_Constant().LS_AQ_URL );
+function DC_fill_select_list( indicatorNumber, selectField ){
+  var select = window.localStorage.getItem( LAB_Constant().LS_DEVICE_PARAM_PREFIX + BLE_peripheral_data.id );
+  if( select !== null ){
+    select = select.indicators[indicatorNumber];
+  }
 
   jQuery.each( LAB_Url_Station(), function( key, value ) {
     var selected = "";
@@ -70,6 +73,19 @@ function DC_fill_select_list( selectField ){
     selectField.append( "<option value='" + value + "' " + selected + ">" + key + "</option>" );
   });
   selectField.selectmenu("refresh");
+}
+
+function DC_set_colorfiled_value( indicatorNumber, colorField ){
+  var value = window.localStorage.getItem( LAB_Constant().LS_DEVICE_PARAM_PREFIX + BLE_peripheral_data.id );
+  if( value !== null ){
+    value = value.colors[indicatorNumber];
+  }
+  else {
+    value = "FFFFFF";
+  }
+
+  colorField.val( value );
+  new jscolor( colorField[0] );
 }
 
 function DC_set_butterfly_list(){

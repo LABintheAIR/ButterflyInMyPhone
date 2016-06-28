@@ -3,7 +3,7 @@ $(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_INDEX, function() {
     ble.disconnect( BLE_peripheral_data.id );
   }
 });
-
+/*
 $(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_DEVICE_CONNECTION, function() {
   console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
   jQuery('.device-name').text( BLE_peripheral_data.name );
@@ -17,3 +17,4 @@ $(document).on( 'pagebeforeshow', '#' + LAB_Constant().PAGE_DEVICE_CONNECTION, f
     DC_set_number_led( JSON.parse( item ).length );
   }
 });
+*/

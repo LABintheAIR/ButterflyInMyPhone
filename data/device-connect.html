@@ -12,13 +12,6 @@
 
   <div class="ui-grid-a" id="DC-butterfly-list">
   </div>
-</div>
-
-<div id="overlay-div" style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: #000; opacity: 0.3; display: none"></div>
-<div data-role="popup" id="popup-general" style="padding: 10px 5px;">
-  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
-  <p></p>
-
   <script type="text/javascript">
     console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
     jQuery('.device-name').text( BLE_peripheral_data.name );

@@ -100,7 +100,7 @@ function sendAirQuality()
     sendBufferData( generateDataBuffer( data.color[0][0], data.color[0][1], data.color[0][2] ) );
    })
    .fail( function( jqXHR, textStatus, errorThrown ){
-    showPopup( "Fail to get AirQuality data.\nError text status : " + textStatus + "\nError thrown : " + errorThrown, 'error' );
+    showPopup( "Fail to get AirQuality data.<br>Error text status : " + textStatus + "<br>Error thrown : " + errorThrown, 'error' );
    })
    .always( function(){
     hideLoading();

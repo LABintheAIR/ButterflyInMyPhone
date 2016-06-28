@@ -18,4 +18,18 @@
 <div data-role="popup" id="popup-general" style="padding: 10px 5px;">
   <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
   <p></p>
+
+  <script type="text/javascript">
+    console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
+    jQuery('.device-name').text( BLE_peripheral_data.name );
+    jQuery('#select_aq_url').text('');
+
+    var item = window.localStorage.getItem( LAB_Constant().LS_DEVICE_PARAM_PREFIX + BLE_peripheral_data.id );
+    if( item === null ){
+      DC_set_number_led( 1 );
+    }
+    else{
+      DC_set_number_led( JSON.parse( item ).length );
+    }
+  </script>
 </div>

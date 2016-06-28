@@ -13,6 +13,7 @@
   <div class="ui-grid-a" id="DC-butterfly-list">
   </div>
   <script type="text/javascript">
+    alert( "load" );
     console.log( JSON.stringify( BLE_peripheral_data, undefined, 4 ) );
     jQuery('.device-name').text( BLE_peripheral_data.name );
 
@@ -23,5 +24,6 @@
     else{
       DC_set_number_led( JSON.parse( item ).length );
     }
+    alert( "end load" );
   </script>
 </div>

@@ -4,9 +4,10 @@
   background-color: #000;
   border-radius: 10px;
   text-align: center;
-  width: 10%;
+  max-width: 200px;
   padding: 10px;
 }
+
 .loading_box_container{
   opacity: 1 !important;
   left: 0;
@@ -19,6 +20,7 @@
   text-align: center;
   vertical-align: middle;
 }
+
 .ui-loader-default{
     opacity: 1 !important;
     left: 0;

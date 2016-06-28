@@ -1,9 +1,10 @@
 .loading_box{
+  display: inline-block;
   color: #FFF;
   background-color: #000;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
-  width: 100px;
+  width: 10%;
   padding: 10px;
 }
 
@@ -14,5 +15,8 @@
     height: 100vh;
     width: 100vw;
     padding: 0;
-    margin: auto;
+    margin: 0;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }

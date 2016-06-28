@@ -59,5 +59,11 @@
             <input type="button" value="Start scan" onclick="startScan()" id="button_scan">
             <table id="devices" style="border-collapse: collapse; width: 100%"></table>
         </div>
+
+        <div id="overlay-div" style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background-color: #000; opacity: 0.3; display: none"></div>
+        <div data-role="popup" id="popup-general" style="padding: 10px 5px;">
+          <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+          <p></p>
+        </div>
     </body>
 </html>

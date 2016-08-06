@@ -29,7 +29,19 @@ body {
   text-align: center;
   vertical-align: middle;
 }
- /*
-  * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css
-  * for the full set of master styles used by the documentation samples
-  */
+
+.button,
+.button:visited,
+.button:active {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #EEE;
+  text-decoration: none;
+  color: #444;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: #DDD;
+}

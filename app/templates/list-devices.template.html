@@ -1,7 +1,12 @@
 <div>
+  <a class="button link-scan" href="#">Scan devices</a>
   <ul class="devices">
     <li *ngFor="let device of devices">
-      <div>{{device.name}}</div>
+      <div class="button">
+        {{device.name}}<div class="info-connect">Clic to connect...</div><br>
+        <span class="address">{{device.id}}</span>
+
+      </div>
     </li>
   </ul>
 </div>

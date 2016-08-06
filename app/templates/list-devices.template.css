@@ -30,3 +30,7 @@
   font-size: 1.5em;
   text-align: center;
 }
+
+.rssi-db {
+  font-size: 0.8em;
+}

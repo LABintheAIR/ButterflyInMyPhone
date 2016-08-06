@@ -3,7 +3,7 @@
   <ul class="devices">
     <li *ngFor="let device of devices">
       <div class="button">
-        {{device.name}}<div class="info-connect">Clic to connect...</div><br>
+        {{device.name}} <span class="rssi-db">({{device.rssi}} dB)</span><div class="info-connect">Clic to connect...</div><br>
         <span class="address">{{device.id}}</span>
 
       </div>

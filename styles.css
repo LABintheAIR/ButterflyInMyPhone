@@ -5,10 +5,30 @@ h1 {
 }
 
 body {
-  margin: 2em;
+  margin : 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 2em;
 }
 
+.loading-index{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #CCC;
+
+  font-size: 2.5em;
+}
+
+.loading-index div{
+  width: 100vw;
+  height: 100vh;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
  /*
   * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css
   * for the full set of master styles used by the documentation samples

@@ -4,7 +4,7 @@ import { BLEService } from '../services/ble.service';
 
 @Component({
   selector : "butterfly-app",
-  template : "<h1>{{title}}</h1><list-device></list-device>",
+  template : "<list-device></list-device>",
   directives : [ListDevicesComponent],
   providers : [BLEService]
 })

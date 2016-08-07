@@ -18,7 +18,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "butterfly-app",
-            template: "<h1>{{title}}</h1><list-device></list-device>",
+            template: "<list-device></list-device>",
             directives: [list_devices_component_1.ListDevicesComponent],
             providers: [ble_service_1.BLEService]
         }), 

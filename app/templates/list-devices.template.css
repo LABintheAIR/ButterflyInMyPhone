@@ -1,17 +1,41 @@
 .devices{
+  padding: 0;
   list-style-type: none;
-  font-size: 1.5em;
+  margin-top: 0;
 }
 
 .devices li{
   margin-bottom: 5px;
 }
 
-.devices li div{
-  width: 50%;
-  display: inline-block;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: #EEE;
-  cursor: pointer;
+.devices li .button{
+  width: 100%;
+}
+
+.address {
+  font-size: 0.8em;
+  color: #A0A0A0;
+  padding-left: 1em;
+}
+
+.info-connect{
+  float: right;
+  width: auto !important;
+  font-size: 0.8em !important;
+  color: #A0A0A0;
+}
+
+.link-scan {
+  font-size: 1.2em;
+  text-align: center;
+  width: 100%
+}
+
+.rssi-db {
+  font-size: 0.8em;
+}
+
+.right{
+  width: 100%;
+  text-align: right;
 }

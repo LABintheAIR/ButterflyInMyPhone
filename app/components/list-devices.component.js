@@ -15,6 +15,9 @@ var ListDevicesComponent = (function () {
         this.bleService = bleService;
     }
     ListDevicesComponent.prototype.ngOnInit = function () {
+        this.startScan();
+    };
+    ListDevicesComponent.prototype.startScan = function () {
         var _this = this;
         this.bleService.scanBLE().then(function (devs) { return _this.devices = devs; });
     };

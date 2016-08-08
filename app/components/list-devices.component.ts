@@ -15,7 +15,11 @@ export class ListDevicesComponent
   devices : BLEDevice[];
 
   ngOnInit(){
-    this.bleService.scanBLE().then( devs => this.devices = devs );
+    this.startScan();
+  }
+
+  startScan(){
+      this.bleService.scanBLE().then( devs => this.devices = devs );
   }
 
 }

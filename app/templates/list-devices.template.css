@@ -39,3 +39,8 @@
   width: 100%;
   text-align: right;
 }
+
+.pic-info{
+  max-width: 100%;
+  max-height: 100%;
+}

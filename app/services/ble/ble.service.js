@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ble_devices_mock_1 = require('../mocks/ble-devices.mock');
+var ble_devices_mock_1 = require('../../mocks/ble-devices/ble-devices.mock');
 var BLEService = (function () {
     function BLEService() {
     }

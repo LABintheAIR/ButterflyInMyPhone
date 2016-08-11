@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 
-import { BLEService } from '../services/ble.service';
-import { BLEDevice } from '../objects/ble-device.object';
+import { BLEService } from '../../services/ble/ble.service';
+import { BLEDevice } from '../../objects/ble-device/ble-device.object';
 
 @Component({
   selector : "list-device",
-  templateUrl : "app/templates/list-devices.template.html",
-  styleUrls : [`app/templates/list-devices.template.css`],
+  templateUrl : "app/templates/list-devices/list-devices.template.html",
+  styleUrls : [`app/templates/list-devices/list-devices.template.css`],
 })
 
 export class ListDevicesComponent

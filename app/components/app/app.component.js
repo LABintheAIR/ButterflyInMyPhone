@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var list_devices_component_1 = require('./list-devices.component');
-var ble_service_1 = require('../services/ble.service');
+var list_devices_component_1 = require('../list-devices/list-devices.component');
+var ble_service_1 = require('../../services/ble/ble.service');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Butterfly in my Phone";

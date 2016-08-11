@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var ble_service_1 = require('../services/ble.service');
+var ble_service_1 = require('../../services/ble/ble.service');
 var ListDevicesComponent = (function () {
     function ListDevicesComponent(bleService) {
         this.bleService = bleService;
@@ -24,8 +24,8 @@ var ListDevicesComponent = (function () {
     ListDevicesComponent = __decorate([
         core_1.Component({
             selector: "list-device",
-            templateUrl: "app/templates/list-devices.template.html",
-            styleUrls: ["app/templates/list-devices.template.css"],
+            templateUrl: "app/templates/list-devices/list-devices.template.html",
+            styleUrls: ["app/templates/list-devices/list-devices.template.css"],
         }), 
         __metadata('design:paramtypes', [ble_service_1.BLEService])
     ], ListDevicesComponent);

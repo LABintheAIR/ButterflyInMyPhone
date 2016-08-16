@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var list_devices_component_1 = require('../list-devices/list-devices.component');
-var ble_service_1 = require('../../services/ble/ble.service');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Butterfly in my Phone";
@@ -18,9 +17,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "butterfly-app",
-            template: "<list-device></list-device>",
+            template: "<router-outlet></router-outlet>",
             directives: [list_devices_component_1.ListDevicesComponent],
-            providers: [ble_service_1.BLEService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

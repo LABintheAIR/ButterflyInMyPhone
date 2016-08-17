@@ -30,9 +30,9 @@ body {
   vertical-align: middle;
 }
 
-.button,
-.button:visited,
-.button:active {
+button,
+button:visited,
+button:active {
   border-radius: 5px;
   padding: 5px;
   background-color: #EEE;
@@ -41,8 +41,13 @@ body {
   display: inline-block;
   cursor: pointer;
   box-sizing: border-box;
+  border-width: inherit;
+  border-style: none;
+  border-color: inherit;
+  text-align: inherit;
+  font: inherit;
 }
 
-.button:hover{
+button:hover {
   background-color: #DDD;
 }

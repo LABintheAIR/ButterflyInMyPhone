@@ -1,5 +1,8 @@
 <html>
   <head>
+    <!-- <base href="/"> -->
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
     <title>Butterfly In My Phone</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +19,6 @@
       System.import('app').catch(function(err){ console.error(err); });
     </script>
 
-    <base href="/">
   </head>  <!-- 3. Display the application -->
   <body>
     <butterfly-app>

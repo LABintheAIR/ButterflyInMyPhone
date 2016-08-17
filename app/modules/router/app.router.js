@@ -8,7 +8,7 @@ var appRoutes = [
         component: list_devices_component_1.ListDevicesComponent
     },
     {
-        path: 'connection/:id',
+        path: 'device-connection/:id',
         component: device_connection_component_1.DeviceConnectionComponent
     },
     {

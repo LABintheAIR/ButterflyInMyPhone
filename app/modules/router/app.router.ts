@@ -9,7 +9,7 @@ const appRoutes: Routes = [
     component: ListDevicesComponent
   },
   {
-    path: 'connection/:id',
+    path: 'device-connection/:id',
     component: DeviceConnectionComponent
   },
   {

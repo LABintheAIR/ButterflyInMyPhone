@@ -5,6 +5,8 @@ import { FormsModule }   from '@angular/forms';
 import { AppRouter } from "../router/app.router";
 
 import { AppComponent }  from '../../components/app/app.component';
+import { ListDevicesComponent } from '../../components/list-devices/list-devices.component';
+import { DeviceConnectionComponent } from '../../components/device-connection/device-connection.component';
 
 import { BLEService } from '../../services/ble/ble.service';
 
@@ -14,7 +16,11 @@ import { BLEService } from '../../services/ble/ble.service';
     FormsModule,
     AppRouter
   ],
-  declarations: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    ListDevicesComponent,
+    DeviceConnectionComponent
+  ],
   providers : [ BLEService ],
   bootstrap:    [ AppComponent ]
 })

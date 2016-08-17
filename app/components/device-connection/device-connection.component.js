@@ -12,7 +12,8 @@ var core_1 = require("@angular/core");
 var router_1 = require('@angular/router');
 var ble_service_1 = require('../../services/ble/ble.service');
 var DeviceConnectionComponent = (function () {
-    function DeviceConnectionComponent(bleService, route) {
+    function DeviceConnectionComponent(router, bleService, route) {
+        this.router = router;
         this.bleService = bleService;
         this.route = route;
     }
@@ -20,7 +21,9 @@ var DeviceConnectionComponent = (function () {
         var _this = this;
         this.route.params.forEach(function (params) {
             var idDevice = params['id'];
-            _this.bleService.connectToDevice(idDevice).then(function (dev) { return _this.device = dev; });
+            _this.bleService.connectToDevice(idDevice)
+                .then(function (dev) { return _this.device = dev; })
+                .catch(function (str) { return _this.router.navigate(['/list-devices', str]); });
         });
     };
     DeviceConnectionComponent = __decorate([
@@ -29,7 +32,7 @@ var DeviceConnectionComponent = (function () {
             templateUrl: "app/templates/device-connection/device-connection.template.html",
             styleUrls: ["app/templates/device-connection/device-connection.template.css"],
         }), 
-        __metadata('design:paramtypes', [ble_service_1.BLEService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.Router, ble_service_1.BLEService, router_1.ActivatedRoute])
     ], DeviceConnectionComponent);
     return DeviceConnectionComponent;
 }());

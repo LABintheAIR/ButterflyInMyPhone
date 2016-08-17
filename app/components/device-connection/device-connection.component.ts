@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { BLEService } from '../../services/ble/ble.service';
 import { BLEDevice } from '../../objects/ble-device/ble-device.object';
@@ -12,13 +12,16 @@ import { BLEDevice } from '../../objects/ble-device/ble-device.object';
 
 export class DeviceConnectionComponent{
   private device : BLEDevice;
-  constructor( private bleService : BLEService,
+  constructor( private router : Router,
+               private bleService : BLEService,
                private route: ActivatedRoute) {}
 
   ngOnInit(){
     this.route.params.forEach( (params: Params) => {
       let idDevice = params['id'];
-      this.bleService.connectToDevice( idDevice ).then( dev => this.device = dev );
+      this.bleService.connectToDevice( idDevice )
+            .then( dev => this.device = dev )
+            .catch( str => this.router.navigate(['/list-devices', str]) );
     });
   }
 }

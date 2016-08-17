@@ -17,16 +17,21 @@ var BLEService = (function () {
         return Promise.resolve(ble_devices_mock_1.BLE_DEVICES);
     };
     BLEService.prototype.connectToDevice = function (id) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            return setTimeout(function () { return resolve(_this.scanBLE()
-                .then(function (devices) { return devices.find(function (dev) { return dev.id === id; }); })); }, 2000);
-        } // 2 seconds
-         // 2 seconds
-        );
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            that.scanBLE().then(function (devices) {
+                var dev = devices.find(function (d) { return d.id === id; });
+                if (dev === undefined) {
+                    reject("No device found with the ID '" + id + "'");
+                }
+                else {
+                    resolve(dev);
+                }
+            });
+        });
     };
     BLEService = __decorate([
-        core_1.Injectable(), 
+        core_1.Injectable(),
         __metadata('design:paramtypes', [])
     ], BLEService);
     return BLEService;

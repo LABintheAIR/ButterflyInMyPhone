@@ -9,6 +9,10 @@ const appRoutes: Routes = [
     component: ListDevicesComponent
   },
   {
+    path: 'list-devices/:str_error',
+    component: ListDevicesComponent
+  },
+  {
     path: 'device-connection/:id',
     component: DeviceConnectionComponent
   },

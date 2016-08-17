@@ -8,6 +8,10 @@ var appRoutes = [
         component: list_devices_component_1.ListDevicesComponent
     },
     {
+        path: 'list-devices/:str_error',
+        component: list_devices_component_1.ListDevicesComponent
+    },
+    {
         path: 'device-connection/:id',
         component: device_connection_component_1.DeviceConnectionComponent
     },

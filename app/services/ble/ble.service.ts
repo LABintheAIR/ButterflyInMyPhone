@@ -10,9 +10,19 @@ export class BLEService{
   }
 
   connectToDevice( id : string ){
-    return new Promise<BLEDevice>(resolve =>
-      setTimeout(() => resolve(this.scanBLE()
-                 .then(devices => devices.find(dev => dev.id === id))), 2000) // 2 seconds
-    );
+    let that = this;
+    return new Promise<BLEDevice>(function( resolve, reject ){
+
+      that.scanBLE().then( function( devices ){
+        let dev = devices.find(d => d.id === id);
+
+        if( dev === undefined ){
+          reject( "No device found with the ID '" + id + "'" );
+        }
+        else{
+          resolve(dev);
+        }
+      });
+    });
   }
 }

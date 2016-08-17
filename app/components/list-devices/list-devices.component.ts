@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 import { BLEService } from '../../services/ble/ble.service';
 import { BLEDevice } from '../../objects/ble-device/ble-device.object';
@@ -11,7 +12,8 @@ import { BLEDevice } from '../../objects/ble-device/ble-device.object';
 
 export class ListDevicesComponent
 {
-  constructor( private bleService : BLEService ) {}
+  constructor( private router: Router,
+               private bleService : BLEService ) {}
   devices : BLEDevice[];
 
   ngOnInit(){
@@ -20,6 +22,10 @@ export class ListDevicesComponent
 
   startScan(){
       this.bleService.scanBLE().then( devs => this.devices = devs );
+  }
+
+  onSelectDevice( dev: BLEDevice ){
+    this.router.navigate(['/device-connection', dev.id]);
   }
 
 }

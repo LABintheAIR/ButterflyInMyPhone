@@ -9,7 +9,7 @@
   <div *ngIf="devices">
     <ul class="devices">
       <li *ngFor="let device of devices">
-        <button>
+        <button (click)="onSelectDevice(device)">
             {{device.name | uppercase }} <div class="info-connect">Click to connect...</div><br>
         </button>
       </li>

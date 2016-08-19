@@ -2,6 +2,7 @@
 var router_1 = require('@angular/router');
 var list_devices_component_1 = require('../../components/list-devices/list-devices.component');
 var device_connection_component_1 = require('../../components/device-connection/device-connection.component');
+var air_quality_component_1 = require('../../components/air-quality/air-quality.component');
 var appRoutes = [
     {
         path: 'list-devices',
@@ -14,6 +15,10 @@ var appRoutes = [
     {
         path: 'device-connection/:id',
         component: device_connection_component_1.DeviceConnectionComponent
+    },
+    {
+        path: 'air-quality',
+        component: air_quality_component_1.AirQualityComponent
     },
     {
         path: '',

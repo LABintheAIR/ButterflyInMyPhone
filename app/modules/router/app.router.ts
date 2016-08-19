@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ListDevicesComponent } from '../../components/list-devices/list-devices.component';
 import { DeviceConnectionComponent } from '../../components/device-connection/device-connection.component';
+import { AirQualityComponent } from '../../components/air-quality/air-quality.component';
 
 const appRoutes: Routes = [
   {
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
   {
     path: 'device-connection/:id',
     component: DeviceConnectionComponent
+  },
+  {
+    path: 'air-quality',
+    component: AirQualityComponent
   },
   {
     path: '',

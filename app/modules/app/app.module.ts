@@ -7,6 +7,7 @@ import { AppRouter } from "../router/app.router";
 import { AppComponent }  from '../../components/app/app.component';
 import { ListDevicesComponent } from '../../components/list-devices/list-devices.component';
 import { DeviceConnectionComponent } from '../../components/device-connection/device-connection.component';
+import { AirQualityComponent } from '../../components/air-quality/air-quality.component';
 
 import { BLEService } from '../../services/ble/ble.service';
 
@@ -19,7 +20,8 @@ import { BLEService } from '../../services/ble/ble.service';
   declarations: [
     AppComponent,
     ListDevicesComponent,
-    DeviceConnectionComponent
+    DeviceConnectionComponent,
+    AirQualityComponent,
   ],
   providers : [ BLEService ],
   bootstrap:    [ AppComponent ]

@@ -15,6 +15,7 @@ var app_router_1 = require("../router/app.router");
 var app_component_1 = require('../../components/app/app.component');
 var list_devices_component_1 = require('../../components/list-devices/list-devices.component');
 var device_connection_component_1 = require('../../components/device-connection/device-connection.component');
+var air_quality_component_1 = require('../../components/air-quality/air-quality.component');
 var ble_service_1 = require('../../services/ble/ble.service');
 var AppModule = (function () {
     function AppModule() {
@@ -29,7 +30,8 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 list_devices_component_1.ListDevicesComponent,
-                device_connection_component_1.DeviceConnectionComponent
+                device_connection_component_1.DeviceConnectionComponent,
+                air_quality_component_1.AirQualityComponent,
             ],
             providers: [ble_service_1.BLEService],
             bootstrap: [app_component_1.AppComponent]

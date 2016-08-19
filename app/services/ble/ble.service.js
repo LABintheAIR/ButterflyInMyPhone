@@ -12,26 +12,31 @@ var core_1 = require('@angular/core');
 var ble_devices_mock_1 = require('../../mocks/ble-devices/ble-devices.mock');
 var BLEService = (function () {
     function BLEService() {
+        this.connectedDevice = null;
     }
     BLEService.prototype.scanBLE = function () {
         return Promise.resolve(ble_devices_mock_1.BLE_DEVICES);
     };
     BLEService.prototype.connectToDevice = function (id) {
         var that = this;
+        // TODO : Disconnect the device if exist !
+        this.connectedDevice = null;
         return new Promise(function (resolve, reject) {
             that.scanBLE().then(function (devices) {
                 var dev = devices.find(function (d) { return d.id === id; });
                 if (dev === undefined) {
+                    this.connectedDevice = null;
                     reject("No device found with the ID '" + id + "'");
                 }
                 else {
+                    this.connectedDevice = dev;
                     resolve(dev);
                 }
             });
         });
     };
     BLEService = __decorate([
-        core_1.Injectable(),
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
     ], BLEService);
     return BLEService;

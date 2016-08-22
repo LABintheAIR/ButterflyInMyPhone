@@ -4,6 +4,7 @@ import { Component,
   style,
   transition,
   animate } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "menu",
@@ -26,7 +27,38 @@ import { Component,
 export class MenuComponent{
   public state = 'active';
 
+  constructor( private router : Router ){}
+
   toggleState(){
     this.state = (this.state === 'active' ? 'inactive' : 'active');
+  }
+
+  forceInactive(){
+    this.state = 'inactive';
+  }
+
+  gotoAirQuality(){
+    this.forceInactive();
+    this.router.navigate(['/air-quality']);
+  }
+
+  gotoCustomize(){
+    this.forceInactive();
+    //this.router.navigate(['/air-quality']);
+  }
+
+  gotoTutorial(){
+    this.forceInactive();
+    //this.router.navigate(['/air-quality']);
+  }
+
+  gotoShare(){
+    this.forceInactive();
+    //this.router.navigate(['/air-quality']);
+  }
+
+  gotoDisconnect(){
+    this.forceInactive();
+    //this.router.navigate(['/air-quality']);
   }
 }

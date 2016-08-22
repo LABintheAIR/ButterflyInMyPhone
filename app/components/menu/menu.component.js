@@ -9,12 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var MenuComponent = (function () {
-    function MenuComponent() {
+    function MenuComponent(router) {
+        this.router = router;
         this.state = 'active';
     }
     MenuComponent.prototype.toggleState = function () {
         this.state = (this.state === 'active' ? 'inactive' : 'active');
+    };
+    MenuComponent.prototype.forceInactive = function () {
+        this.state = 'inactive';
+    };
+    MenuComponent.prototype.gotoAirQuality = function () {
+        this.forceInactive();
+        this.router.navigate(['/air-quality']);
+    };
+    MenuComponent.prototype.gotoCustomize = function () {
+        this.forceInactive();
+        //this.router.navigate(['/air-quality']);
+    };
+    MenuComponent.prototype.gotoTutorial = function () {
+        this.forceInactive();
+        //this.router.navigate(['/air-quality']);
+    };
+    MenuComponent.prototype.gotoShare = function () {
+        this.forceInactive();
+        //this.router.navigate(['/air-quality']);
+    };
+    MenuComponent.prototype.gotoDisconnect = function () {
+        this.forceInactive();
+        //this.router.navigate(['/air-quality']);
     };
     MenuComponent = __decorate([
         core_1.Component({
@@ -34,7 +59,7 @@ var MenuComponent = (function () {
                 ])
             ],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], MenuComponent);
     return MenuComponent;
 }());

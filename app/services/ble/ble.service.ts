@@ -21,11 +21,11 @@ export class BLEService{
         let dev = devices.find(d => d.id === id);
 
         if( dev === undefined ){
-          this.connectedDevice = null;
+          that.connectedDevice = null;
           reject( "No device found with the ID '" + id + "'" );
         }
         else{
-          this.connectedDevice = dev;
+          that.connectedDevice = dev;
           resolve(dev);
         }
       });

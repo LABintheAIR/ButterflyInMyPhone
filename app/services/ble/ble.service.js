@@ -25,11 +25,11 @@ var BLEService = (function () {
             that.scanBLE().then(function (devices) {
                 var dev = devices.find(function (d) { return d.id === id; });
                 if (dev === undefined) {
-                    this.connectedDevice = null;
+                    that.connectedDevice = null;
                     reject("No device found with the ID '" + id + "'");
                 }
                 else {
-                    this.connectedDevice = dev;
+                    that.connectedDevice = dev;
                     resolve(dev);
                 }
             });

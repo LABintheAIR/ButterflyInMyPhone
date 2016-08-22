@@ -13,7 +13,7 @@ export class BLEService{
 
   connectToDevice( id : string ){
     let that = this;
-    // TODO : Disconnect the device if exist !
+    // TODO Disconnect the device if exist !
     this.connectedDevice = null;
     return new Promise<BLEDevice>(function( resolve, reject ){
 

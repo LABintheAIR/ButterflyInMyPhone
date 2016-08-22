@@ -19,7 +19,7 @@ var BLEService = (function () {
     };
     BLEService.prototype.connectToDevice = function (id) {
         var that = this;
-        // TODO : Disconnect the device if exist !
+        // TODO Disconnect the device if exist !
         this.connectedDevice = null;
         return new Promise(function (resolve, reject) {
             that.scanBLE().then(function (devices) {

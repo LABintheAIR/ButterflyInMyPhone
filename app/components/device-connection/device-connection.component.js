@@ -22,7 +22,7 @@ var DeviceConnectionComponent = (function () {
         this.route.params.forEach(function (params) {
             var idDevice = params['id'];
             _this.bleService.connectToDevice(idDevice)
-                .then(function (dev) { return _this.device = dev; })
+                .then(function () { return _this.router.navigate(['/air-quality']); })
                 .catch(function (str) { return _this.router.navigate(['/list-devices', str]); });
         });
     };

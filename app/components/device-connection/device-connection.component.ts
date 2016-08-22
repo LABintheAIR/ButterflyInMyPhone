@@ -20,7 +20,7 @@ export class DeviceConnectionComponent{
     this.route.params.forEach( (params: Params) => {
       let idDevice = params['id'];
       this.bleService.connectToDevice( idDevice )
-            .then( dev => this.device = dev )
+            .then( () => this.router.navigate(['/air-quality']))
             .catch( str => this.router.navigate(['/list-devices', str]) );
     });
   }

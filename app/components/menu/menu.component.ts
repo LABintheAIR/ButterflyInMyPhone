@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
 })
 
 export class MenuComponent{
-  public state = 'active';
+  public state = 'inactive';
 
   constructor( private router : Router ){}
 

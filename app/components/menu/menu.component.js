@@ -13,7 +13,7 @@ var router_1 = require('@angular/router');
 var MenuComponent = (function () {
     function MenuComponent(router) {
         this.router = router;
-        this.state = 'active';
+        this.state = 'inactive';
     }
     MenuComponent.prototype.toggleState = function () {
         this.state = (this.state === 'active' ? 'inactive' : 'active');

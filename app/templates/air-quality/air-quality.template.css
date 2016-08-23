@@ -2,6 +2,13 @@
 {
   text-align: center;
   width: 100%;
+  border-collapse: collapse;
+  height: 50vh;
+}
+
+.air-quality-table tr
+{
+  vertical-align: middle;
 }
 
 .air-quality-table tr td span
@@ -20,7 +27,6 @@
 .air-quality-table .tr-image td
 {
   width: 33%;
-  height: 25vh;
 }
 
 .air-quality-table tr td svg

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListDevicesComponent } from '../../components/list-devices/list-devices.component';
 import { DeviceConnectionComponent } from '../../components/device-connection/device-connection.component';
 import { AirQualityComponent } from '../../components/air-quality/air-quality.component';
+import { ShareComponent } from '../../components/share/share.component';
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
   {
     path: 'air-quality',
     component: AirQualityComponent
+  },
+  {
+    path: 'share',
+    component: ShareComponent
   },
   {
     path: '',

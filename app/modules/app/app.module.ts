@@ -9,6 +9,7 @@ import { ListDevicesComponent } from '../../components/list-devices/list-devices
 import { DeviceConnectionComponent } from '../../components/device-connection/device-connection.component';
 import { AirQualityComponent } from '../../components/air-quality/air-quality.component';
 import { MenuComponent } from '../../components/menu/menu.component';
+import { ShareComponent } from '../../components/share/share.component';
 
 import { BLEService } from '../../services/ble/ble.service';
 
@@ -24,6 +25,7 @@ import { BLEService } from '../../services/ble/ble.service';
     DeviceConnectionComponent,
     AirQualityComponent,
     MenuComponent,
+    ShareComponent,
   ],
   providers : [ BLEService ],
   bootstrap:    [ AppComponent ]

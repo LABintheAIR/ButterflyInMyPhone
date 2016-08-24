@@ -1,0 +1,63 @@
+.menu-root{
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.menu-root img {
+  height: 10%;
+  max-height: 90px;
+  cursor: pointer;
+}
+
+.menu-root-close{
+  box-sizing: border-box;
+  float: left;
+  position: absolute;
+  top: 0;
+  left: -304px;
+  width: 300px;
+  height: 100vh;
+  background-color: #EEE;
+  border: 2px solid #000;
+}
+
+.menu-root-close img {
+  width: 33%;
+  max-width: 90px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.top-space
+{
+  margin-top: 2em;
+}
+
+ul
+{
+  list-style: none;
+  font-size: 2em;
+  padding: 0;
+}
+
+ul li
+{
+  padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+}
+
+ul li:hover
+{
+  background-color: #BBB;
+}
+
+.right
+{
+  float: right;
+  text-align: right;
+}

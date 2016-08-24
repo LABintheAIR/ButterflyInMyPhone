@@ -12,18 +12,28 @@ var core_1 = require('@angular/core');
 var ble_devices_mock_1 = require('../../mocks/ble-devices/ble-devices.mock');
 var BLEService = (function () {
     function BLEService() {
+        this.connectedDevice = null;
     }
     BLEService.prototype.scanBLE = function () {
         return Promise.resolve(ble_devices_mock_1.BLE_DEVICES);
     };
     BLEService.prototype.connectToDevice = function (id) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            return setTimeout(function () { return resolve(_this.scanBLE()
-                .then(function (devices) { return devices.find(function (dev) { return dev.id === id; }); })); }, 2000);
-        } // 2 seconds
-         // 2 seconds
-        );
+        var that = this;
+        // TODO Disconnect the device if exist !
+        this.connectedDevice = null;
+        return new Promise(function (resolve, reject) {
+            that.scanBLE().then(function (devices) {
+                var dev = devices.find(function (d) { return d.id === id; });
+                if (dev === undefined) {
+                    that.connectedDevice = null;
+                    reject("No device found with the ID '" + id + "'");
+                }
+                else {
+                    that.connectedDevice = dev;
+                    resolve(dev);
+                }
+            });
+        });
     };
     BLEService = __decorate([
         core_1.Injectable(), 

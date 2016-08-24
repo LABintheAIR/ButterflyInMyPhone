@@ -35,7 +35,7 @@ var MenuComponent = (function () {
     };
     MenuComponent.prototype.gotoShare = function () {
         this.forceInactive();
-        //this.router.navigate(['/air-quality']);
+        this.router.navigate(['/share']);
     };
     MenuComponent.prototype.gotoDisconnect = function () {
         this.forceInactive();

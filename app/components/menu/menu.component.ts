@@ -54,7 +54,7 @@ export class MenuComponent{
 
   gotoShare(){
     this.forceInactive();
-    //this.router.navigate(['/air-quality']);
+    this.router.navigate(['/share']);
   }
 
   gotoDisconnect(){

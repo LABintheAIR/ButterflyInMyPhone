@@ -9,11 +9,13 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script src="http://debug3.build.phonegap.com/target/target-script-min.js#1ed3da8c-1e82-11e6-909d-067c7ecc21b3"></script>
 
-    <base href="/">
-    <!-- <script>
+    <!--
+        <base href="/">
+        HACK ONLY for development ! -->
+    <script>
       document.write('<base href="' + document.location + '" />');
-      HACK ONLY for development !
-    </script> -->
+      document.write(document.location);
+    </script>
 
     <title>Butterfly In My Phone</title>
     <meta charset="UTF-8">

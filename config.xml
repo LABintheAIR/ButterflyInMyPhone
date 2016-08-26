@@ -6,14 +6,14 @@
         id        = "cc.labintheair.butterflyinmyphone"
         version   = "0.2.0">
 
-    <name>Butterfly In My Phone</name>
+    <name>Butterfly In My Phone - ANGULAR</name>
 
     <description>
         Contrôlez votre ButterflyBag et consultez la qualité de l'air.
     </description>
 
     <author href="http://labintheair.cc" email="support@labintheair.cc">
-        LAB in the AIR - Angular
+        LAB in the AIR
     </author>
 
 

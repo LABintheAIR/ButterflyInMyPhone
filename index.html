@@ -11,13 +11,12 @@
 
     <!--
         <base href="/">
-        HACK ONLY for development ! -->
+        HACK ONLY for development !
     <script>
       document.write('<base href="' + document.location + '" />');
     </script>
 
     <title>Butterfly In My Phone</title>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
 
     <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -26,9 +25,13 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
 
     <script src="systemjs.config.js"></script>
-    <script>
+
       //System.import('app').catch(function(err){ console.error(err); });
+    -->
+    <script>
+    alert("application A");
       app.initialize();
+      alert("application B");
     </script>
 
   </head>

@@ -13,7 +13,10 @@
         HACK ONLY for development !
         -->
     <script>
-      document.write('<base href="' + document.location + '" />');
+      var p = document.location.split('/');
+      p.pop();
+      p = p.join('/');
+      document.write('<base href="' + p + '" />');
     </script>
 
     <title>Butterfly In My Phone</title>
@@ -28,7 +31,6 @@
 
     <script>
       System.import('app').catch(function(err){ console.error(err); });
-    alert("Loading success");
     </script>
 
 

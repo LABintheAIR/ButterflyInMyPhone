@@ -6,7 +6,6 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 
-    <script type="text/javascript" src="cordova.js"></script>
     <script src="http://debug3.build.phonegap.com/target/target-script-min.js#e1925c08-3947-11e6-b805-0617c402b66b"></script>
 
     <!--
@@ -28,11 +27,6 @@
 
       //System.import('app').catch(function(err){ console.error(err); });
     -->
-    <script>
-    alert("application A");
-      app.initialize();
-      alert("application B");
-    </script>
 
   </head>
   <body>
@@ -44,5 +38,11 @@
         </div>
       </div>
     </butterfly-app>
+
+    <script>
+    alert("application A");
+      app.initialize();
+      alert("application B");
+    </script>
   </body>
 </html>

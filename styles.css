@@ -5,9 +5,13 @@ body {
   margin: 2em;
 }
 
+@font-face {
+    font-family: "HandWriteFont";
+    src: url("marker_sd.woff");
+}
+
 .hand-write{
-  font-family: "Marker SD";
-  src: url("marker_sd.woff");
+  font-family: "HandWriteFont";
 }
 
 .loading-screen{

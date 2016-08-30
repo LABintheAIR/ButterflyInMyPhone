@@ -81,12 +81,12 @@
     <icon src="icon.png" />
 
     <platform name="android">
-      <icon src="res/icon/android/mipmap-ldpi/ic_launcher.png"    gap:qualifier="ldpi" />
-      <icon src="res/icon/android/mipmap-mdpi/ic_launcher.png"    gap:qualifier="mdpi" />
-      <icon src="res/icon/android/mipmap-hdpi/ic_launcher.png"    gap:qualifier="hdpi" />
-      <icon src="res/icon/android/mipmap-xdpi/ic_launcher.png"    gap:qualifier="xhdpi" />
-      <icon src="res/icon/android/mipmap-xxdpi/ic_launcher.png"   gap:qualifier="xxhdpi" />
-      <icon src="res/icon/android/mipmap-xxxdpi/ic_launcher.png"  gap:qualifier="xxxhdpi" />
+      <icon src="res/icon/android/mipmap-ldpi/ic_launcher.png"    gap:density="ldpi"    gap:qualifier="ldpi" />
+      <icon src="res/icon/android/mipmap-mdpi/ic_launcher.png"    gap:density="mdpi"    gap:qualifier="mdpi" />
+      <icon src="res/icon/android/mipmap-hdpi/ic_launcher.png"    gap:density="hdpi"    gap:qualifier="hdpi" />
+      <icon src="res/icon/android/mipmap-xhdpi/ic_launcher.png"    gap:density="xhdpi"   gap:qualifier="xhdpi" />
+      <icon src="res/icon/android/mipmap-xxhdpi/ic_launcher.png"   gap:density="xxhdpi"  gap:qualifier="xxhdpi" />
+      <icon src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png"  gap:density="xxxhdpi" gap:qualifier="xxxhdpi" />
     </platform>
 
     <!--

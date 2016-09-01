@@ -39,7 +39,7 @@ var MenuComponent = (function () {
     };
     MenuComponent.prototype.gotoDisconnect = function () {
         this.forceInactive();
-        //this.router.navigate(['/air-quality']);
+        this.router.navigate(['/disconnection']);
     };
     MenuComponent = __decorate([
         core_1.Component({

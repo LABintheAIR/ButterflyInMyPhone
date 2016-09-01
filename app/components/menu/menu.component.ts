@@ -59,6 +59,6 @@ export class MenuComponent{
 
   gotoDisconnect(){
     this.forceInactive();
-    //this.router.navigate(['/air-quality']);
+    this.router.navigate(['/disconnection']);
   }
 }

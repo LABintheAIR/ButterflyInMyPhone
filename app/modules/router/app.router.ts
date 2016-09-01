@@ -4,6 +4,7 @@ import { ListDevicesComponent } from '../../components/list-devices/list-devices
 import { DeviceConnectionComponent } from '../../components/device-connection/device-connection.component';
 import { AirQualityComponent } from '../../components/air-quality/air-quality.component';
 import { ShareComponent } from '../../components/share/share.component';
+import { DeviceDisconnectionComponent } from "../../components/device-disconnection/device-disconnection.component";
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
   {
     path: 'share',
     component: ShareComponent
+  },
+  {
+    path: 'disconnection',
+    component: DeviceDisconnectionComponent
   },
   {
     path: '',

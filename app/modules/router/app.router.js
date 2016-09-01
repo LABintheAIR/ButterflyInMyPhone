@@ -4,6 +4,7 @@ var list_devices_component_1 = require('../../components/list-devices/list-devic
 var device_connection_component_1 = require('../../components/device-connection/device-connection.component');
 var air_quality_component_1 = require('../../components/air-quality/air-quality.component');
 var share_component_1 = require('../../components/share/share.component');
+var device_disconnection_component_1 = require("../../components/device-disconnection/device-disconnection.component");
 var appRoutes = [
     {
         path: 'list-devices',
@@ -24,6 +25,10 @@ var appRoutes = [
     {
         path: 'share',
         component: share_component_1.ShareComponent
+    },
+    {
+        path: 'disconnection',
+        component: device_disconnection_component_1.DeviceDisconnectionComponent
     },
     {
         path: '',

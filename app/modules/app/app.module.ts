@@ -10,6 +10,7 @@ import { DeviceConnectionComponent } from '../../components/device-connection/de
 import { AirQualityComponent } from '../../components/air-quality/air-quality.component';
 import { MenuComponent } from '../../components/menu/menu.component';
 import { ShareComponent } from '../../components/share/share.component';
+import { OverlayMessageComponent } from '../../components/overlay-message/overlay-message.component';
 
 import { BLEService } from '../../services/ble/ble.service';
 
@@ -26,6 +27,7 @@ import { BLEService } from '../../services/ble/ble.service';
     AirQualityComponent,
     MenuComponent,
     ShareComponent,
+    OverlayMessageComponent
   ],
   providers : [ BLEService ],
   bootstrap:    [ AppComponent ]

@@ -18,6 +18,7 @@ var device_connection_component_1 = require('../../components/device-connection/
 var air_quality_component_1 = require('../../components/air-quality/air-quality.component');
 var menu_component_1 = require('../../components/menu/menu.component');
 var share_component_1 = require('../../components/share/share.component');
+var overlay_message_component_1 = require('../../components/overlay-message/overlay-message.component');
 var ble_service_1 = require('../../services/ble/ble.service');
 var AppModule = (function () {
     function AppModule() {
@@ -36,6 +37,7 @@ var AppModule = (function () {
                 air_quality_component_1.AirQualityComponent,
                 menu_component_1.MenuComponent,
                 share_component_1.ShareComponent,
+                overlay_message_component_1.OverlayMessageComponent
             ],
             providers: [ble_service_1.BLEService],
             bootstrap: [app_component_1.AppComponent]

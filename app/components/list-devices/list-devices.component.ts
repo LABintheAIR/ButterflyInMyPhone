@@ -17,15 +17,26 @@ export class ListDevicesComponent
                private bleService : BLEService ) {}
 
   private errorString : string;
-  devices : BLEDevice[];
+  private showLoading = false;
+  devices = [];
 
   ngOnInit(){
+    this.showLoading = false;
     this.startScan();
     this.route.params.forEach( (params: Params) => this.errorString = params['str_error'] );
   }
 
   startScan(){
-      this.bleService.scanBLE().then( devs => this.devices = devs );
+      this.devices = [];
+      this.showLoading = true;
+      this.bleService.scanBLE()
+        .then( (devs) => {
+          this.devices = devs;
+          this.showLoading = false;
+        })
+        .catch( (err) => {
+          this.showLoading = false;
+        });
   }
 
   onSelectDevice( dev: BLEDevice ){

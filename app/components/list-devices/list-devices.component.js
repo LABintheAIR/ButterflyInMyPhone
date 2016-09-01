@@ -16,15 +16,27 @@ var ListDevicesComponent = (function () {
         this.router = router;
         this.route = route;
         this.bleService = bleService;
+        this.showLoading = false;
+        this.devices = [];
     }
     ListDevicesComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.showLoading = false;
         this.startScan();
         this.route.params.forEach(function (params) { return _this.errorString = params['str_error']; });
     };
     ListDevicesComponent.prototype.startScan = function () {
         var _this = this;
-        this.bleService.scanBLE().then(function (devs) { return _this.devices = devs; });
+        this.devices = [];
+        this.showLoading = true;
+        this.bleService.scanBLE()
+            .then(function (devs) {
+            _this.devices = devs;
+            _this.showLoading = false;
+        })
+            .catch(function (err) {
+            _this.showLoading = false;
+        });
     };
     ListDevicesComponent.prototype.onSelectDevice = function (dev) {
         this.router.navigate(['/device-connection', dev.id]);

@@ -41,8 +41,6 @@ export class BLEService{
 
   connectToDevice( id : string ){
     let that = this;
-    // TODO Disconnect the device if exist !
-    this.connectedDevice = null;
 
     return new Promise<BLEDevice>(function( resolve, reject ){
       ble.connect( id, function( peripheralObject ){
@@ -69,6 +67,18 @@ export class BLEService{
         }
       });
       */
+    });
+  }
+
+  disconnect(){
+    return new Promise( (resolve, reject) => {
+      ble.disconnect( this.connectedDevice.id, () => {
+        this.connectedDevice = null;
+        resolve();
+      },
+      (reason) => {
+        reject( reason );
+      });
     });
   }
 }

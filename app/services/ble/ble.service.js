@@ -40,8 +40,6 @@ var BLEService = (function () {
     };
     BLEService.prototype.connectToDevice = function (id) {
         var that = this;
-        // TODO Disconnect the device if exist !
-        this.connectedDevice = null;
         return new Promise(function (resolve, reject) {
             ble.connect(id, function (peripheralObject) {
                 that.connectedDevice = peripheralObject;
@@ -64,6 +62,17 @@ var BLEService = (function () {
               }
             });
             */
+        });
+    };
+    BLEService.prototype.disconnect = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            ble.disconnect(_this.connectedDevice.id, function () {
+                _this.connectedDevice = null;
+                resolve();
+            }, function (reason) {
+                reject(reason);
+            });
         });
     };
     BLEService = __decorate([

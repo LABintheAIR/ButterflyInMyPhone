@@ -7,8 +7,9 @@
   Create interface to avoid TypeScript error about BLE cordova plugin
 */
 interface _ble{
-  scan(a,b,c,d): void;
+  scan(a, b, c, d): void;
   enable( a, b ): void;
   connect( a, b, c ): void;
+  disconnect( a, b, c ) : void;
 }
 declare var ble : _ble;

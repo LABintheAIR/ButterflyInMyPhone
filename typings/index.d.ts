@@ -11,5 +11,30 @@ interface _ble{
   enable( a, b ): void;
   connect( a, b, c ): void;
   disconnect( a, b, c ) : void;
+  write( a, b, c, d, e, f ) : void;
 }
 declare var ble : _ble;
+
+/*
+  Create interfaces to avoid TypeScript error about File cordova plugin
+*/
+interface _FileError{
+  QUOTA_EXCEEDED_ERR : any;
+  NOT_FOUND_ERR : any;
+  SECURITY_ERR : any;
+  INVALID_MODIFICATION_ERR : any;
+  INVALID_STATE_ERR : any;
+}
+declare var FileError: _FileError
+
+interface _file{
+  applicationStorageDirectory : any;
+}
+interface _cordova {
+    file : _file;
+}
+declare var cordova: _cordova;
+
+interface Window{
+  resolveLocalFileSystemURL(a, b, c) : any;
+}

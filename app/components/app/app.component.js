@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var list_devices_component_1 = require('../list-devices/list-devices.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Butterfly in my Phone";
@@ -17,8 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "butterfly-app",
-            template: "<router-outlet></router-outlet>",
-            directives: [list_devices_component_1.ListDevicesComponent],
+            template: "<router-outlet></router-outlet>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

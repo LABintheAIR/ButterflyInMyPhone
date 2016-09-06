@@ -52,21 +52,6 @@ export class BLEService{
           reject( "Connection closed" );
         }
       );
-
-      /*
-      that.scanBLE().then( function( devices ){
-        let dev = devices.find(d => d.id === id);
-
-        if( dev === undefined ){
-          that.connectedDevice = null;
-          reject( "No device found with the ID '" + id + "'" );
-        }
-        else{
-          that.connectedDevice = dev;
-          resolve(dev);
-        }
-      });
-      */
     });
   }
 
@@ -80,5 +65,73 @@ export class BLEService{
         reject( reason );
       });
     });
+  }
+
+  getWriteCharacteristic() {
+    if( this.connectedDevice == null ){
+      return false;
+    }
+
+    var tab = this.connectedDevice.characteristics;
+    var patt = new RegExp(/^[a-z0-9]+0001-/i); //See https://learn.adafruit.com/adafruit-feather-32u4-bluefruit-le/uart-service
+    var i;
+    for( i = 0; tab.length; ++i )
+    {
+      if( patt.test( tab[i].service ) && tab[i].properties.indexOf( "Write" ) > -1 ) {
+        return tab[i];
+      }
+    }
+
+    return false;
+  }
+
+  sendColor( red : number, green : number, blue : number ){
+    var characteristic = this.getWriteCharacteristic();
+    var bufferData = new Uint8Array(6);
+    bufferData[0] = 0x21; // '!'
+    bufferData[1] = 0x43; // 'C'
+    bufferData[2] = red;
+    bufferData[3] = green;
+    bufferData[4] = blue;
+    bufferData[5] = 0x04; //EOT
+
+    return new Promise( (resolve, reject) => {
+      if( characteristic === false ){
+        reject( "There is no device connected !" );
+      }
+
+      ble.write( this.connectedDevice.id, characteristic.service, characteristic.characteristic, bufferData.buffer, () => {
+          resolve();
+        },
+        (reason) => {
+          reject( reason );
+        });
+    });
+  }
+
+  sendPinState( pin : number, isHigh : boolean ){
+      var characteristic = this.getWriteCharacteristic();
+      var bufferData = new Uint8Array(5);
+      bufferData[0] = 0x21; // '!'
+      bufferData[1] = 0x50; // 'P'
+      bufferData[2] = pin;
+      bufferData[3] = isHigh ? 1 : 0;
+      bufferData[4] = 0x04; //EOT
+
+      console.log( this.connectedDevice );
+      console.log( characteristic );
+
+      return new Promise( (resolve, reject) => {
+        if( characteristic === false ){
+          reject( "There is no device connected !" );
+        }
+
+        ble.write( this.connectedDevice.id, characteristic.service, characteristic.characteristic, bufferData.buffer, () => {
+            resolve();
+          },
+          (reason) => {
+            reject( reason );
+          });
+      });
   }
 }

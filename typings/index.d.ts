@@ -38,3 +38,12 @@ declare var cordova: _cordova;
 interface Window{
   resolveLocalFileSystemURL(a, b, c) : any;
 }
+
+interface DirectoryEntry{
+
+}
+
+interface FileEntry{
+  isDirectory() : boolean;
+  name : string;
+}

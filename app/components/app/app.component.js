@@ -9,16 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var wearable_manager_service_1 = require('../../services/wearable-manager/wearable-manager.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(wearableManager) {
+        this.wearableManager = wearableManager;
         this.title = "Butterfly in my Phone";
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.wearableManager.loadWearables()
+            .then(function () { return console.log("Wearable loaded"); })
+            .catch(function (e) { return console.error("[Wearable] : " + e); });
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: "butterfly-app",
             template: "<router-outlet></router-outlet>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [wearable_manager_service_1.WearableManager])
     ], AppComponent);
     return AppComponent;
 }());

@@ -1,0 +1,15 @@
+{
+	"name": "Feather Vest",
+	"desciption": "A vest with two LED",
+	"inputs": [],
+	"outputs": [{
+  		"type": "pixel",
+  		"name": "First Pixel",
+  		"description": "The first pixel of the vest"
+  	}, {
+  		"type": "pixel",
+  		"name": "Second Pixel",
+  		"description": "The second pixel of the vest"
+  	}
+  ]
+}

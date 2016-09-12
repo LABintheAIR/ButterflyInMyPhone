@@ -1,0 +1,11 @@
+{
+	"name": "Gemma Clothespin",
+	"desciption": "A cool clothespin",
+	"inputs": [],
+	"outputs": [{
+  		"type": "pixel",
+  		"name": "THE Pixel",
+  		"description": "The only pixel ;)"
+  	}
+  ]
+}

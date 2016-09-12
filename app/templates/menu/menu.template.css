@@ -1,14 +1,10 @@
 .menu-root{
-  float: left;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-}
-
-.menu-root img {
-  height: 10%;
-  max-height: 90px;
+  width: 13%;
+  max-width: 90px;
+  min-width: 2em;
   cursor: pointer;
 }
 

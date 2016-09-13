@@ -66,7 +66,7 @@ var BLEService = (function () {
             return false;
         }
         var tab = this.connectedDevice.characteristics;
-        var patt = new RegExp(/^[a-z0-9]+0001-/i); //See https://learn.adafruit.com/adafruit-feather-32u4-bluefruit-le/uart-service
+        var patt = new RegExp('^[a-z0-9]+0001-', 'i'); //See https://learn.adafruit.com/adafruit-feather-32u4-bluefruit-le/uart-service
         var i;
         for (i = 0; tab.length; ++i) {
             if (patt.test(tab[i].service) && tab[i].properties.indexOf("Write") > -1) {

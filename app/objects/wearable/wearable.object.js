@@ -24,16 +24,34 @@ var Wearable = (function () {
                     pixel.loadToJson(output);
                     this.outputs.push(pixel);
                     break;
-                case "pixel_strip":
+                case "strip":
                     var strip = new element_stripPixel_object_1.ElementStripPixel();
                     strip.loadToJson(output);
                     this.outputs.push(strip);
                     break;
                 default:
-                    console.error("Unknown type element : " + output.type);
+                    console.error("[WEARABLE OBJECT] Unknown type element : " + output.type);
                     break;
             }
         }
+    };
+    Wearable.prototype.sendData = function (bleService) {
+        return this.sendDataElement(0, bleService);
+    };
+    Wearable.prototype.sendDataElement = function (index, bleService) {
+        var _this = this;
+        var element = this.outputs[index];
+        return new Promise(function (resolve, reject) {
+            element.sendData(bleService).then(function () {
+                if (index + 1 < _this.outputs.length) {
+                    _this.sendDataElement(index + 1, bleService).catch(function (err) { reject(err); });
+                }
+                resolve();
+            })
+                .catch(function (err) {
+                reject("[" + index + "] : " + err);
+            });
+        });
     };
     return Wearable;
 }());

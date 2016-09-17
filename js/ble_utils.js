@@ -81,13 +81,14 @@ function sendBufferData( bufferData ){
 }
 
 function generateDataBuffer( red, green, blue ){
-  var data = new Uint8Array(5);
+  var data = new Uint8Array(6);
 
   data[0] = 0x21; // '!'
   data[1] = 0x43; // 'C'
   data[2] = red;
   data[3] = green;
   data[4] = blue;
+  data[5] = 0x04;
 
   return data.buffer;
 }

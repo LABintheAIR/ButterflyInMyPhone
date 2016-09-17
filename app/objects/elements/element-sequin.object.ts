@@ -11,6 +11,10 @@ export class ElementSequin implements ElementOutputInterface {
     return bleService.sendPinState( this.pin, this.state );
   }
 
+  setState( state : boolean ){
+    this.state = state;
+  }
+
   loadToJson( json : any ){
     this.name = json.name;
     this.description = json.description;

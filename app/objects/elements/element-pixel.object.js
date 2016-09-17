@@ -13,6 +13,17 @@ var ElementPixel = (function () {
         this.description = json.description;
         this.color = [0, 0, 0];
     };
+    ElementPixel.prototype.fromString = function (str) {
+        str = str.replace('#', '');
+        this.color[0] = parseInt("0x" + str[0] + str[1]);
+        this.color[1] = parseInt("0x" + str[2] + str[3]);
+        this.color[2] = parseInt("0x" + str[4] + str[5]);
+    };
+    ElementPixel.prototype.fromRGB = function (r, g, b) {
+        this.color[0] = r;
+        this.color[1] = g;
+        this.color[2] = b;
+    };
     return ElementPixel;
 }());
 exports.ElementPixel = ElementPixel;

@@ -21,4 +21,17 @@ export class ElementPixel implements ElementOutputInterface {
     this.description = json.description;
     this.color = [0, 0, 0];
   }
+
+  fromString( str : string ){
+    str = str.replace('#', '');
+    this.color[0] = parseInt( "0x" + str[0] + str[1] );
+    this.color[1] = parseInt( "0x" + str[2] + str[3] );
+    this.color[2] = parseInt( "0x" + str[4] + str[5] );
+  }
+
+  fromRGB( r : number, g : number, b : number ){
+    this.color[0] = r;
+    this.color[1] = g;
+    this.color[2] = b;
+  }
 }

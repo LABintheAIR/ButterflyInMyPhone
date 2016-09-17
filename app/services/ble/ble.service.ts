@@ -104,6 +104,7 @@ export class BLEService{
           resolve();
         },
         (reason) => {
+          console.error( "BLE SERVICE SENDCOLOR : " + reason );
           reject( reason );
         });
     });
@@ -117,9 +118,6 @@ export class BLEService{
       bufferData[2] = pin;
       bufferData[3] = isHigh ? 1 : 0;
       bufferData[4] = 0x04; //EOT
-
-      console.log( this.connectedDevice );
-      console.log( characteristic );
 
       return new Promise( (resolve, reject) => {
         if( characteristic === false ){

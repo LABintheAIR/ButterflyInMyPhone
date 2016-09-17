@@ -92,6 +92,7 @@ var BLEService = (function () {
             ble.write(_this.connectedDevice.id, characteristic.service, characteristic.characteristic, bufferData.buffer, function () {
                 resolve();
             }, function (reason) {
+                console.error("BLE SERVICE SENDCOLOR : " + reason);
                 reject(reason);
             });
         });
@@ -105,8 +106,6 @@ var BLEService = (function () {
         bufferData[2] = pin;
         bufferData[3] = isHigh ? 1 : 0;
         bufferData[4] = 0x04; //EOT
-        console.log(this.connectedDevice);
-        console.log(characteristic);
         return new Promise(function (resolve, reject) {
             if (characteristic === false) {
                 reject("There is no device connected !");

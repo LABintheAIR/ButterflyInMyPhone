@@ -5,6 +5,7 @@ var device_connection_component_1 = require('../../components/device-connection/
 var air_quality_component_1 = require('../../components/air-quality/air-quality.component');
 var share_component_1 = require('../../components/share/share.component');
 var device_disconnection_component_1 = require("../../components/device-disconnection/device-disconnection.component");
+var customize_component_1 = require("../../components/customize/customize.component");
 var appRoutes = [
     {
         path: 'list-devices',
@@ -21,6 +22,10 @@ var appRoutes = [
     {
         path: 'air-quality',
         component: air_quality_component_1.AirQualityComponent
+    },
+    {
+        path: 'customize',
+        component: customize_component_1.CustomizeComponent
     },
     {
         path: 'share',

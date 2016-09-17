@@ -5,6 +5,7 @@ import { DeviceConnectionComponent } from '../../components/device-connection/de
 import { AirQualityComponent } from '../../components/air-quality/air-quality.component';
 import { ShareComponent } from '../../components/share/share.component';
 import { DeviceDisconnectionComponent } from "../../components/device-disconnection/device-disconnection.component";
+import { CustomizeComponent } from "../../components/customize/customize.component";
 
 const appRoutes: Routes = [
   {
@@ -22,6 +23,10 @@ const appRoutes: Routes = [
   {
     path: 'air-quality',
     component: AirQualityComponent
+  },
+  {
+    path: 'customize',
+    component: CustomizeComponent
   },
   {
     path: 'share',

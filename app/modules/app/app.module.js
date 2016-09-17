@@ -20,7 +20,12 @@ var menu_component_1 = require('../../components/menu/menu.component');
 var share_component_1 = require('../../components/share/share.component');
 var overlay_message_component_1 = require('../../components/overlay-message/overlay-message.component');
 var device_disconnection_component_1 = require("../../components/device-disconnection/device-disconnection.component");
+var customize_component_1 = require("../../components/customize/customize.component");
+var color_picker_component_1 = require("../../components/color-picker/color-picker.component");
+var counter_component_1 = require("../../components/counter/counter.component");
+var onoff_switch_component_1 = require("../../components/onoff-switch/onoff-switch.component");
 var ble_service_1 = require('../../services/ble/ble.service');
+var wearable_manager_service_1 = require("../../services/wearable-manager/wearable-manager.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -39,9 +44,13 @@ var AppModule = (function () {
                 menu_component_1.MenuComponent,
                 share_component_1.ShareComponent,
                 overlay_message_component_1.OverlayMessageComponent,
-                device_disconnection_component_1.DeviceDisconnectionComponent
+                device_disconnection_component_1.DeviceDisconnectionComponent,
+                customize_component_1.CustomizeComponent,
+                color_picker_component_1.ColorPickerComponent,
+                counter_component_1.CounterComponent,
+                onoff_switch_component_1.OnOffSwitchComponent
             ],
-            providers: [ble_service_1.BLEService],
+            providers: [ble_service_1.BLEService, wearable_manager_service_1.WearableManager],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

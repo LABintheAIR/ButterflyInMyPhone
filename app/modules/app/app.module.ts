@@ -12,8 +12,15 @@ import { MenuComponent } from '../../components/menu/menu.component';
 import { ShareComponent } from '../../components/share/share.component';
 import { OverlayMessageComponent } from '../../components/overlay-message/overlay-message.component';
 import { DeviceDisconnectionComponent } from "../../components/device-disconnection/device-disconnection.component";
+import { CustomizeComponent } from "../../components/customize/customize.component";
+
+import { ColorPickerComponent } from "../../components/color-picker/color-picker.component";
+import { CounterComponent } from "../../components/counter/counter.component";
+import { OnOffSwitchComponent } from "../../components/onoff-switch/onoff-switch.component";
 
 import { BLEService } from '../../services/ble/ble.service';
+import { WearableManager } from "../../services/wearable-manager/wearable-manager.service";
+
 
 @NgModule({
   imports: [
@@ -29,9 +36,14 @@ import { BLEService } from '../../services/ble/ble.service';
     MenuComponent,
     ShareComponent,
     OverlayMessageComponent,
-    DeviceDisconnectionComponent
+    DeviceDisconnectionComponent,
+    CustomizeComponent,
+
+    ColorPickerComponent,
+    CounterComponent,
+    OnOffSwitchComponent
   ],
-  providers : [ BLEService ],
+  providers : [ BLEService, WearableManager ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

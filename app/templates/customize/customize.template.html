@@ -1,0 +1,30 @@
+<menu></menu>
+<div>
+  <br>
+  <span class="hand-write">Select your Wearable</span>
+  <select [ngModel]="currentSelectIndex" (ngModelChange)="onSelectWearableChange($event)">
+    <option value="-1" selected="selected">-- Select Wearable --</option>
+    <template ngFor let-wearable [ngForOf]="availableWearables" let-i="index">
+      <option [value]="i">
+        {{wearable.name}}
+      </option>
+    </template>
+  </select>
+  <br>
+  <div *ngFor="let type of elementsOutputBlock; let i = index;">
+    <template [ngIf]="type == 'onoff'">
+      <onoff-switch (valueChange)="updateSequinState(i, $event)"></onoff-switch>
+    </template>
+    <template [ngIf]="type == 'color'">
+      <p>Change color : <colorPicker (colorPickerChange)="updatePixelElement(i, $event)"></colorPicker></p>
+    </template>
+    <template [ngIf]="type == 'strip'">
+      <p>
+        Start Color : <colorPicker (colorPickerChange)="updateStartColorStrip(i, $event)"></colorPicker><br>
+        End Color : <colorPicker (colorPickerChange)="updateEndColorStrip(i, $event)"></colorPicker><br>
+        Level : <counter [min]=0 [max]=100 [step]=1 [value]=0 (valueChange)="updatePercenteColorStrip(i, $event)"></counter>
+      </p>
+    </template>
+  </div>
+</div>
+<overlay-message *ngIf="showLoading" loading="true">Sending data...</overlay-message>

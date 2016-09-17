@@ -44,7 +44,7 @@ export class MenuComponent{
 
   gotoCustomize(){
     this.forceInactive();
-    //this.router.navigate(['/air-quality']);
+    this.router.navigate(['/customize']);
   }
 
   gotoTutorial(){

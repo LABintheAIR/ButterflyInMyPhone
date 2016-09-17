@@ -27,7 +27,7 @@ var MenuComponent = (function () {
     };
     MenuComponent.prototype.gotoCustomize = function () {
         this.forceInactive();
-        //this.router.navigate(['/air-quality']);
+        this.router.navigate(['/customize']);
     };
     MenuComponent.prototype.gotoTutorial = function () {
         this.forceInactive();

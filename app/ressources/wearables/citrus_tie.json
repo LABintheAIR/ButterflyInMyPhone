@@ -1,0 +1,12 @@
+{
+	"name": "Citrus tie",
+	"desciption": "The only citrus tie",
+	"inputs": [],
+	"outputs": [{
+  		"type": "strip",
+  		"name": "The strip",
+  		"description": "Strip made with Pixels",
+      "number_pin": 16
+  	}
+  ]
+}

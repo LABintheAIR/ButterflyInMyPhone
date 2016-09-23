@@ -58,18 +58,22 @@ var CustomizeComponent = (function () {
         }
     };
     CustomizeComponent.prototype.updateSequinState = function (index, event) {
+        var _this = this;
         var sequin = this.wearableManager.getSelectWearable().outputs[index];
         sequin.setState(event);
+        this.showLoading = true;
         sequin.sendData(this.bleService)
-            .then(function () { })
-            .catch(function (e) { console.error(e); });
+            .then(function () { _this.showLoading = false; })
+            .catch(function (e) { console.error(e); _this.showLoading = false; });
     };
     CustomizeComponent.prototype.updatePixelElement = function (index, event) {
+        var _this = this;
         var pixel = this.wearableManager.getSelectWearable().outputs[index];
         pixel.fromString(event);
+        this.showLoading = true;
         this.wearableManager.getSelectWearable().sendData(this.bleService)
-            .then(function () { })
-            .catch(function (e) { return console.error(e); });
+            .then(function () { _this.showLoading = false; })
+            .catch(function (e) { console.error(e); _this.showLoading = false; });
     };
     CustomizeComponent.prototype.updateStartColorStrip = function (index, event) {
         var strip = this.wearableManager.getSelectWearable().outputs[index];

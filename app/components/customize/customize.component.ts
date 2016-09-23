@@ -63,17 +63,19 @@ export class CustomizeComponent {
   updateSequinState( index : number, event : boolean ) : void {
     let sequin : ElementSequin = this.wearableManager.getSelectWearable().outputs[index];
     sequin.setState( event );
+    this.showLoading = true;
     sequin.sendData( this.bleService )
-            .then( () => { } )
-            .catch( (e) => { console.error( e ) } );
+            .then( () => { this.showLoading = false; } )
+            .catch( (e) => { console.error( e ); this.showLoading = false; } );
   }
 
   updatePixelElement( index : number, event : string ) : void{
     let pixel : ElementPixel = this.wearableManager.getSelectWearable().outputs[index];
     pixel.fromString(event);
+    this.showLoading = true;
     this.wearableManager.getSelectWearable().sendData( this.bleService )
-      .then( () => {} )
-      .catch( (e) => console.error(e) );
+      .then( () => { this.showLoading = false;} )
+      .catch( (e) => { console.error(e); this.showLoading = false; } );
   }
 
   updateStartColorStrip( index : number, event : string ) : void{

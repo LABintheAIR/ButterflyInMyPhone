@@ -42,9 +42,9 @@ var ElementStripPixel = (function () {
         this.updatePixelElementColor();
     };
     ElementStripPixel.prototype.generateColorDelta = function () {
-        this.colorDelta[0] = (this.colorEnd[0] - this.colorStart[0]) / this.pixels.length;
-        this.colorDelta[1] = (this.colorEnd[1] - this.colorStart[1]) / this.pixels.length;
-        this.colorDelta[2] = (this.colorEnd[2] - this.colorStart[2]) / this.pixels.length;
+        this.colorDelta[0] = (this.colorEnd[0] - this.colorStart[0]) / (this.pixels.length - 1);
+        this.colorDelta[1] = (this.colorEnd[1] - this.colorStart[1]) / (this.pixels.length - 1);
+        this.colorDelta[2] = (this.colorEnd[2] - this.colorStart[2]) / (this.pixels.length - 1);
         console.log(this.colorDelta);
     };
     ElementStripPixel.prototype.updatePixelElementColor = function () {

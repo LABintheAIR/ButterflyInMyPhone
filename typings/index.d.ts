@@ -29,11 +29,49 @@ declare var FileError: _FileError
 
 interface _file{
   applicationStorageDirectory : any;
+  applicationDirectory : any;
+}
+interface _backgroundMode{
+  enable();
+  disable();
+  getDefaults();
+  setDefaults( a );
+  isEnable();
+  isActive();
+  configure( a );
+  onactivate();
+  ondeactivate();
+  onfailure( error );
+}
+interface _plugin{
+  backgroundMode : _backgroundMode;
 }
 interface _cordova {
     file : _file;
+    plugin : _plugin;
 }
 declare var cordova: _cordova;
+
+interface _geolocation{
+  getCurrentPosition( a, b, c);
+}
+interface _navigation{
+  geolocation : _geolocation;
+}
+
+interface PositionGPS{
+  coords : _coords;
+  timestamp : any;
+}
+interface _coords{
+  latitude : any;
+  longitude : any;
+  altitude : any;
+  accuracy : any;
+  altitudeAccuracy : any;
+  heading : any;
+  speed : any;
+}
 
 interface Window{
   resolveLocalFileSystemURL(a, b, c) : any;
@@ -46,4 +84,14 @@ interface DirectoryEntry{
 interface FileEntry{
   isDirectory() : boolean;
   name : string;
+}
+
+declare class jscolor{
+  mode : string;
+  borderColor: string;
+  insertColor: string;
+  backgroundColor: string;
+
+  constructor(a);
+  fromString( a );
 }

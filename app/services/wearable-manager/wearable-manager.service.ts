@@ -3,7 +3,8 @@ import { Wearable } from "../../objects/wearable/wearable.object";
 
 @Injectable()
 export class WearableManager{
-  private DIR_BASE = cordova.file.applicationStorageDirectory  + "/files/phonegapdevapp/www/app/ressources/wearables/";
+  //private DIR_BASE = cordova.file.applicationStorageDirectory  + "/files/phonegapdevapp/www/app/ressources/wearables/";
+  private DIR_BASE = cordova.file.applicationDirectory  + "/www/app/ressources/wearables/";
 
   private wearables : Wearable[];
   private currentWearable : Wearable;

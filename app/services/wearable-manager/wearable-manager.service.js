@@ -12,7 +12,8 @@ var core_1 = require('@angular/core');
 var wearable_object_1 = require("../../objects/wearable/wearable.object");
 var WearableManager = (function () {
     function WearableManager() {
-        this.DIR_BASE = cordova.file.applicationStorageDirectory + "/files/phonegapdevapp/www/app/ressources/wearables/";
+        //private DIR_BASE = cordova.file.applicationStorageDirectory  + "/files/phonegapdevapp/www/app/ressources/wearables/";
+        this.DIR_BASE = cordova.file.applicationDirectory + "/www/app/ressources/wearables/";
     }
     WearableManager.prototype.loadWearables = function () {
         var _this = this;

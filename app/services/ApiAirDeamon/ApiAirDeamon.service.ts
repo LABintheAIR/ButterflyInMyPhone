@@ -15,29 +15,49 @@ class QueryGPS{
 @Injectable()
 export class ApiAirDeamonService {
 
-  private batchRegion : QueryRegion[];
-  private batchGPS : QueryGPS[];
+  private batchRegion : Map<number, QueryRegion>;
+  private batchGPS : Map<number, QueryGPS>;
+  private currentIdRegion = 0;
+  private currentIdGps = 0;
 
-  constructor( private http : Http ){}
+  constructor( private http : Http ){
+    this.batchGPS = new Map<number, QueryGPS>();
+    this.batchRegion = new Map<number, QueryRegion>();
+  }
 
   init() : void {
-    cordova.plugin.backgroundMode.setDefaults({
-      "title":"Butterfly In My Phone running...",
-      "isPublic": true
+    cordova.plugins.backgroundMode.setDefaults({
+      "title": "Butterfly In My Phone running...",
+      "isPublic": true,
+      "text": "Keep your butterflies alive !",
+      "silent": true
     });
-    cordova.plugin.backgroundMode.enable();
-
-    cordova.plugin.backgroundMode.onfailure = (error) => { console.error("APIAIR DEAMON : " + error) };
-
-    this.timeoutTask( 3600000 );
+    cordova.plugins.backgroundMode.enable();
+    cordova.plugins.backgroundMode.onfailure = (error) => { console.error("APIAIR DEAMON : " + error) };
+    this.timeoutTask( 10000 );
   }
 
-  addQueryGPS( cb : Function ){
-    this.batchGPS.push( { "callback" : cb } );
+  resetQueryBatchs() : void{
+    this.batchGPS.clear();
+    this.batchRegion.clear();
   }
 
-  addQueryStation( region : string, zone : string, cb : Function ){
-    this.batchRegion.push( { "region": region, "zone" : zone, "callback": cb } );
+  addQueryGPS( cb : Function ) : number {
+    this.batchGPS.set( this.currentIdGps, { "callback" : cb } );
+    return this.currentIdGps++;
+  }
+
+  addQueryRegion( region : string, zone : string, cb : Function ) : number {
+    this.batchRegion.set( this.currentIdRegion, { "region": region, "zone" : zone, "callback": cb } );
+    return this.currentIdRegion++;
+  }
+
+  removeQueryRegion( id : number ) : boolean {
+    return this.batchRegion.delete( id );
+  }
+
+  removeQueryQPS( id : number ) : boolean {
+    return this.batchGPS.delete( id );
   }
 
   private timeoutTask( msec : number ){
@@ -47,22 +67,27 @@ export class ApiAirDeamonService {
 
   private runBatchs(){
     console.log("Run batchs");
-    for( let b of this.batchGPS ){
+    let itGps = this.batchGPS.values();
+    let itRegion = this.batchRegion.values();
+
+    for( let tmp = itGps.next(); !tmp.done; tmp = itGps.next() ){
       this.sendGPSRequest()
         .then( (obs) => {
-          obs.subscribe( res => b.callback(res), err => console.error( err ) );
+          obs.subscribe( res => tmp.value.callback(res), err => console.error( err ) );
         })
         .catch( (err) => {
           console.error( err );
         });
     }
-    for( let b of this.batchRegion ){
-      this.sendRegionRequest( b.region, b.zone ).subscribe( res => b.callback( res ), err => console.error(err) );
+
+    for( let tmp = itRegion.next(); !tmp.done; tmp = itRegion.next() ){
+      this.sendRegionRequest( tmp.value.region, tmp.value.zone ).subscribe( res => tmp.value.callback( res ), err => console.error(err) );
     }
   }
 
   private sendRegionRequest( region : string, zone : string ){
-    return this.http.get( "http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone ).map( (res:Response) => res.json() );
+    //return this.http.get( "http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone ).map( (res:Response) => res.json() );
+    return this.http.get( "http://papillon-jnth.rhcloud.com/get/iqa/random").map( (res:Response) => res.json() );
   }
 
   private sendGPSRequest() : Promise<Observable<Object>>{

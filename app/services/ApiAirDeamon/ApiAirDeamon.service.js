@@ -23,21 +23,39 @@ var QueryGPS = (function () {
 var ApiAirDeamonService = (function () {
     function ApiAirDeamonService(http) {
         this.http = http;
+        this.currentIdRegion = 0;
+        this.currentIdGps = 0;
+        this.batchGPS = new Map();
+        this.batchRegion = new Map();
     }
     ApiAirDeamonService.prototype.init = function () {
-        cordova.plugin.backgroundMode.setDefaults({
+        cordova.plugins.backgroundMode.setDefaults({
             "title": "Butterfly In My Phone running...",
-            "isPublic": true
+            "isPublic": true,
+            "text": "Keep your butterflies alive !",
+            "silent": true
         });
-        cordova.plugin.backgroundMode.enable();
-        cordova.plugin.backgroundMode.onfailure = function (error) { console.error("APIAIR DEAMON : " + error); };
-        this.timeoutTask(3600000);
+        cordova.plugins.backgroundMode.enable();
+        cordova.plugins.backgroundMode.onfailure = function (error) { console.error("APIAIR DEAMON : " + error); };
+        this.timeoutTask(10000);
+    };
+    ApiAirDeamonService.prototype.resetQueryBatchs = function () {
+        this.batchGPS.clear();
+        this.batchRegion.clear();
     };
     ApiAirDeamonService.prototype.addQueryGPS = function (cb) {
-        this.batchGPS.push({ "callback": cb });
+        this.batchGPS.set(this.currentIdGps, { "callback": cb });
+        return this.currentIdGps++;
     };
-    ApiAirDeamonService.prototype.addQueryStation = function (region, zone, cb) {
-        this.batchRegion.push({ "region": region, "zone": zone, "callback": cb });
+    ApiAirDeamonService.prototype.addQueryRegion = function (region, zone, cb) {
+        this.batchRegion.set(this.currentIdRegion, { "region": region, "zone": zone, "callback": cb });
+        return this.currentIdRegion++;
+    };
+    ApiAirDeamonService.prototype.removeQueryRegion = function (id) {
+        return this.batchRegion.delete(id);
+    };
+    ApiAirDeamonService.prototype.removeQueryQPS = function (id) {
+        return this.batchGPS.delete(id);
     };
     ApiAirDeamonService.prototype.timeoutTask = function (msec) {
         var _this = this;
@@ -46,31 +64,32 @@ var ApiAirDeamonService = (function () {
     };
     ApiAirDeamonService.prototype.runBatchs = function () {
         console.log("Run batchs");
-        var _loop_1 = function(b) {
+        var itGps = this.batchGPS.values();
+        var itRegion = this.batchRegion.values();
+        var _loop_1 = function(tmp) {
             this_1.sendGPSRequest()
                 .then(function (obs) {
-                obs.subscribe(function (res) { return b.callback(res); }, function (err) { return console.error(err); });
+                obs.subscribe(function (res) { return tmp.value.callback(res); }, function (err) { return console.error(err); });
             })
                 .catch(function (err) {
                 console.error(err);
             });
         };
         var this_1 = this;
-        for (var _i = 0, _a = this.batchGPS; _i < _a.length; _i++) {
-            var b = _a[_i];
-            _loop_1(b);
+        for (var tmp = itGps.next(); !tmp.done; tmp = itGps.next()) {
+            _loop_1(tmp);
         }
-        var _loop_2 = function(b) {
-            this_2.sendRegionRequest(b.region, b.zone).subscribe(function (res) { return b.callback(res); }, function (err) { return console.error(err); });
+        var _loop_2 = function(tmp) {
+            this_2.sendRegionRequest(tmp.value.region, tmp.value.zone).subscribe(function (res) { return tmp.value.callback(res); }, function (err) { return console.error(err); });
         };
         var this_2 = this;
-        for (var _b = 0, _c = this.batchRegion; _b < _c.length; _b++) {
-            var b = _c[_b];
-            _loop_2(b);
+        for (var tmp = itRegion.next(); !tmp.done; tmp = itRegion.next()) {
+            _loop_2(tmp);
         }
     };
     ApiAirDeamonService.prototype.sendRegionRequest = function (region, zone) {
-        return this.http.get("http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone).map(function (res) { return res.json(); });
+        //return this.http.get( "http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone ).map( (res:Response) => res.json() );
+        return this.http.get("http://papillon-jnth.rhcloud.com/get/iqa/random").map(function (res) { return res.json(); });
     };
     ApiAirDeamonService.prototype.sendGPSRequest = function () {
         var _this = this;

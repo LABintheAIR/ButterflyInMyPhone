@@ -1,0 +1,24 @@
+{
+  "stations" : [
+    {
+      "name" : "Aix-en-Provence - Urbain",
+      "region" : "paca",
+      "zone" : "aix-urb"
+    },
+    {
+      "name" : "Aix-en-Provence - Traffic",
+      "region" : "paca",
+      "zone" : "aix-trf"
+    },
+    {
+      "name" : "Marseille - Urbain",
+      "region" : "paca",
+      "zone" : "marseille-urb"
+    },
+    {
+      "name" : "Marseille - Traffic",
+      "region" : "paca",
+      "zone" : "marseille-trf"
+    }
+  ]
+}

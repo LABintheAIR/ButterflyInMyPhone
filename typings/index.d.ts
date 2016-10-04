@@ -48,7 +48,7 @@ interface _plugin{
 }
 interface _cordova {
     file : _file;
-    plugin : _plugin;
+    plugins : _plugin;
 }
 declare var cordova: _cordova;
 

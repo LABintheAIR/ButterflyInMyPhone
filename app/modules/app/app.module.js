@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var app_router_1 = require("../router/app.router");
 var app_component_1 = require('../../components/app/app.component');
 var list_devices_component_1 = require('../../components/list-devices/list-devices.component');
@@ -26,6 +27,7 @@ var counter_component_1 = require("../../components/counter/counter.component");
 var onoff_switch_component_1 = require("../../components/onoff-switch/onoff-switch.component");
 var ble_service_1 = require('../../services/ble/ble.service');
 var wearable_manager_service_1 = require("../../services/wearable-manager/wearable-manager.service");
+var ApiAirDeamon_service_1 = require("../../services/ApiAirDeamon/ApiAirDeamon.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,7 +36,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                app_router_1.AppRouter
+                app_router_1.AppRouter,
+                http_1.HttpModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -50,7 +53,7 @@ var AppModule = (function () {
                 counter_component_1.CounterComponent,
                 onoff_switch_component_1.OnOffSwitchComponent
             ],
-            providers: [ble_service_1.BLEService, wearable_manager_service_1.WearableManager],
+            providers: [ble_service_1.BLEService, wearable_manager_service_1.WearableManager, ApiAirDeamon_service_1.ApiAirDeamonService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

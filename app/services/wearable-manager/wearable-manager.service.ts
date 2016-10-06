@@ -12,7 +12,7 @@ export class WearableManager{
   loadWearables(){
     this.currentWearable = null;
     this.wearables = [];
-    return new Promise<DirectoryEntry[]>( (resolve, reject) => {
+    return new Promise<void>( (resolve, reject) => {
       window.resolveLocalFileSystemURL( this.DIR_BASE, (dirEntry) => {
         dirEntry.createReader().readEntries( (entries) => {
           this.convertDirectoryEntriesToWearables( entries );

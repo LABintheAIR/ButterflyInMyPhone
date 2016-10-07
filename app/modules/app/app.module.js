@@ -28,6 +28,7 @@ var onoff_switch_component_1 = require("../../components/onoff-switch/onoff-swit
 var ble_service_1 = require('../../services/ble/ble.service');
 var wearable_manager_service_1 = require("../../services/wearable-manager/wearable-manager.service");
 var ApiAirDeamon_service_1 = require("../../services/ApiAirDeamon/ApiAirDeamon.service");
+var station_manager_service_1 = require("../../services/station-manager/station-manager.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -53,7 +54,12 @@ var AppModule = (function () {
                 counter_component_1.CounterComponent,
                 onoff_switch_component_1.OnOffSwitchComponent
             ],
-            providers: [ble_service_1.BLEService, wearable_manager_service_1.WearableManager, ApiAirDeamon_service_1.ApiAirDeamonService],
+            providers: [
+                ble_service_1.BLEService,
+                wearable_manager_service_1.WearableManager,
+                ApiAirDeamon_service_1.ApiAirDeamonService,
+                station_manager_service_1.StationManagerService
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

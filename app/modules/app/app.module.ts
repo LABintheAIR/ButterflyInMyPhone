@@ -22,6 +22,7 @@ import { OnOffSwitchComponent } from "../../components/onoff-switch/onoff-switch
 import { BLEService } from '../../services/ble/ble.service';
 import { WearableManager } from "../../services/wearable-manager/wearable-manager.service";
 import { ApiAirDeamonService } from "../../services/ApiAirDeamon/ApiAirDeamon.service";
+import { StationManagerService } from "../../services/station-manager/station-manager.service";
 
 @NgModule({
   imports: [
@@ -45,7 +46,12 @@ import { ApiAirDeamonService } from "../../services/ApiAirDeamon/ApiAirDeamon.se
     CounterComponent,
     OnOffSwitchComponent
   ],
-  providers : [ BLEService, WearableManager, ApiAirDeamonService ],
+  providers : [
+    BLEService,
+    WearableManager,
+    ApiAirDeamonService,
+    StationManagerService
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

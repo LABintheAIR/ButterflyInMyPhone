@@ -15,7 +15,7 @@
       </li>
     </ul>
   </div>
-  <div *ngIf="!devices" class="center">
+  <div *ngIf="!devices || devices.length == 0" class="center">
     <img class="pic-info" alt="No wearables :(" src="app/ressources/images/list-devices/nothing.png" />
   </div>
 </div>

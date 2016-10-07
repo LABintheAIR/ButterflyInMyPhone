@@ -15,7 +15,7 @@ var StationManagerService = (function () {
         //private PATH_STATION = cordova.file.applicationStorageDirectory  + "/files/phonegapdevapp/www/app/ressources/station.json";
         this.PATH_STATION = cordova.file.applicationDirectory + "/www/app/ressources/stations.json";
     }
-    StationManagerService.prototype.loadStation = function () {
+    StationManagerService.prototype.loadStations = function () {
         var _this = this;
         this.stations = [];
         return new Promise(function (resolve, reject) {
@@ -37,6 +37,9 @@ var StationManagerService = (function () {
                 .catch(function (e) { return reject(e); });
         });
     };
+    StationManagerService.prototype.getStations = function () {
+        return this.stations.slice(0, this.stations.length);
+    };
     StationManagerService.prototype.readFile = function (pathFile) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -56,6 +59,12 @@ var StationManagerService = (function () {
                 });
             }, function (e) { return reject(e); });
         });
+    };
+    StationManagerService.prototype.getStation = function (id) {
+        if (id < 0 || id >= this.stations.length) {
+            return null;
+        }
+        return this.stations[id];
     };
     StationManagerService.prototype.errorFile = function (e) {
         switch (e.code) {

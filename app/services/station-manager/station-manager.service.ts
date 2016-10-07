@@ -9,7 +9,7 @@ export class StationManagerService{
 
     private stations : Station[];
 
-    loadStation() : Promise<void> {
+    loadStations() : Promise<void> {
       this.stations = [];
       return new Promise<void>( (resolve, reject) => {
         this.readFile( this.PATH_STATION )
@@ -28,6 +28,10 @@ export class StationManagerService{
               })
               .catch( e => reject( e ) );
       });
+    }
+
+    getStations() : Station[]{
+      return this.stations.slice( 0, this.stations.length );
     }
 
     private readFile( pathFile : string ) : Promise<Object>{
@@ -53,6 +57,14 @@ export class StationManagerService{
           (e) => reject( e )
         );
       } );
+    }
+
+    getStation( id : number ){
+      if( id < 0 || id >= this.stations.length ){
+        return null;
+      }
+
+      return this.stations[id];
     }
 
     private errorFile( e ){

@@ -14,10 +14,16 @@ var element_sequin_object_1 = require("../../objects/elements/element-sequin.obj
 var element_pixel_object_1 = require("../../objects/elements/element-pixel.object");
 var element_stripPixel_object_1 = require("../../objects/elements/element-stripPixel.object");
 var ble_service_1 = require("../../services/ble/ble.service");
+var ApiAirDeamon_service_1 = require("../../services/ApiAirDeamon/ApiAirDeamon.service");
+var station_manager_service_1 = require("../../services/station-manager/station-manager.service");
 var CustomizeComponent = (function () {
-    function CustomizeComponent(wearableManager, bleService) {
+    function CustomizeComponent(wearableManager, bleService, apiAirDeamon, stationManager) {
         this.wearableManager = wearableManager;
         this.bleService = bleService;
+        this.apiAirDeamon = apiAirDeamon;
+        this.stationManager = stationManager;
+        this.MODE_MANUAL = -2;
+        this.MODE_GPS = -1;
         this.showLoading = false;
         this.currentSelectIndex = -1;
     }
@@ -40,7 +46,9 @@ var CustomizeComponent = (function () {
             return;
         }
         this.elementsOutputBlock = [];
-        // TODO Make for inputs
+        this.idGpsQuery = new Array(this.wearableManager.getSelectWearable().outputs.length);
+        this.idRegionQuery = new Array(this.wearableManager.getSelectWearable().outputs.length);
+        /* TODO Make for inputs */
         var outputs = this.wearableManager.getSelectWearable().outputs;
         for (var index in this.wearableManager.getSelectWearable().outputs) {
             if (outputs[index] instanceof element_sequin_object_1.ElementSequin) {
@@ -55,6 +63,36 @@ var CustomizeComponent = (function () {
             else {
                 console.error("Unknown instance type of element");
             }
+        }
+    };
+    CustomizeComponent.prototype.updateMode = function (index, mode) {
+        var _this = this;
+        mode = parseInt(mode);
+        this.safeRemoveQuery(index);
+        switch (mode) {
+            case this.MODE_MANUAL:
+                this.idGpsQuery[index] = undefined;
+                this.idRegionQuery[index] = undefined;
+                break;
+            case this.MODE_GPS:
+                this.idGpsQuery[index] = this.apiAirDeamon.addQueryGPS(function (data) { });
+                this.idRegionQuery[index] = undefined;
+                break;
+            default:
+                this.idGpsQuery[index] = undefined;
+                this.idRegionQuery[index] = this.apiAirDeamon.addQueryRegion(this.stationManager.getStation(index).getRegion(), this.stationManager.getStation(index).getZone(), function (data) {
+                    _this.wearableManager.getSelectWearable().outputs[index].fromRGB(data.color[0], data.color[1], data.color[2]);
+                    _this.wearableManager.getSelectWearable().sendData(_this.bleService);
+                });
+                break;
+        }
+    };
+    CustomizeComponent.prototype.safeRemoveQuery = function (index) {
+        if (this.idGpsQuery[index] !== undefined) {
+            this.apiAirDeamon.removeQueryQPS(index);
+        }
+        else if (this.idRegionQuery[index] !== undefined) {
+            this.apiAirDeamon.removeQueryRegion(index);
         }
     };
     CustomizeComponent.prototype.updateSequinState = function (index, event) {
@@ -102,8 +140,9 @@ var CustomizeComponent = (function () {
         core_1.Component({
             selector: "customize",
             templateUrl: "app/templates/customize/customize.template.html",
+            styleUrls: ["app/templates/customize/customize.template.css"]
         }), 
-        __metadata('design:paramtypes', [wearable_manager_service_1.WearableManager, ble_service_1.BLEService])
+        __metadata('design:paramtypes', [wearable_manager_service_1.WearableManager, ble_service_1.BLEService, ApiAirDeamon_service_1.ApiAirDeamonService, station_manager_service_1.StationManagerService])
     ], CustomizeComponent);
     return CustomizeComponent;
 }());

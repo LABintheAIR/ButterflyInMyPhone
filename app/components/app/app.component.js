@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var wearable_manager_service_1 = require('../../services/wearable-manager/wearable-manager.service');
 var ApiAirDeamon_service_1 = require("../../services/ApiAirDeamon/ApiAirDeamon.service");
+var station_manager_service_1 = require("../../services/station-manager/station-manager.service");
 var AppComponent = (function () {
-    function AppComponent(wearableManager, apiAirDeamon) {
+    function AppComponent(wearableManager, apiAirDeamon, stationManager) {
         this.wearableManager = wearableManager;
         this.apiAirDeamon = apiAirDeamon;
+        this.stationManager = stationManager;
         this.title = "Butterfly in my Phone";
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -22,13 +24,16 @@ var AppComponent = (function () {
         this.wearableManager.loadWearables()
             .then(function () { return console.log("Wearable loaded"); })
             .catch(function (e) { return console.error("[Wearable] : " + e); });
+        this.stationManager.loadStations()
+            .then(function () { return console.log("Stations loaded"); })
+            .catch(function (e) { return console.error("[Stations] : " + e); });
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: "butterfly-app",
             template: "<router-outlet></router-outlet>"
         }), 
-        __metadata('design:paramtypes', [wearable_manager_service_1.WearableManager, ApiAirDeamon_service_1.ApiAirDeamonService])
+        __metadata('design:paramtypes', [wearable_manager_service_1.WearableManager, ApiAirDeamon_service_1.ApiAirDeamonService, station_manager_service_1.StationManagerService])
     ], AppComponent);
     return AppComponent;
 }());

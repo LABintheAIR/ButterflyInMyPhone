@@ -14,19 +14,29 @@
   <template ngFor let-type [ngForOf]="elementsOutputBlock" let-i="index">
     <div class="customize-element-block-head">{{wearableManager.getSelectWearable().outputs[i].name}}</div>
     <div class="customize-element-block-content">
-      <template [ngIf]="type == 'onoff'">
-        <onoff-switch (valueChange)="updateSequinState(i, $event)"></onoff-switch>
-      </template>
-      <template [ngIf]="type == 'color'">
-        <p>Change color : <colorPicker (colorPickerChange)="updatePixelElement(i, $event)"></colorPicker></p>
-      </template>
-      <template [ngIf]="type == 'strip'">
-        <p>
-          Start Color : <colorPicker (colorPickerChange)="updateStartColorStrip(i, $event)"></colorPicker><br>
-          End Color : <colorPicker (colorPickerChange)="updateEndColorStrip(i, $event)"></colorPicker><br>
-          Level : <counter [min]=0 [max]=100 [step]=1 [value]=0 (valueChange)="updatePercenteColorStrip(i, $event)"></counter>
-        </p>
-      </template>
+      Mode :
+      <select [ngModel]="-2" (ngModelChange)="updateMode( i, $event )">
+        <option [value]="MODE_MANUAL">Manual</option>
+        <option [value]="MODE_GPS">GPS</option>
+        <template ngFor let-station [ngForOf]="stationManager.getStations()" let-idStation="index">
+          <option [value]="idStation">{{station.name}}</option>
+        </template>
+      </select>
+      <div *ngIf="idGpsQuery[i] == undefined && idRegionQuery[i] == undefined">
+        <template [ngIf]="type == 'onoff'">
+          <onoff-switch (valueChange)="updateSequinState(i, $event)"></onoff-switch>
+        </template>
+        <template [ngIf]="type == 'color'">
+          <p>Change color : <colorPicker (colorPickerChange)="updatePixelElement(i, $event)"></colorPicker></p>
+        </template>
+        <template [ngIf]="type == 'strip'">
+          <p>
+            Start Color : <colorPicker (colorPickerChange)="updateStartColorStrip(i, $event)"></colorPicker><br>
+            End Color : <colorPicker (colorPickerChange)="updateEndColorStrip(i, $event)"></colorPicker><br>
+            Level : <counter [min]=0 [max]=100 [step]=1 [value]=0 (valueChange)="updatePercenteColorStrip(i, $event)"></counter>
+          </p>
+        </template>
+      </div>
     </div>
     <br>
   </template>

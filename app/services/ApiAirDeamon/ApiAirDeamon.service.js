@@ -46,17 +46,21 @@ var ApiAirDeamonService = (function () {
         this.batchRegion.clear();
     };
     ApiAirDeamonService.prototype.addQueryGPS = function (cb) {
+        console.log("Add GPS Query");
         this.batchGPS.set(this.currentIdGps, { "callback": cb });
         return this.currentIdGps++;
     };
     ApiAirDeamonService.prototype.addQueryRegion = function (region, zone, cb) {
+        console.log("Add Region Query");
         this.batchRegion.set(this.currentIdRegion, { "region": region, "zone": zone, "callback": cb });
         return this.currentIdRegion++;
     };
     ApiAirDeamonService.prototype.removeQueryRegion = function (id) {
+        console.log("Remove Region Query");
         return this.batchRegion.delete(id);
     };
     ApiAirDeamonService.prototype.removeQueryQPS = function (id) {
+        console.log("Remove GPS Query");
         return this.batchGPS.delete(id);
     };
     ApiAirDeamonService.prototype.setTimeoutTaskValue = function (msec) {

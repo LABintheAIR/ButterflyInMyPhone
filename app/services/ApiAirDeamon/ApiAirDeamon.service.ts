@@ -45,20 +45,24 @@ export class ApiAirDeamonService {
   }
 
   addQueryGPS( cb : Function ) : number {
+    console.log("Add GPS Query");
     this.batchGPS.set( this.currentIdGps, { "callback" : cb } );
     return this.currentIdGps++;
   }
 
   addQueryRegion( region : string, zone : string, cb : Function ) : number {
+    console.log("Add Region Query");
     this.batchRegion.set( this.currentIdRegion, { "region": region, "zone" : zone, "callback": cb } );
     return this.currentIdRegion++;
   }
 
   removeQueryRegion( id : number ) : boolean {
+    console.log("Remove Region Query");
     return this.batchRegion.delete( id );
   }
 
   removeQueryQPS( id : number ) : boolean {
+    console.log("Remove GPS Query");
     return this.batchGPS.delete( id );
   }
 

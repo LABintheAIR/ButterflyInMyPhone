@@ -123,6 +123,7 @@ export class CustomizeComponent {
   }
 
   private applyDataToOuput( index : number, data ){
+    console.log( this.elementsOutputBlock[index] );
     if( this.elementsOutputBlock[index] == this.ELEMENT_SEQUIN ){
       if( data.iqa[0] >= 50 ){ /* TODO Let the user choose the trigger value */
         this.wearableManager.getSelectWearable().outputs[index].setState( true );
@@ -132,6 +133,7 @@ export class CustomizeComponent {
       }
     }
     else if( this.elementsOutputBlock[index] == this.ELEMENT_PIXEL ){
+      console.log( data );
       this.wearableManager.getSelectWearable().outputs[index].fromRGB( data.color[0][0], data.color[0][1], data.color[0][2] );
     }
     else if( this.elementsOutputBlock[index] == this.ELEMENT_STRIP ){

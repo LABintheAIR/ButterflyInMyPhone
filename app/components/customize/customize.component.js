@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var wearable_manager_service_1 = require("../../services/wearable-manager/wearable-manager.service");
 var element_sequin_object_1 = require("../../objects/elements/element-sequin.object");
 var element_pixel_object_1 = require("../../objects/elements/element-pixel.object");
@@ -106,6 +106,7 @@ var CustomizeComponent = (function () {
         return true;
     };
     CustomizeComponent.prototype.applyDataToOuput = function (index, data) {
+        console.log(this.elementsOutputBlock[index]);
         if (this.elementsOutputBlock[index] == this.ELEMENT_SEQUIN) {
             if (data.iqa[0] >= 50) {
                 this.wearableManager.getSelectWearable().outputs[index].setState(true);
@@ -115,6 +116,7 @@ var CustomizeComponent = (function () {
             }
         }
         else if (this.elementsOutputBlock[index] == this.ELEMENT_PIXEL) {
+            console.log(data);
             this.wearableManager.getSelectWearable().outputs[index].fromRGB(data.color[0][0], data.color[0][1], data.color[0][2]);
         }
         else if (this.elementsOutputBlock[index] == this.ELEMENT_STRIP) {
@@ -173,15 +175,18 @@ var CustomizeComponent = (function () {
             .then(function () { _this.showLoading = false; })
             .catch(function (e) { console.error(e); _this.showLoading = false; });
     };
-    CustomizeComponent = __decorate([
-        core_1.Component({
-            selector: "customize",
-            templateUrl: "app/templates/customize/customize.template.html",
-            styleUrls: ["app/templates/customize/customize.template.css"]
-        }), 
-        __metadata('design:paramtypes', [wearable_manager_service_1.WearableManager, ble_service_1.BLEService, ApiAirDeamon_service_1.ApiAirDeamonService, station_manager_service_1.StationManagerService])
-    ], CustomizeComponent);
     return CustomizeComponent;
 }());
+CustomizeComponent = __decorate([
+    core_1.Component({
+        selector: "customize",
+        templateUrl: "app/templates/customize/customize.template.html",
+        styleUrls: ["app/templates/customize/customize.template.css"]
+    }),
+    __metadata("design:paramtypes", [wearable_manager_service_1.WearableManager,
+        ble_service_1.BLEService,
+        ApiAirDeamon_service_1.ApiAirDeamonService,
+        station_manager_service_1.StationManagerService])
+], CustomizeComponent);
 exports.CustomizeComponent = CustomizeComponent;
 //# sourceMappingURL=customize.component.js.map

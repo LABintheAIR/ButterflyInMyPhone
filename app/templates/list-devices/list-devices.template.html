@@ -15,6 +15,7 @@
       </li>
     </ul>
   </div>
+  <button (click)="router.navigate(['/air-quality']);">Dev. access</button>
   <div *ngIf="!devices || devices.length == 0" class="center">
     <img class="pic-info" alt="No wearables :(" src="app/ressources/images/list-devices/nothing.png" />
   </div>

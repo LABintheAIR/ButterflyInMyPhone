@@ -20,6 +20,7 @@ export class ApiAirDeamonService {
   private batchGPS : Map<number, QueryGPS>;
   private currentIdRegion = 0;
   private currentIdGps = 0;
+  private timeoutTaskValue = 2000;
 
   constructor( private http : Http ){
     this.batchGPS = new Map<number, QueryGPS>();
@@ -35,7 +36,7 @@ export class ApiAirDeamonService {
     });
     cordova.plugins.backgroundMode.enable();
     cordova.plugins.backgroundMode.onfailure = (error) => { console.error("APIAIR DEAMON : " + error) };
-    this.timeoutTask( 10000 );
+    this.timeoutTask( this.timeoutTaskValue );
   }
 
   resetQueryBatchs() : void{
@@ -59,6 +60,14 @@ export class ApiAirDeamonService {
 
   removeQueryQPS( id : number ) : boolean {
     return this.batchGPS.delete( id );
+  }
+
+  setTimeoutTaskValue( msec : number ){
+    if( msec < 1000 ){
+      console.error( "Timeout value too low ! Forced to 1 seconde.");
+      msec = 1000;
+    }
+    this.timeoutTaskValue = msec;
   }
 
   private timeoutTask( msec : number ){

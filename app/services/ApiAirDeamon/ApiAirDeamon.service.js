@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require('@angular/http');
-require('rxjs/add/operator/map');
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
 var QueryRegion = (function () {
     function QueryRegion() {
     }
@@ -26,6 +26,7 @@ var ApiAirDeamonService = (function () {
         this.http = http;
         this.currentIdRegion = 0;
         this.currentIdGps = 0;
+        this.timeoutTaskValue = 2000;
         this.batchGPS = new Map();
         this.batchRegion = new Map();
     }
@@ -38,7 +39,7 @@ var ApiAirDeamonService = (function () {
         });
         cordova.plugins.backgroundMode.enable();
         cordova.plugins.backgroundMode.onfailure = function (error) { console.error("APIAIR DEAMON : " + error); };
-        this.timeoutTask(10000);
+        this.timeoutTask(this.timeoutTaskValue);
     };
     ApiAirDeamonService.prototype.resetQueryBatchs = function () {
         this.batchGPS.clear();
@@ -58,6 +59,13 @@ var ApiAirDeamonService = (function () {
     ApiAirDeamonService.prototype.removeQueryQPS = function (id) {
         return this.batchGPS.delete(id);
     };
+    ApiAirDeamonService.prototype.setTimeoutTaskValue = function (msec) {
+        if (msec < 1000) {
+            console.error("Timeout value too low ! Forced to 1 seconde.");
+            msec = 1000;
+        }
+        this.timeoutTaskValue = msec;
+    };
     ApiAirDeamonService.prototype.timeoutTask = function (msec) {
         var _this = this;
         this.runBatchs();
@@ -67,7 +75,7 @@ var ApiAirDeamonService = (function () {
         console.log("Run batchs");
         var itGps = this.batchGPS.values();
         var itRegion = this.batchRegion.values();
-        var _loop_1 = function(tmp) {
+        var _loop_1 = function (tmp) {
             this_1.sendGPSRequest()
                 .then(function (obs) {
                 obs.subscribe(function (res) { return tmp.value.callback(res); }, function (err) { return console.error(err); });
@@ -80,7 +88,7 @@ var ApiAirDeamonService = (function () {
         for (var tmp = itGps.next(); !tmp.done; tmp = itGps.next()) {
             _loop_1(tmp);
         }
-        var _loop_2 = function(tmp) {
+        var _loop_2 = function (tmp) {
             this_2.sendRegionRequest(tmp.value.region, tmp.value.zone).subscribe(function (res) { return tmp.value.callback(res); }, function (err) { return console.error(err); });
         };
         var this_2 = this;
@@ -109,11 +117,11 @@ var ApiAirDeamonService = (function () {
             navigator.geolocation.getCurrentPosition(function (position) { resolve(position); }, function (error) { reject("[GPS Position] " + error.code + " : " + error.message); }, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: false });
         });
     };
-    ApiAirDeamonService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], ApiAirDeamonService);
     return ApiAirDeamonService;
 }());
+ApiAirDeamonService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], ApiAirDeamonService);
 exports.ApiAirDeamonService = ApiAirDeamonService;
 //# sourceMappingURL=ApiAirDeamon.service.js.map

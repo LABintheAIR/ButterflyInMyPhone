@@ -21,6 +21,10 @@ export class CustomizeComponent {
                 private apiAirDeamon : ApiAirDeamonService,
                 private stationManager : StationManagerService ){}
 
+  private ELEMENT_SEQUIN = "onoff";
+  private ELEMENT_PIXEL = "color";
+  private ELEMENT_STRIP = "strip";
+
   private MODE_MANUAL = -2;
   private MODE_GPS    = -1;
 
@@ -61,13 +65,13 @@ export class CustomizeComponent {
     let outputs = this.wearableManager.getSelectWearable().outputs;
     for( let index in this.wearableManager.getSelectWearable().outputs ){
       if( outputs[index] instanceof ElementSequin ){
-        this.elementsOutputBlock.push( "onoff" );
+        this.elementsOutputBlock.push( this.ELEMENT_SEQUIN );
       }
       else if( outputs[index] instanceof ElementPixel ){
-          this.elementsOutputBlock.push( "color" );
+          this.elementsOutputBlock.push( this.ELEMENT_PIXEL );
       }
       else if( outputs[index] instanceof ElementStripPixel ){
-          this.elementsOutputBlock.push( "strip" );
+          this.elementsOutputBlock.push( this.ELEMENT_STRIP );
       }
       else{
         console.error( "Unknown instance type of element" );
@@ -94,10 +98,47 @@ export class CustomizeComponent {
         this.idRegionQuery[index] = this.apiAirDeamon.addQueryRegion( this.stationManager.getStation(index).getRegion(),
                                                                       this.stationManager.getStation(index).getZone(),
                                                                       (data) => {
-                                                                        this.wearableManager.getSelectWearable().outputs[index].fromRGB( data.color[0], data.color[1], data.color[2] );
+                                                                        this.applyDataToOuput( index, data );
                                                                         this.wearableManager.getSelectWearable().sendData(this.bleService);
                                                                       } );
         break;
+    }
+
+    if( this.isFillOfUndefined( this.idGpsQuery ) ){
+      this.apiAirDeamon.setTimeoutTaskValue( 900000 ) /* 900 000 = 15 minutes */
+    }
+    else{
+      this.apiAirDeamon.setTimeoutTaskValue( 60000 ) /* 60 000 = 1 minute */
+    }
+  }
+
+  private isFillOfUndefined( tab : Array<any> ) : boolean {
+    for( let e of tab ){
+      if( e !== undefined ){
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private applyDataToOuput( index : number, data ){
+    if( this.elementsOutputBlock[index] == this.ELEMENT_SEQUIN ){
+      if( data.iqa[0] >= 50 ){ /* TODO Let the user choose the trigger value */
+        this.wearableManager.getSelectWearable().outputs[index].setState( true );
+      }
+      else{
+        this.wearableManager.getSelectWearable().outputs[index].setState( false );
+      }
+    }
+    else if( this.elementsOutputBlock[index] == this.ELEMENT_PIXEL ){
+      this.wearableManager.getSelectWearable().outputs[index].fromRGB( data.color[0][0], data.color[0][1], data.color[0][2] );
+    }
+    else if( this.elementsOutputBlock[index] == this.ELEMENT_STRIP ){
+      this.wearableManager.getSelectWearable().outputs[index].setNumberLightOnFormPercent( data.iqa[0] );
+    }
+    else{
+      console.error( "[ApplyData] : Unknown index : " + index );
     }
   }
 

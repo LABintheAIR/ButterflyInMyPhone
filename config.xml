@@ -80,7 +80,7 @@
     <plugin name="cordova-plugin-file" spec="4.2.0" />
     <plugin name="cordova-plugin-geolocation" spec="2.3.0" />
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
-    <plugin name="org.apache.cordova.vibration" source="pgb" spec="0.3.13" />
+    <plugin name="org.apache.cordova.vibration" source="npm" spec="0.3.13" />
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--

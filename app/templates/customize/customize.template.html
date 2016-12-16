@@ -23,13 +23,13 @@
         </template>
       </select>
       <div *ngIf="idGpsQuery[i] == undefined && idRegionQuery[i] == undefined">
-        <template [ngIf]="type == 'onoff'">
+        <template [ngIf]="type == ELEMENT_SEQUIN">
           <onoff-switch (valueChange)="updateSequinState(i, $event)"></onoff-switch>
         </template>
-        <template [ngIf]="type == 'color'">
+        <template [ngIf]="type == ELEMENT_PIXEL">
           <p>Change color : <colorPicker (colorPickerChange)="updatePixelElement(i, $event)"></colorPicker></p>
         </template>
-        <template [ngIf]="type == 'strip'">
+        <template [ngIf]="type == ELEMENT_STRIP">
           <p>
             Start Color : <colorPicker (colorPickerChange)="updateStartColorStrip(i, $event)"></colorPicker><br>
             End Color : <colorPicker (colorPickerChange)="updateEndColorStrip(i, $event)"></colorPicker><br>

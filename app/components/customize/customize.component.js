@@ -117,7 +117,7 @@ var CustomizeComponent = (function () {
         }
         else if (this.elementsOutputBlock[index] == this.ELEMENT_PIXEL) {
             console.log(data);
-            this.wearableManager.getSelectWearable().outputs[index].fromRGB(data.color[0][0], data.color[0][1], data.color[0][2]);
+            this.wearableManager.getSelectWearable().outputs[index].fromRGB(data.color[0], data.color[1], data.color[2]);
         }
         else if (this.elementsOutputBlock[index] == this.ELEMENT_STRIP) {
             this.wearableManager.getSelectWearable().outputs[index].setNumberLightOnFormPercent(data.iqa[0]);

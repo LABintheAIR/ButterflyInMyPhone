@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var MenuComponent = (function () {
     function MenuComponent(router) {
         this.router = router;
@@ -41,27 +41,27 @@ var MenuComponent = (function () {
         this.forceInactive();
         this.router.navigate(['/disconnection']);
     };
-    MenuComponent = __decorate([
-        core_1.Component({
-            selector: "menu",
-            templateUrl: "app/templates/menu/menu.template.html",
-            styleUrls: ["app/templates/menu/menu.template.css"],
-            animations: [
-                core_1.trigger('menuState', [
-                    core_1.state('inactive', core_1.style({
-                        transform: 'translateX(0)'
-                    })),
-                    core_1.state('active', core_1.style({
-                        transform: 'translateX(304px)'
-                    })),
-                    core_1.transition('inactive => active', core_1.animate('100ms ease-in')),
-                    core_1.transition('active => inactive', core_1.animate('100ms ease-out'))
-                ])
-            ],
-        }), 
-        __metadata('design:paramtypes', [router_1.Router])
-    ], MenuComponent);
     return MenuComponent;
 }());
+MenuComponent = __decorate([
+    core_1.Component({
+        selector: "menu",
+        templateUrl: "app/templates/menu/menu.template.html",
+        styleUrls: ["app/templates/menu/menu.template.css"],
+        animations: [
+            core_1.trigger('menuState', [
+                core_1.state('inactive', core_1.style({
+                    transform: 'translateX(0)'
+                })),
+                core_1.state('active', core_1.style({
+                    transform: 'translateX(304px)'
+                })),
+                core_1.transition('inactive => active', core_1.animate('100ms ease-in')),
+                core_1.transition('active => inactive', core_1.animate('100ms ease-out'))
+            ])
+        ],
+    }),
+    __metadata("design:paramtypes", [router_1.Router])
+], MenuComponent);
 exports.MenuComponent = MenuComponent;
 //# sourceMappingURL=menu.component.js.map

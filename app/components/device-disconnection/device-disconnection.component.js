@@ -25,14 +25,15 @@ var DeviceDisconnectionComponent = (function () {
             _this.router.navigate(["/list-devices"]);
         });
     };
-    DeviceDisconnectionComponent = __decorate([
-        core_1.Component({
-            selector: "device-disconnection",
-            templateUrl: "app/templates/device-disconnection/device-disconnection.template.html"
-        }), 
-        __metadata('design:paramtypes', [router_1.Router, ble_service_1.BLEService])
-    ], DeviceDisconnectionComponent);
     return DeviceDisconnectionComponent;
 }());
+DeviceDisconnectionComponent = __decorate([
+    core_1.Component({
+        selector: "device-disconnection",
+        templateUrl: "app/templates/device-disconnection/device-disconnection.template.html"
+    }),
+    __metadata("design:paramtypes", [router_1.Router,
+        ble_service_1.BLEService])
+], DeviceDisconnectionComponent);
 exports.DeviceDisconnectionComponent = DeviceDisconnectionComponent;
 //# sourceMappingURL=device-disconnection.component.js.map

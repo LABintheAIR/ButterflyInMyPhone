@@ -38,35 +38,34 @@ var CounterComponent = (function () {
         this.value = event;
         this.valueChange.emit(this.value);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], CounterComponent.prototype, "value", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], CounterComponent.prototype, "min", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], CounterComponent.prototype, "max", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], CounterComponent.prototype, "step", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], CounterComponent.prototype, "valueChange", void 0);
-    CounterComponent = __decorate([
-        core_1.Component({
-            selector: "counter",
-            templateUrl: "app/templates/counter/counter.template.html",
-            styleUrls: ["app/templates/counter/counter.template.css"]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], CounterComponent);
     return CounterComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], CounterComponent.prototype, "value", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], CounterComponent.prototype, "min", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], CounterComponent.prototype, "max", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], CounterComponent.prototype, "step", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], CounterComponent.prototype, "valueChange", void 0);
+CounterComponent = __decorate([
+    core_1.Component({
+        selector: "counter",
+        templateUrl: "app/templates/counter/counter.template.html",
+        styleUrls: ["app/templates/counter/counter.template.css"]
+    })
+], CounterComponent);
 exports.CounterComponent = CounterComponent;
 //# sourceMappingURL=counter.component.js.map

@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require('@angular/router');
-var ble_service_1 = require('../../services/ble/ble.service');
+var router_1 = require("@angular/router");
+var ble_service_1 = require("../../services/ble/ble.service");
 var DeviceConnectionComponent = (function () {
     function DeviceConnectionComponent(router, bleService, route) {
         this.router = router;
@@ -26,15 +26,17 @@ var DeviceConnectionComponent = (function () {
                 .catch(function (str) { return _this.router.navigate(['/list-devices', str]); });
         });
     };
-    DeviceConnectionComponent = __decorate([
-        core_1.Component({
-            selector: "device-connection",
-            templateUrl: "app/templates/device-connection/device-connection.template.html",
-            styleUrls: ["app/templates/device-connection/device-connection.template.css"],
-        }), 
-        __metadata('design:paramtypes', [router_1.Router, ble_service_1.BLEService, router_1.ActivatedRoute])
-    ], DeviceConnectionComponent);
     return DeviceConnectionComponent;
 }());
+DeviceConnectionComponent = __decorate([
+    core_1.Component({
+        selector: "device-connection",
+        templateUrl: "app/templates/device-connection/device-connection.template.html",
+        styleUrls: ["app/templates/device-connection/device-connection.template.css"],
+    }),
+    __metadata("design:paramtypes", [router_1.Router,
+        ble_service_1.BLEService,
+        router_1.ActivatedRoute])
+], DeviceConnectionComponent);
 exports.DeviceConnectionComponent = DeviceConnectionComponent;
 //# sourceMappingURL=device-connection.component.js.map

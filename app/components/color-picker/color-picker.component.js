@@ -30,26 +30,25 @@ var ColorPickerComponent = (function () {
             this.isInitDone = true;
         }
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], ColorPickerComponent.prototype, "colorPicker", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], ColorPickerComponent.prototype, "colorPickerChange", void 0);
-    __decorate([
-        core_1.ViewChild('myInputColor'), 
-        __metadata('design:type', core_1.ElementRef)
-    ], ColorPickerComponent.prototype, "element", void 0);
-    ColorPickerComponent = __decorate([
-        core_1.Component({
-            selector: "colorPicker",
-            templateUrl: "app/templates/color-picker/color-picker.template.html"
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ColorPickerComponent);
     return ColorPickerComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], ColorPickerComponent.prototype, "colorPicker", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ColorPickerComponent.prototype, "colorPickerChange", void 0);
+__decorate([
+    core_1.ViewChild('myInputColor'),
+    __metadata("design:type", core_1.ElementRef)
+], ColorPickerComponent.prototype, "element", void 0);
+ColorPickerComponent = __decorate([
+    core_1.Component({
+        selector: "colorPicker",
+        templateUrl: "app/templates/color-picker/color-picker.template.html"
+    })
+], ColorPickerComponent);
 exports.ColorPickerComponent = ColorPickerComponent;
 //# sourceMappingURL=color-picker.component.js.map

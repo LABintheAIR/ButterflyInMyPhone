@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var wearable_manager_service_1 = require('../../services/wearable-manager/wearable-manager.service');
+var core_1 = require("@angular/core");
+var wearable_manager_service_1 = require("../../services/wearable-manager/wearable-manager.service");
 var ApiAirDeamon_service_1 = require("../../services/ApiAirDeamon/ApiAirDeamon.service");
 var station_manager_service_1 = require("../../services/station-manager/station-manager.service");
 var AppComponent = (function () {
@@ -28,14 +28,16 @@ var AppComponent = (function () {
             .then(function () { return console.log("Stations loaded"); })
             .catch(function (e) { return console.error("[Stations] : " + e); });
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: "butterfly-app",
-            template: "<router-outlet></router-outlet>"
-        }), 
-        __metadata('design:paramtypes', [wearable_manager_service_1.WearableManager, ApiAirDeamon_service_1.ApiAirDeamonService, station_manager_service_1.StationManagerService])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    core_1.Component({
+        selector: "butterfly-app",
+        template: "<router-outlet></router-outlet>"
+    }),
+    __metadata("design:paramtypes", [wearable_manager_service_1.WearableManager,
+        ApiAirDeamon_service_1.ApiAirDeamonService,
+        station_manager_service_1.StationManagerService])
+], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

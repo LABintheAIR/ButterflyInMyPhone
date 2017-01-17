@@ -14,19 +14,18 @@ var OverlayMessageComponent = (function () {
         /*@Input() message : string;*/
         this.loading = false;
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], OverlayMessageComponent.prototype, "loading", void 0);
-    OverlayMessageComponent = __decorate([
-        core_1.Component({
-            selector: "overlay-message",
-            templateUrl: "app/templates/overlay-message/overlay-message.template.html",
-            styleUrls: ["app/templates/overlay-message/overlay-message.template.css"]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], OverlayMessageComponent);
     return OverlayMessageComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], OverlayMessageComponent.prototype, "loading", void 0);
+OverlayMessageComponent = __decorate([
+    core_1.Component({
+        selector: "overlay-message",
+        templateUrl: "app/templates/overlay-message/overlay-message.template.html",
+        styleUrls: ["app/templates/overlay-message/overlay-message.template.css"]
+    })
+], OverlayMessageComponent);
 exports.OverlayMessageComponent = OverlayMessageComponent;
 //# sourceMappingURL=overlay-message.component.js.map

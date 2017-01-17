@@ -1,9 +1,9 @@
 "use strict";
-var router_1 = require('@angular/router');
-var list_devices_component_1 = require('../../components/list-devices/list-devices.component');
-var device_connection_component_1 = require('../../components/device-connection/device-connection.component');
-var air_quality_component_1 = require('../../components/air-quality/air-quality.component');
-var share_component_1 = require('../../components/share/share.component');
+var router_1 = require("@angular/router");
+var list_devices_component_1 = require("../../components/list-devices/list-devices.component");
+var device_connection_component_1 = require("../../components/device-connection/device-connection.component");
+var air_quality_component_1 = require("../../components/air-quality/air-quality.component");
+var share_component_1 = require("../../components/share/share.component");
 var device_disconnection_component_1 = require("../../components/device-disconnection/device-disconnection.component");
 var customize_component_1 = require("../../components/customize/customize.component");
 var appRoutes = [

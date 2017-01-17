@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require('@angular/router');
-var ble_service_1 = require('../../services/ble/ble.service');
+var router_1 = require("@angular/router");
+var ble_service_1 = require("../../services/ble/ble.service");
 var ListDevicesComponent = (function () {
     function ListDevicesComponent(router, route, bleService) {
         this.router = router;
@@ -44,15 +44,17 @@ var ListDevicesComponent = (function () {
     ListDevicesComponent.prototype.closeError = function () {
         this.router.navigate(['/list-devices']);
     };
-    ListDevicesComponent = __decorate([
-        core_1.Component({
-            selector: "list-device",
-            templateUrl: "app/templates/list-devices/list-devices.template.html",
-            styleUrls: ["app/templates/list-devices/list-devices.template.css"],
-        }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, ble_service_1.BLEService])
-    ], ListDevicesComponent);
     return ListDevicesComponent;
 }());
+ListDevicesComponent = __decorate([
+    core_1.Component({
+        selector: "list-device",
+        templateUrl: "app/templates/list-devices/list-devices.template.html",
+        styleUrls: ["app/templates/list-devices/list-devices.template.css"],
+    }),
+    __metadata("design:paramtypes", [router_1.Router,
+        router_1.ActivatedRoute,
+        ble_service_1.BLEService])
+], ListDevicesComponent);
 exports.ListDevicesComponent = ListDevicesComponent;
 //# sourceMappingURL=list-devices.component.js.map

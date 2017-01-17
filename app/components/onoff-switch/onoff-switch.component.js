@@ -18,23 +18,22 @@ var OnOffSwitchComponent = (function () {
         this.value = event;
         this.valueChange.emit(this.value);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], OnOffSwitchComponent.prototype, "value", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], OnOffSwitchComponent.prototype, "valueChange", void 0);
-    OnOffSwitchComponent = __decorate([
-        core_1.Component({
-            selector: "onoff-switch",
-            templateUrl: "app/templates/onoff-switch/onoff-switch.template.html",
-            styleUrls: ["app/templates/onoff-switch/onoff-switch.template.css"]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], OnOffSwitchComponent);
     return OnOffSwitchComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], OnOffSwitchComponent.prototype, "value", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], OnOffSwitchComponent.prototype, "valueChange", void 0);
+OnOffSwitchComponent = __decorate([
+    core_1.Component({
+        selector: "onoff-switch",
+        templateUrl: "app/templates/onoff-switch/onoff-switch.template.html",
+        styleUrls: ["app/templates/onoff-switch/onoff-switch.template.css"]
+    })
+], OnOffSwitchComponent);
 exports.OnOffSwitchComponent = OnOffSwitchComponent;
 //# sourceMappingURL=onoff-switch.component.js.map

@@ -14,12 +14,11 @@ var OverlayMessageComponent = (function () {
         /*@Input() message : string;*/
         this.loading = false;
     }
-    OverlayMessageComponent.prototype.ngAfterViewChecked = function () {
+    OverlayMessageComponent.prototype.ngOnInit = function () {
         console.log("Inner Width : " + window.screen.width + "px");
-        console.log("Width : " + this.el.nativeElement.width + "px");
-        this.el.nativeElement.height = window.screen.height;
-        this.el.nativeElement.width = window.screen.width;
-        console.log("Width : " + this.el.nativeElement.width + "px");
+        console.log("Width : " + this.el.nativeElement.style.width + "px");
+        this.el.nativeElement.style.width = window.screen.width;
+        console.log("Width : " + this.el.nativeElement.style.width + "px");
     };
     return OverlayMessageComponent;
 }());

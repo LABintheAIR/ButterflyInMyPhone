@@ -1,4 +1,4 @@
-import  { Component, Input, AfterViewChecked, ViewChild, ElementRef } from "@angular/core";
+import  { Component, Input, OnInit, ViewChild, ElementRef } from "@angular/core";
 
 @Component({
   selector: "overlay-message",
@@ -11,11 +11,10 @@ export class OverlayMessageComponent {
   @Input() loading = false;
   @ViewChild( "overlay" ) el : ElementRef;
 
-  ngAfterViewChecked(){
+  ngOnInit(){
     console.log( "Inner Width : " + window.screen.width + "px" )
-    console.log( "Width : " + this.el.nativeElement.width + "px" );
-    this.el.nativeElement.height = window.screen.height;
-    this.el.nativeElement.width = window.screen.width;
-    console.log( "Width : " + this.el.nativeElement.width + "px" );
+    console.log( "Width : " + this.el.nativeElement.style.width + "px" );
+      this.el.nativeElement.style.width = window.screen.width;
+    console.log( "Width : " + this.el.nativeElement.style.width + "px" );
   }
 }

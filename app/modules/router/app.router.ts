@@ -37,10 +37,15 @@ const appRoutes: Routes = [
     component: DeviceDisconnectionComponent
   },
   {
-    path: '',
+    path: 'main.html',
     redirectTo: '/list-devices',
     pathMatch: 'full'
   },
+  {
+    path: '',
+    redirectTo: '/list-devices',
+    pathMatch: 'full'
+  }
 ];
 
 export const AppRouter = RouterModule.forRoot(appRoutes);

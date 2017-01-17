@@ -36,10 +36,15 @@ var appRoutes = [
         component: device_disconnection_component_1.DeviceDisconnectionComponent
     },
     {
-        path: '',
+        path: 'main.html',
         redirectTo: '/list-devices',
         pathMatch: 'full'
     },
+    {
+        path: '',
+        redirectTo: '/list-devices',
+        pathMatch: 'full'
+    }
 ];
 exports.AppRouter = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.router.js.map

@@ -13,6 +13,7 @@ export class OverlayMessageComponent {
 
   ngOnInit(){
     console.log( "Inner Width : " + window.screen.width + "px" )
+    console.log( "Inner Height : " + window.screen.height + "px" )
     console.log( "Width : " + this.el.nativeElement.style.width + "px" );
       this.el.nativeElement.style.width = window.screen.width;
     console.log( "Width : " + this.el.nativeElement.style.width + "px" );

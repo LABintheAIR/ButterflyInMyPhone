@@ -12,10 +12,10 @@ export class OverlayMessageComponent {
   @ViewChild( "overlay" ) el : ElementRef;
 
   ngAfterViewChecked(){
-    console.log( "Inner Width : " + window.innerWidth + "px" )
+    console.log( "Inner Width : " + window.screen.width + "px" )
     console.log( "Width : " + this.el.nativeElement.width + "px" );
-    this.el.nativeElement.height = window.innerHeight;
-    this.el.nativeElement.width = window.innerWidth;
+    this.el.nativeElement.height = window.screen.height;
+    this.el.nativeElement.width = window.screen.width;
     console.log( "Width : " + this.el.nativeElement.width + "px" );
   }
 }

@@ -14,12 +14,23 @@ var OverlayMessageComponent = (function () {
         /*@Input() message : string;*/
         this.loading = false;
     }
+    OverlayMessageComponent.prototype.ngAfterViewChecked = function () {
+        console.log("Inner Width : " + window.innerWidth + "px");
+        console.log("Width : " + this.el.nativeElement.width + "px");
+        this.el.nativeElement.height = window.innerHeight;
+        this.el.nativeElement.width = window.innerWidth;
+        console.log("Width : " + this.el.nativeElement.width + "px");
+    };
     return OverlayMessageComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], OverlayMessageComponent.prototype, "loading", void 0);
+__decorate([
+    core_1.ViewChild("overlay"),
+    __metadata("design:type", core_1.ElementRef)
+], OverlayMessageComponent.prototype, "el", void 0);
 OverlayMessageComponent = __decorate([
     core_1.Component({
         selector: "overlay-message",

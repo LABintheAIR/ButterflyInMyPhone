@@ -101,8 +101,8 @@ var ApiAirDeamonService = (function () {
         }
     };
     ApiAirDeamonService.prototype.sendRegionRequest = function (region, zone) {
-        //return this.http.get( "http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone ).map( (res:Response) => res.json() );
-        return this.http.get("http://papillon-jnth.rhcloud.com/get/iqa/random").map(function (res) { return res.json(); });
+        return this.http.get("http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone).map(function (res) { return res.json(); });
+        //return this.http.get( "http://papillon-jnth.rhcloud.com/get/iqa/random").map( (res:Response) => res.json() );
     };
     ApiAirDeamonService.prototype.sendGPSRequest = function () {
         var _this = this;

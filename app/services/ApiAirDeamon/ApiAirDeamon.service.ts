@@ -100,8 +100,8 @@ export class ApiAirDeamonService {
   }
 
   private sendRegionRequest( region : string, zone : string ){
-    //return this.http.get( "http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone ).map( (res:Response) => res.json() );
-    return this.http.get( "http://papillon-jnth.rhcloud.com/get/iqa/random").map( (res:Response) => res.json() );
+    return this.http.get( "http://papillon-jnth.rhcloud/get/iqa/" + region + "/" + zone ).map( (res:Response) => res.json() );
+    //return this.http.get( "http://papillon-jnth.rhcloud.com/get/iqa/random").map( (res:Response) => res.json() );
   }
 
   private sendGPSRequest() : Promise<Observable<Object>>{

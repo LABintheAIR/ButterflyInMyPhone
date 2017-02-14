@@ -47,12 +47,14 @@ export class ApiAirDeamonService {
   addQueryGPS( cb : Function ) : number {
     console.log("Add GPS Query");
     this.batchGPS.set( this.currentIdGps, { "callback" : cb } );
+    this.runBatchs();
     return this.currentIdGps++;
   }
 
   addQueryRegion( region : string, zone : string, cb : Function ) : number {
     console.log("Add Region Query");
     this.batchRegion.set( this.currentIdRegion, { "region": region, "zone" : zone, "callback": cb } );
+    this.runBatchs();
     return this.currentIdRegion++;
   }
 

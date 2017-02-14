@@ -48,11 +48,13 @@ var ApiAirDeamonService = (function () {
     ApiAirDeamonService.prototype.addQueryGPS = function (cb) {
         console.log("Add GPS Query");
         this.batchGPS.set(this.currentIdGps, { "callback": cb });
+        this.runBatchs();
         return this.currentIdGps++;
     };
     ApiAirDeamonService.prototype.addQueryRegion = function (region, zone, cb) {
         console.log("Add Region Query");
         this.batchRegion.set(this.currentIdRegion, { "region": region, "zone": zone, "callback": cb });
+        this.runBatchs();
         return this.currentIdRegion++;
     };
     ApiAirDeamonService.prototype.removeQueryRegion = function (id) {

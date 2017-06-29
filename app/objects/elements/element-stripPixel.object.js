@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var element_pixel_object_1 = require("./element-pixel.object");
 var ElementStripPixel = (function () {
     function ElementStripPixel() {

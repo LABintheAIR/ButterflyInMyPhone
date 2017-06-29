@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.BLE_DEVICES = [
     { id: "80:86:f2:b2:07:41", name: "First device", rssi: 100 },
     { id: "super_id_here", name: "BLE device", rssi: 60 },

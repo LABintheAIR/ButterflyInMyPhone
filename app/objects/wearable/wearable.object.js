@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var element_sequin_object_1 = require("../elements/element-sequin.object");
 var element_pixel_object_1 = require("../elements/element-pixel.object");
 var element_stripPixel_object_1 = require("../elements/element-stripPixel.object");

@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "cc.labintheair.butterflyinmyphone"
-        version   = "0.2.0">
+        version   = "0.2.1">
 
-    <name>Butterfly In My Phone - ANGULAR</name>
+    <name>Butterfly In My Phone - EPURATE</name>
 
     <description>
         Contrôlez votre ButterflyBag et consultez la qualité de l'air.

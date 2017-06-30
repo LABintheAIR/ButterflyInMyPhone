@@ -86,6 +86,9 @@ export class ApiAirDeamonService {
     let itGps = this.batchGPS.values();
     let itRegion = this.batchRegion.values();
 
+    console.log( "GPS Batch size : " + this.batchGPS.size );
+    console.log( "Region Batch size : " + this.batchRegion.size );
+
     for( let tmp = itGps.next(); !tmp.done; tmp = itGps.next() ){
       console.log( "Loop GPS Iterator");
       this.sendGPSRequest()

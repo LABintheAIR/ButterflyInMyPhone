@@ -112,7 +112,7 @@ var ApiAirDeamonService = (function () {
         return new Promise(function (resolve, reject) {
             _this.getCurrentGPSPosition()
                 .then(function (position) {
-                resolve(_this.http.get("http://papillon-jnth.rhcloud.com/get/iqa/paca/" + position.coords.longitude + "," + position.coords.latitude).map(function (res) { return res.json(); }));
+                resolve(_this.http.get("https://wlab.cc/AQ/getAQGPS.php?lng=" + position.coords.longitude + "&lat=" + position.coords.latitude).map(function (res) { return res.json(); }));
             })
                 .catch(function (error) {
                 reject(error);

@@ -89,7 +89,7 @@ export class CustomizeComponent {
         break;
 
       case this.MODE_GPS:
-        this.idGpsQuery[index] = this.apiAirDeamon.addQueryGPS( (data) => {} );
+        this.idGpsQuery[index] = this.apiAirDeamon.addQueryGPS( (data) => { console.log( "GPS query result DATA : " + data ); } );
         this.idRegionQuery[index] = undefined;
         break;
 

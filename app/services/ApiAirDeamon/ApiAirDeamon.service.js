@@ -27,7 +27,7 @@ var ApiAirDeamonService = (function () {
         this.http = http;
         this.currentIdRegion = 0;
         this.currentIdGps = 0;
-        this.timeoutTaskValue = 2000;
+        this.timeoutTaskValue = 60000;
         this.batchGPS = new Map();
         this.batchRegion = new Map();
     }

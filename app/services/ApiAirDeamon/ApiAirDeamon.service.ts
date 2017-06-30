@@ -20,7 +20,7 @@ export class ApiAirDeamonService {
   private batchGPS : Map<number, QueryGPS>;
   private currentIdRegion = 0;
   private currentIdGps = 0;
-  private timeoutTaskValue = 2000;
+  private timeoutTaskValue = 60000;
 
   constructor( private http : Http ){
     this.batchGPS = new Map<number, QueryGPS>();

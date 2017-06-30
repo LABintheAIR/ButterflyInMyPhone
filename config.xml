@@ -142,6 +142,8 @@
     </gap:config-file>
     -->
 
+    <platform name="winphone" />
+
     <!--
         Define access to external domains.
 

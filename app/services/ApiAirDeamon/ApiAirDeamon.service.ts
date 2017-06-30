@@ -110,6 +110,7 @@ export class ApiAirDeamonService {
     return new Promise<Observable<Object>>( (resolve, reject) => {
         this.getCurrentGPSPosition()
           .then( (position) => {
+            console.log( position.coords.latitude );
             resolve( this.http.get("http://papillon-jnth.rhcloud.com/get/iqa/paca/" + position.coords.longitude + "," + position.coords.latitude).map( (res:Response) => res.json()) );
           })
           .catch( (error) => {

@@ -79,7 +79,12 @@ var CustomizeComponent = (function () {
                 this.idRegionQuery[index] = undefined;
                 break;
             case this.MODE_GPS:
-                this.idGpsQuery[index] = this.apiAirDeamon.addQueryGPS(function (data) { console.log("GPS query result DATA"); console.log(data); });
+                this.idGpsQuery[index] = this.apiAirDeamon.addQueryGPS(function (data) {
+                    console.log("GPS query result DATA");
+                    console.log(data);
+                    _this.wearableManager.getSelectWearable().outputs[index].fromString(data.value);
+                    _this.wearableManager.getSelectWearable().sendData(_this.bleService);
+                });
                 this.idRegionQuery[index] = undefined;
                 break;
             default:

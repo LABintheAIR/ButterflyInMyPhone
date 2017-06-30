@@ -79,7 +79,7 @@ var CustomizeComponent = (function () {
                 this.idRegionQuery[index] = undefined;
                 break;
             case this.MODE_GPS:
-                this.idGpsQuery[index] = this.apiAirDeamon.addQueryGPS(function (data) { });
+                this.idGpsQuery[index] = this.apiAirDeamon.addQueryGPS(function (data) { console.log("GPS query result DATA"); });
                 this.idRegionQuery[index] = undefined;
                 break;
             default:

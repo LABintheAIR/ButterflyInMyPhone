@@ -107,6 +107,7 @@ export class ApiAirDeamonService {
   }
 
   private sendGPSRequest() : Promise<Observable<Object>>{
+    console.log( "Send GPS request");
     return new Promise<Observable<Object>>( (resolve, reject) => {
         this.getCurrentGPSPosition()
           .then( (position) => {

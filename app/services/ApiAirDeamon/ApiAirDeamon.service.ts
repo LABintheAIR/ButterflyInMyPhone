@@ -121,7 +121,7 @@ export class ApiAirDeamonService {
   private getCurrentGPSPosition() : Promise<PositionGPS>{
     return new Promise<PositionGPS>((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
-        (position) => { resolve( position ); },
+        (position) => { console.log( "Position" ); console.log( position ); resolve( position ); },
         (error) => { reject( "[GPS Position] " + error.code + " : " + error.message) },
         { maximumAge: 3000, timeout: 5000, enableHighAccuracy: false }
       );

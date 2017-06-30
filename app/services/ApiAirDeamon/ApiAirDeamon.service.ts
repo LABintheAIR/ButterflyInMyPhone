@@ -87,6 +87,7 @@ export class ApiAirDeamonService {
     let itRegion = this.batchRegion.values();
 
     for( let tmp = itGps.next(); !tmp.done; tmp = itGps.next() ){
+      console.log( "Loop GPS Iterator");
       this.sendGPSRequest()
         .then( (obs) => {
           obs.subscribe( res => tmp.value.callback(res), err => console.error( err ) );

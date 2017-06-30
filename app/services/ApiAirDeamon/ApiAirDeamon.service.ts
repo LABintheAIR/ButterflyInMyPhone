@@ -120,6 +120,7 @@ export class ApiAirDeamonService {
   }
 
   private getCurrentGPSPosition() : Promise<PositionGPS>{
+    console.log( "getCurrentGPSPosition" );
     return new Promise<PositionGPS>((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         (position) => { console.log( "Position" ); console.log( position ); resolve( position ); },

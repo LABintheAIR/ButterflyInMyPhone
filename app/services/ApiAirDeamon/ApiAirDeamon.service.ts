@@ -86,11 +86,7 @@ export class ApiAirDeamonService {
     let itGps = this.batchGPS.values();
     let itRegion = this.batchRegion.values();
 
-    console.log( "GPS Batch size : " + this.batchGPS.size );
-    console.log( "Region Batch size : " + this.batchRegion.size );
-
     for( let tmp = itGps.next(); !tmp.done; tmp = itGps.next() ){
-      console.log( "Loop GPS Iterator");
       this.sendGPSRequest()
         .then( (obs) => {
           obs.subscribe( res => tmp.value.callback(res), err => console.error( err ) );
@@ -111,7 +107,6 @@ export class ApiAirDeamonService {
   }
 
   private sendGPSRequest() : Promise<Observable<Object>>{
-    console.log( "Send GPS request");
     return new Promise<Observable<Object>>( (resolve, reject) => {
         this.getCurrentGPSPosition()
           .then( (position) => {
@@ -125,10 +120,9 @@ export class ApiAirDeamonService {
   }
 
   private getCurrentGPSPosition() : Promise<PositionGPS>{
-    console.log( "getCurrentGPSPosition" );
     return new Promise<PositionGPS>((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
-        (position) => { console.log( "Position" ); console.log( position ); resolve( position ); },
+        (position) => { resolve( position ); },
         (error) => { reject( "[GPS Position] " + error.code + " : " + error.message) },
         { maximumAge: 3000, timeout: 5000, enableHighAccuracy: false }
       );

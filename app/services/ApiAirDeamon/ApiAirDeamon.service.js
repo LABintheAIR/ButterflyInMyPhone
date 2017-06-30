@@ -82,10 +82,7 @@ var ApiAirDeamonService = (function () {
         console.log("Run batchs");
         var itGps = this.batchGPS.values();
         var itRegion = this.batchRegion.values();
-        console.log("GPS Batch size : " + this.batchGPS.size);
-        console.log("Region Batch size : " + this.batchRegion.size);
         var _loop_1 = function (tmp) {
-            console.log("Loop GPS Iterator");
             this_1.sendGPSRequest()
                 .then(function (obs) {
                 obs.subscribe(function (res) { return tmp.value.callback(res); }, function (err) { return console.error(err); });
@@ -112,7 +109,6 @@ var ApiAirDeamonService = (function () {
     };
     ApiAirDeamonService.prototype.sendGPSRequest = function () {
         var _this = this;
-        console.log("Send GPS request");
         return new Promise(function (resolve, reject) {
             _this.getCurrentGPSPosition()
                 .then(function (position) {
@@ -125,9 +121,8 @@ var ApiAirDeamonService = (function () {
         });
     };
     ApiAirDeamonService.prototype.getCurrentGPSPosition = function () {
-        console.log("getCurrentGPSPosition");
         return new Promise(function (resolve, reject) {
-            navigator.geolocation.getCurrentPosition(function (position) { console.log("Position"); console.log(position); resolve(position); }, function (error) { reject("[GPS Position] " + error.code + " : " + error.message); }, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: false });
+            navigator.geolocation.getCurrentPosition(function (position) { resolve(position); }, function (error) { reject("[GPS Position] " + error.code + " : " + error.message); }, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: false });
         });
     };
     return ApiAirDeamonService;
